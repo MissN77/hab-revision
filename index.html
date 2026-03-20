@@ -1063,7 +1063,7 @@ function renderMCQResults() {
       <div class="results-xp">+${xpEarned} XP earned</div>
       <button class="quiz-next-btn" onclick="startMCQ('${topicId}')">Try Again</button>
       <button class="quiz-next-btn" style="background:transparent;color:var(--teal);border:2px solid var(--teal);margin-top:8px" onclick="exitQuiz()">Back to Topics</button>
-      <button class="quiz-next-btn" style="background:var(--amber);color:#fff;margin-top:8px" onclick="emailResults('mcq','${topicId}',${score},${total},${pct})">Email Results to Teacher</button>
+      <button class="quiz-next-btn" style="background:var(--amber);color:#fff;margin-top:8px" onclick="emailResults('mcq','${topicId}',${score},${questions.length},${pct})">Email Results to Teacher</button>
       ${wrongHTML}
     </div>
   `;
@@ -1173,7 +1173,7 @@ function renderRetResults() {
       <div class="results-xp">+${xpEarned} XP earned</div>
       <button class="quiz-next-btn" onclick="startRet('${topicId}')">Try Again</button>
       <button class="quiz-next-btn" style="background:transparent;color:var(--teal);border:2px solid var(--teal);margin-top:8px" onclick="exitQuiz()">Back to Topics</button>
-      <button class="quiz-next-btn" style="background:var(--amber);color:#fff;margin-top:8px" onclick="emailResults('ret','${topicId}',${score},${total},${pct})">Email Results to Teacher</button>
+      <button class="quiz-next-btn" style="background:var(--amber);color:#fff;margin-top:8px" onclick="emailResults('ret','${topicId}',${Math.round(score)},${questions.length},${pct})">Email Results to Teacher</button>
     </div>
   `;
 }
