@@ -617,7 +617,6 @@ const TIPS = [
 ];
 
 const TIMETABLE = [
-  {week:"Setup",dates:"17\u201321 Mar",school:"Retrieval starters begin in every lesson. Tier decisions being confirmed.",home:"Read your Paper 1 Knowledge Organisers for Biology, Chemistry and Physics. Highlight anything you don\u2019t understand."},
   {week:1,dates:"24\u201327 Mar",school:"Paper 1 topics in lessons. Last week before Easter \u2014 retrieval starters continue.",home:"KO + MCQ quiz on your weakest Paper 1 topic. Re-read any answers you got wrong."},
   {week:"Easter",dates:"28 Mar\u201311 Apr",school:"Easter break. Attend revision sessions if invited \u2014 bring your revision pack and a pen.",home:"One topic per day: read KO \u2192 do MCQ quiz \u2192 try Retrieval Quiz. Complete your Seneca tasks."},
   {week:2,dates:"14\u201318 Apr",school:"Paper 2 topics in lessons. Back after Easter \u2014 retrieval starters continue.",home:"KO + MCQ quiz on your weakest Paper 2 topic."},
@@ -805,7 +804,6 @@ function getCurrentWeek() {
   // Wk 4: 28 Apr - 2 May
   // Wk 5: 5-9 May (exams)
   const periods = [
-    { start: new Date(2026, 2, 17), label: 'setup' },
     { start: new Date(2026, 2, 24), label: 1 },
     { start: new Date(2026, 2, 28), label: 'easter' },
     { start: new Date(2026, 3, 14), label: 2 },
@@ -817,13 +815,12 @@ function getCurrentWeek() {
   for (let i = periods.length - 1; i >= 0; i--) {
     if (now >= periods[i].start) return periods[i].label;
   }
-  return 'setup';
+  return 1;
 }
 
 function renderWeekFocus() {
   const wk = getCurrentWeek();
   const messages = {
-    'setup': { label: 'SETUP WEEK', msg: "Getting ready. Retrieval starters begin in every lesson. Read your Paper 1 Knowledge Organisers and highlight anything you don\u2019t understand." },
     1: { label: 'WEEK 1 OF 5', msg: "Paper 1 topics in lessons. Do KO + MCQ quiz on your weakest Paper 1 topic. Last week before Easter \u2014 make it count." },
     'easter': { label: 'EASTER BREAK', msg: "Revision time! One topic per day: read the KO \u2192 do the MCQ quiz \u2192 try the Retrieval Quiz. Attend your revision sessions if invited." },
     2: { label: 'WEEK 2 OF 5', msg: "Back after Easter. Paper 2 topics in lessons. Focus on your weakest Paper 2 topic. KO + MCQ + Retrieval Quiz." },
@@ -832,7 +829,7 @@ function renderWeekFocus() {
     5: { label: 'WEEK 5 OF 5 \u2014 FINAL WEEK', msg: "No new content. Daily retrieval quiz. Walk Talking Mock. Check your exam timetable, calculator and equipment. You\u2019ve got this." },
     'done': { label: 'EXAMS BEGIN', msg: "Good luck! Trust your revision. Read every question carefully. Use PEEL for 6-markers, EVERY for calculations, CIDER for practicals." }
   };
-  const info = messages[wk] || messages['setup'];
+  const info = messages[wk] || messages[1];
   document.getElementById('weekFocus').innerHTML = `
     <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
       <span class="week-label" style="flex-shrink:0;white-space:nowrap">${info.label}</span>
@@ -876,7 +873,6 @@ function renderTimetable() {
   const el = document.getElementById('ttContent');
   el.innerHTML = TIMETABLE.map(w => {
     const isEaster = w.week === 'Easter';
-    const isSetup = w.week === 'Setup';
     const label = typeof w.week === 'number' ? `Week ${w.week}` : w.week;
     const easterLinks = isEaster ? `
       <div class="easter-pack-links" style="margin-top:10px">
@@ -885,7 +881,7 @@ function renderTimetable() {
         <a href="#">Easter Physics Higher</a>
       </div>` : '';
     return `
-    <div class="tt-week${isEaster ? ' easter' : ''}${isSetup ? ' setup' : ''}${(w.week === currentWk || (isEaster && currentWk === 'easter') || (isSetup && currentWk === 'setup')) ? ' current-week' : ''}">
+    <div class="tt-week${isEaster ? ' easter' : ''}${(w.week === currentWk || (isEaster && currentWk === 'easter')) ? ' current-week' : ''}">
       <h4>${label}: ${w.dates}</h4>
       <div class="tt-row">
         <div><div class="tt-col-head">In School</div>${w.school}</div>
