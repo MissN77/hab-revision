@@ -517,14 +517,13 @@ const TIPS = [
 ];
 
 const TIMETABLE = [
-  {week:1,dates:"17\u201321 Mar",school:"Retrieval starters begin in lessons. Teachers reviewing Paper 1 gaps.",home:"Read your Paper 1 Knowledge Organisers. Highlight anything you don\u2019t recognise."},
-  {week:2,dates:"24\u201328 Mar",school:"Paper 1 topic focus in all three sciences.",home:"Do the KO + MCQ quiz on your weakest Paper 1 topic."},
-  {week:3,dates:"31 Mar\u20134 Apr",school:"Easter break \u2014 no lessons.",home:"Easter revision: one topic per day. KO \u2192 MCQ \u2192 Retrieval Quiz."},
-  {week:4,dates:"7\u201311 Apr",school:"Easter break continues.",home:"Continue daily revision. Focus on any topics below 60%."},
-  {week:5,dates:"14\u201318 Apr",school:"Paper 2 topic focus begins in lessons.",home:"Focus on your weakest Paper 2 topic. Do KO + both quizzes."},
-  {week:6,dates:"21\u201325 Apr",school:"Past paper practice in class.",home:"Re-do MCQs on your 3 lowest-scoring topics."},
-  {week:7,dates:"28 Apr\u20131 May",school:"Required practicals revision in lessons.",home:"Required practicals + weakest topics. Use CIDER for practicals."},
-  {week:8,dates:"5\u20139 May",school:"Final retrieval and confidence building.",home:"Final retrieval. No new content. Re-do quizzes for confidence."}
+  {week:"Setup",dates:"17\u201321 Mar",school:"Retrieval starters begin in every lesson. Tier decisions being confirmed.",home:"Read your Paper 1 Knowledge Organisers for Biology, Chemistry and Physics. Highlight anything you don\u2019t understand."},
+  {week:1,dates:"24\u201327 Mar",school:"Paper 1 topics in lessons. Last week before Easter \u2014 retrieval starters continue.",home:"KO + MCQ quiz on your weakest Paper 1 topic. Re-read any answers you got wrong."},
+  {week:"Easter",dates:"28 Mar\u201311 Apr",school:"Easter break. Attend revision sessions if invited \u2014 bring your revision pack and a pen.",home:"One topic per day: read KO \u2192 do MCQ quiz \u2192 try Retrieval Quiz. Complete your Seneca tasks."},
+  {week:2,dates:"14\u201318 Apr",school:"Paper 2 topics in lessons. Back after Easter \u2014 retrieval starters continue.",home:"KO + MCQ quiz on your weakest Paper 2 topic."},
+  {week:3,dates:"21\u201325 Apr",school:"Full past paper in exam conditions \u2014 timed and silent. Mark it in class using the mark scheme.",home:"Re-do MCQ quizzes on your 3 lowest-scoring topics."},
+  {week:4,dates:"28 Apr\u20132 May",school:"Your teacher will reteach the weakest topics and go through all required practicals.",home:"Required practical revision \u2014 learn the method + use CIDER for every core practical."},
+  {week:5,dates:"5\u20139 May",school:"Daily retrieval quiz (10 Qs, mixed topics). Walk Talking Mock. No new content.",home:"No new content. Final KO read + self-test. Check your exam timetable, calculator and equipment."}
 ];
 
 const LEVEL_THRESHOLDS = [0,100,250,500,850,1300,1900,2600,3500,4600,6000];
@@ -698,40 +697,46 @@ navTabs.forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
    ═══════════════════════════════════════════════════ */
 function getCurrentWeek() {
   const now = new Date();
-  const weekStarts = [
-    new Date(2026, 2, 17), // Wk 1
-    new Date(2026, 2, 24), // Wk 2
-    new Date(2026, 2, 31), // Wk 3
-    new Date(2026, 3, 7),  // Wk 4
-    new Date(2026, 3, 14), // Wk 5
-    new Date(2026, 3, 21), // Wk 6
-    new Date(2026, 3, 28), // Wk 7
-    new Date(2026, 4, 5),  // Wk 8
-    new Date(2026, 4, 12)  // end
+  // Setup: 17-21 Mar (not counted)
+  // Wk 1: 24-27 Mar (break up Thu 27th)
+  // Easter: 28 Mar - 11 Apr
+  // Wk 2: 14-18 Apr (back after Easter)
+  // Wk 3: 21-25 Apr
+  // Wk 4: 28 Apr - 2 May
+  // Wk 5: 5-9 May (exams)
+  const periods = [
+    { start: new Date(2026, 2, 17), label: 'setup' },
+    { start: new Date(2026, 2, 24), label: 1 },
+    { start: new Date(2026, 2, 28), label: 'easter' },
+    { start: new Date(2026, 3, 14), label: 2 },
+    { start: new Date(2026, 3, 21), label: 3 },
+    { start: new Date(2026, 3, 28), label: 4 },
+    { start: new Date(2026, 4, 5),  label: 5 },
+    { start: new Date(2026, 4, 12), label: 'done' }
   ];
-  for (let i = weekStarts.length - 2; i >= 0; i--) {
-    if (now >= weekStarts[i]) return i + 1;
+  for (let i = periods.length - 1; i >= 0; i--) {
+    if (now >= periods[i].start) return periods[i].label;
   }
-  return 1;
+  return 'setup';
 }
 
 function renderWeekFocus() {
   const wk = getCurrentWeek();
   const messages = {
-    1: "Retrieval starters begin. Read your Paper 1 Knowledge Organisers.",
-    2: "Paper 1 topics. Do KO + MCQ on your weakest Paper 1 topic.",
-    3: "Easter revision \u2014 one topic per day: KO \u2192 MCQ \u2192 Retrieval Quiz.",
-    4: "Easter revision continues \u2014 focus on topics below 60%.",
-    5: "Paper 2 topics. Focus on your weakest Paper 2 topic.",
-    6: "Past papers week. Re-do MCQs on your 3 lowest topics.",
-    7: "Required practicals + weakest topics. Use CIDER for practicals.",
-    8: "Final retrieval. No new content. Confidence building."
+    'setup': { label: 'SETUP WEEK', msg: "Getting ready. Retrieval starters begin in every lesson. Read your Paper 1 Knowledge Organisers and highlight anything you don\u2019t understand." },
+    1: { label: 'WEEK 1 OF 5', msg: "Paper 1 topics in lessons. Do KO + MCQ quiz on your weakest Paper 1 topic. Last week before Easter \u2014 make it count." },
+    'easter': { label: 'EASTER BREAK', msg: "Revision time! One topic per day: read the KO \u2192 do the MCQ quiz \u2192 try the Retrieval Quiz. Attend your revision sessions if invited." },
+    2: { label: 'WEEK 2 OF 5', msg: "Back after Easter. Paper 2 topics in lessons. Focus on your weakest Paper 2 topic. KO + MCQ + Retrieval Quiz." },
+    3: { label: 'WEEK 3 OF 5', msg: "Past papers week. Full past paper in exam conditions. Re-do MCQ quizzes on your 3 lowest-scoring topics." },
+    4: { label: 'WEEK 4 OF 5', msg: "Your teacher will reteach the weakest topics and go through all required practicals. Use CIDER for every practical." },
+    5: { label: 'WEEK 5 OF 5 \u2014 FINAL WEEK', msg: "No new content. Daily retrieval quiz. Walk Talking Mock. Check your exam timetable, calculator and equipment. You\u2019ve got this." },
+    'done': { label: 'EXAMS BEGIN', msg: "Good luck! Trust your revision. Read every question carefully. Use PEEL for 6-markers, EVERY for calculations, CIDER for practicals." }
   };
-  const msg = messages[Math.min(wk, 8)] || messages[1];
+  const info = messages[wk] || messages['setup'];
   document.getElementById('weekFocus').innerHTML = `
-    <span class="week-label">WEEK ${Math.min(wk,8)} OF 8</span>
+    <span class="week-label">${info.label}</span>
     <h3>This Week's Focus</h3>
-    <p>${msg}</p>
+    <p>${info.msg}</p>
   `;
 }
 
@@ -768,7 +773,9 @@ setInterval(() => { tipIndex = (tipIndex + 1) % TIPS.length; renderTips(); }, 60
 function renderTimetable() {
   const el = document.getElementById('ttContent');
   el.innerHTML = TIMETABLE.map(w => {
-    const isEaster = (w.week === 3 || w.week === 4);
+    const isEaster = w.week === 'Easter';
+    const isSetup = w.week === 'Setup';
+    const label = typeof w.week === 'number' ? `Week ${w.week}` : w.week;
     const easterLinks = isEaster ? `
       <div class="easter-pack-links" style="margin-top:10px">
         <span style="font-size:.78rem;font-weight:700;color:var(--amber)">Download your Easter revision pack:</span>
@@ -776,8 +783,8 @@ function renderTimetable() {
         <a href="#">Easter Physics Higher</a>
       </div>` : '';
     return `
-    <div class="tt-week${isEaster ? ' easter' : ''}">
-      <h4>Week ${w.week}: ${w.dates}</h4>
+    <div class="tt-week${isEaster ? ' easter' : ''}${isSetup ? ' setup' : ''}">
+      <h4>${label}: ${w.dates}</h4>
       <div class="tt-row">
         <div><div class="tt-col-head">In School</div>${w.school}</div>
         <div><div class="tt-col-head">At Home</div>${w.home}</div>
