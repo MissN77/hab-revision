@@ -222,6 +222,9 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
 .topic-card.chem:hover{background:var(--sky-light)}
 .topic-card.phys:hover{background:var(--violet-light)}
 
+/* ═══════════ TIMETABLE CURRENT WEEK ═══════════ */
+.tt-week.current-week{border-left:4px solid var(--teal);background:var(--teal-light)}
+.tt-week.current-week h4::after{content:' \2190 YOU ARE HERE';font-size:.7rem;color:var(--teal);font-weight:700;letter-spacing:.03em}
 /* ═══════════ TIMETABLE EASTER ROW ═══════════ */
 .tt-week.easter{background:var(--amber-light);border-left-color:var(--amber)}
 .tt-week.easter h4{color:var(--amber)}
@@ -734,9 +737,10 @@ function renderWeekFocus() {
   };
   const info = messages[wk] || messages['setup'];
   document.getElementById('weekFocus').innerHTML = `
-    <span class="week-label">${info.label}</span>
-    <h3>This Week's Focus</h3>
-    <p>${info.msg}</p>
+    <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
+      <span class="week-label" style="flex-shrink:0;white-space:nowrap">${info.label}</span>
+      <p style="margin:0;flex:1;min-width:200px">${info.msg}</p>
+    </div>
   `;
 }
 
@@ -771,6 +775,7 @@ function renderTips() {
 setInterval(() => { tipIndex = (tipIndex + 1) % TIPS.length; renderTips(); }, 6000);
 
 function renderTimetable() {
+  const currentWk = getCurrentWeek();
   const el = document.getElementById('ttContent');
   el.innerHTML = TIMETABLE.map(w => {
     const isEaster = w.week === 'Easter';
@@ -783,7 +788,7 @@ function renderTimetable() {
         <a href="#">Easter Physics Higher</a>
       </div>` : '';
     return `
-    <div class="tt-week${isEaster ? ' easter' : ''}${isSetup ? ' setup' : ''}">
+    <div class="tt-week${isEaster ? ' easter' : ''}${isSetup ? ' setup' : ''}${(w.week === currentWk || (isEaster && currentWk === 'easter') || (isSetup && currentWk === 'setup')) ? ' current-week' : ''}">
       <h4>${label}: ${w.dates}</h4>
       <div class="tt-row">
         <div><div class="tt-col-head">In School</div>${w.school}</div>
