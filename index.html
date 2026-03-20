@@ -958,6 +958,7 @@ function renderMCQResults() {
       <div class="results-xp">+${xpEarned} XP earned</div>
       <button class="quiz-next-btn" onclick="startMCQ('${topicId}')">Try Again</button>
       <button class="quiz-next-btn" style="background:transparent;color:var(--teal);border:2px solid var(--teal);margin-top:8px" onclick="exitQuiz()">Back to Topics</button>
+      <button class="quiz-next-btn" style="background:var(--amber);color:#fff;margin-top:8px" onclick="emailResults('mcq','${topicId}',${score},${total},${pct})">Email Results to Teacher</button>
       ${wrongHTML}
     </div>
   `;
@@ -1067,8 +1068,41 @@ function renderRetResults() {
       <div class="results-xp">+${xpEarned} XP earned</div>
       <button class="quiz-next-btn" onclick="startRet('${topicId}')">Try Again</button>
       <button class="quiz-next-btn" style="background:transparent;color:var(--teal);border:2px solid var(--teal);margin-top:8px" onclick="exitQuiz()">Back to Topics</button>
+      <button class="quiz-next-btn" style="background:var(--amber);color:#fff;margin-top:8px" onclick="emailResults('ret','${topicId}',${score},${total},${pct})">Email Results to Teacher</button>
     </div>
   `;
+}
+
+/* ═══════════════════════════════════════════════════
+   EMAIL RESULTS
+   ═══════════════════════════════════════════════════ */
+function emailResults(quizType, topicId, score, total, pct) {
+  const studentName = prompt('Enter your name:');
+  if (!studentName) return;
+
+  const type = quizType === 'mcq' ? 'MCQ Quiz' : 'Retrieval Quiz';
+  const topicName = topicId.replace('bio-','Biology T').replace('chem-','Chemistry T').replace('phys-','Physics T');
+  const date = new Date().toLocaleDateString('en-GB');
+
+  let msg = '';
+  if (pct >= 80) msg = 'Strong performance.';
+  else if (pct >= 60) msg = 'Good effort — some gaps to fill.';
+  else if (pct >= 40) msg = 'Needs more revision on this topic.';
+  else msg = 'Significant gaps — needs KO re-read and re-test.';
+
+  const subject = encodeURIComponent(`Revision Quiz Complete — ${studentName} — ${topicName} ${type}`);
+  const body = encodeURIComponent(
+    `Hi Mr Hye,\n\n` +
+    `${studentName} has completed a revision quiz.\n\n` +
+    `Topic: ${topicName}\n` +
+    `Quiz type: ${type}\n` +
+    `Score: ${score} / ${total} (${pct}%)\n` +
+    `Date: ${date}\n\n` +
+    `${msg}\n\n` +
+    `Sent from GCSE Science Revision Hub`
+  );
+
+  window.open(`mailto:a.hye@habstrustsouth.org.uk?subject=${subject}&body=${body}`);
 }
 
 /* ═══════════════════════════════════════════════════
