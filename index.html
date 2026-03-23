@@ -118,6 +118,10 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
 .topic-btn.ret.chem{border-color:var(--sky);color:var(--sky)}
 .topic-btn.ret.phys{border-color:var(--violet);color:var(--violet)}
 .topic-btn:disabled{opacity:.35;cursor:not-allowed}
+.topic-btn.summary{background:transparent;border:2px solid var(--amber);color:var(--amber)}
+.topic-summary{display:none;width:100%;margin-top:10px}
+.topic-summary.open{display:block}
+.topic-summary img{width:100%;border-radius:var(--radius)}
 .topic-btn:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.1)}
 
 /* ═══════════ QUIZ MODE ═══════════ */
@@ -526,6 +530,20 @@ function closeScaffold() {
 }
 
 /* ═══════════════════════════════════════════════════
+   UNIT SUMMARY IMAGES
+   ═══════════════════════════════════════════════════ */
+const SUMMARY_IMAGES = [
+  'bio-t1','bio-t2','bio-t3','bio-t4','bio-t5','bio-t6','bio-t7','bio-t8','bio-t9',
+  'chem-t1','chem-t2','chem-t3','chem-t4','chem-t5','chem-t6','chem-t7','chem-t8','chem-t9',
+  'phys-t1','phys-t2','phys-t3','phys-t4','phys-t5','phys-t6','phys-t7','phys-t8'
+];
+
+function toggleSummary(topicId) {
+  const el = document.getElementById('summary-' + topicId);
+  if (el) el.classList.toggle('open');
+}
+
+/* ═══════════════════════════════════════════════════
    DATA
    ═══════════════════════════════════════════════════ */
 const RESOURCE_LINKS = {
@@ -918,6 +936,7 @@ function renderSubject(subjectKey) {
     const mcqBadge = mcqRes ? `<span class="score-badge completed">MCQ: ${mcqRes.best}/${mcqRes.total}</span>` : `<span class="score-badge not-started">MCQ: ${hasQ ? 'Not started' : 'Coming soon'}</span>`;
     const retBadge = retRes ? `<span class="score-badge completed">Ret: ${retRes.best}/${retRes.total}</span>` : `<span class="score-badge not-started">Ret: ${hasQ ? 'Not started' : 'Coming soon'}</span>`;
 
+    const hasImg = SUMMARY_IMAGES.includes(t.id);
     html += `
       <div class="topic-card ${subj.cls}">
         <div class="topic-info">
@@ -925,9 +944,11 @@ function renderSubject(subjectKey) {
           <div class="score-badges">${mcqBadge}${retBadge}</div>
         </div>
         <div class="topic-btns">
+          ${hasImg ? `<button class="topic-btn summary" onclick="toggleSummary('${t.id}')">Unit Summary</button>` : ''}
           <button class="topic-btn mcq ${subj.cls}" ${hasQ ? `onclick="startMCQ('${t.id}')"` : 'disabled'}>${hasQ ? 'MCQ Quiz' : 'Coming Soon'}</button>
           <button class="topic-btn ret ${subj.cls}" ${hasQ ? `onclick="startRet('${t.id}')"` : 'disabled'}>${hasQ ? 'Retrieval Quiz' : 'Coming Soon'}</button>
         </div>
+        ${hasImg ? `<div class="topic-summary" id="summary-${t.id}"><img src="images/${t.id}.png" alt="${t.name} unit summary" loading="lazy"></div>` : ''}
       </div>
     `;
   });
