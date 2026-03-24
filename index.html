@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>GCSE Science Revision Hub  -  HAB Crayford</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A5C5E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HAB Revision">
+<link rel="apple-touch-icon" href="images/icon-192x192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
@@ -1348,6 +1354,11 @@ updateSoundIcon();
     if (diff > 1) { state.streak = 0; saveState(); }
   }
 })();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 </body>
 </html>
