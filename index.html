@@ -561,41 +561,43 @@ const RESOURCE_LINKS = {
   }
 };
 
+const PMT = 'https://pmt.physicsandmathstutor.com/download';
+const PQ = 'https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/Exam-materials';
 const TOPIC_LINKS = {
-  'bio-t1': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/key-concepts-in-biology/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
-  'bio-t2': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/cells-and-control/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
-  'bio-t3': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/genetics/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
-  'bio-t4': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/natural-selection-genetic-modification/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
-  'bio-t5': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/health-disease-development-of-medicines/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
-  'bio-t6': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/plant-structures-and-their-functions/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-2/'},
-  'bio-t7': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/animal-coordination-control-homeostasis/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-2/'},
-  'bio-t8': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/exchange-and-transport-in-animals/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-2/'},
-  'bio-t9': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/ecosystems-and-material-cycles/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-2/'},
-  'chem-t1': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/key-concepts-chemistry/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
-  'chem-t2': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/states-of-matter-and-mixtures/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
-  'chem-t3': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/chemical-changes/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
-  'chem-t4': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/extracting-metals-and-equilibria/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
-  'chem-t5': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/separate-chemistry-1/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
-  'chem-t6': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/groups-in-periodic-table/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
-  'chem-t7': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/rates-of-reaction-and-energy-changes/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
-  'chem-t8': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/fuels-and-earth-science/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
-  'chem-t9': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/chemical-analysis/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
-  'chem-t10': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/using-resources/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
-  'phys-t1': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/key-concepts-of-physics/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
-  'phys-t2': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/motion-and-forces/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
-  'phys-t3': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/conservation-of-energy/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
-  'phys-t4': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/waves/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
-  'phys-t5': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/light-and-electromagnetic-spectrum/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
-  'phys-t6': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/radioactivity/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
-  'phys-t7': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/astronomy/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
-  'phys-t8': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/energy-forces-doing-work/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
-  'phys-t9': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/forces-and-their-effects/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
-  'phys-t10': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/electricity-and-circuits/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
-  'phys-t11': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/static-electricity/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
-  'phys-t12': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/magnetism-and-motor-effect/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
-  'phys-t13': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/electromagnetic-induction/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
-  'phys-t14': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/particle-model/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
-  'phys-t15': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/forces-and-matter/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'}
+  'bio-t1': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/1-Key-Concepts-in-Biology/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/1-Key-Concepts-in-Biology/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-1h-que-20230526.pdf`,paperF:`${PQ}/1bi0-1f-que-20230526.pdf`},
+  'bio-t2': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/2-Cells-and-Control/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/2-Cells-and-Control/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-1h-que-20230526.pdf`,paperF:`${PQ}/1bi0-1f-que-20230526.pdf`},
+  'bio-t3': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/3-Genetics/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/3-Genetics/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-1h-que-20230526.pdf`,paperF:`${PQ}/1bi0-1f-que-20230526.pdf`},
+  'bio-t4': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/4-Natural-Selection-and-Genetic-Modification/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/4-Natural-Selection-and-Genetic-Modification/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-1h-que-20230526.pdf`,paperF:`${PQ}/1bi0-1f-que-20230526.pdf`},
+  'bio-t5': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/5-Health-Disease-and-the-Development-of-Medicines/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/5-Health-Disease-and-the-Development-of-Medicines/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-1h-que-20230526.pdf`,paperF:`${PQ}/1bi0-1f-que-20230526.pdf`},
+  'bio-t6': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/6-Plant-Structures-and-their-Functions/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/6-Plant-Structures-and-their-Functions/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-2h-que-20230609.pdf`,paperF:`${PQ}/1bi0-2f-que-20230609.pdf`},
+  'bio-t7': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/7-Animal-Coordination-Control-and-Homeostasis/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/7-Animal-Coordination-Control-and-Homeostasis/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-2h-que-20230609.pdf`,paperF:`${PQ}/1bi0-2f-que-20230609.pdf`},
+  'bio-t8': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/8-Exchange-and-Transport-in-Animals/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/8-Exchange-and-Transport-in-Animals/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-2h-que-20230609.pdf`,paperF:`${PQ}/1bi0-2f-que-20230609.pdf`},
+  'bio-t9': {notes:`${PMT}/Biology/GCSE/Notes/Edexcel/9-Ecosystems-and-Material-Cycles/Definitions.pdf`,detailed:`${PMT}/Biology/GCSE/Notes/Edexcel/9-Ecosystems-and-Material-Cycles/Detailed%20Notes.pdf`,paperH:`${PQ}/1bi0-2h-que-20230609.pdf`,paperF:`${PQ}/1bi0-2f-que-20230609.pdf`},
+  'chem-t1': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/1-Key-Concepts-in-Chemistry/Definitions%20-%20Topic%201%20Key%20Concepts%20in%20Chemistry%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/1-Key-Concepts-in-Chemistry/Detailed%20Notes%20-%20Topic%201%20Key%20Concepts%20in%20Chemistry%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-1h-que-20230518.pdf`,paperF:`${PQ}/1ch0-1f-que-20230518.pdf`},
+  'chem-t2': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/2-States-of-Matter-and-Mixtures/Definitions%20-%20Topic%202%20States%20of%20Matter%20and%20Mixtures%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/2-States-of-Matter-and-Mixtures/Detailed%20Notes%20-%20Topic%202%20States%20of%20Matter%20and%20Mixtures%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-1h-que-20230518.pdf`,paperF:`${PQ}/1ch0-1f-que-20230518.pdf`},
+  'chem-t3': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/3-Chemical-Changes/Definitions%20-%20Topic%203%20Chemical%20Changes%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/3-Chemical-Changes/Detailed%20Notes%20-%20Topic%203%20Chemical%20Changes%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-1h-que-20230518.pdf`,paperF:`${PQ}/1ch0-1f-que-20230518.pdf`},
+  'chem-t4': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/4-Extracting-Metals-and-Equilibria/Definitions%20-%20Topic%204%20Extracting%20Metals%20and%20Equilibria%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/4-Extracting-Metals-and-Equilibria/Detailed%20Notes%20-%20Topic%204%20Extracting%20Metals%20and%20Equilibria%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-1h-que-20230518.pdf`,paperF:`${PQ}/1ch0-1f-que-20230518.pdf`},
+  'chem-t5': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/5-Separate-Chemistry-1/Definitions%20-%20Topic%205%20Separate%20Chemistry%201%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/5-Separate-Chemistry-1/Detailed%20Notes%20-%20Topic%205%20Separate%20Chemistry%201%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-1h-que-20230518.pdf`,paperF:`${PQ}/1ch0-1f-que-20230518.pdf`},
+  'chem-t6': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/6-Groups-in-the-Periodic-Table/Definitions%20-%20Topic%206%20Groups%20in%20the%20Periodic%20Table%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/6-Groups-in-the-Periodic-Table/Detailed%20Notes%20-%20Topic%206%20Groups%20in%20the%20Periodic%20Table%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-2h-que-20230607.pdf`,paperF:`${PQ}/1ch0-2f-que-20230607.pdf`},
+  'chem-t7': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/7-Rates-of-Reaction-and-Energy-Changes/Definitions%20-%20Topic%207%20Rates%20of%20Reaction%20and%20Energy%20Changes%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/7-Rates-of-Reaction-and-Energy-Changes/Detailed%20Notes%20-%20Topic%207%20Rates%20of%20Reaction%20and%20Energy%20Changes%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-2h-que-20230607.pdf`,paperF:`${PQ}/1ch0-2f-que-20230607.pdf`},
+  'chem-t8': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/8-Fuels-and-Earth-Science/Definitions%20-%20Topic%208%20Fuels%20and%20Earth%20Science%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/8-Fuels-and-Earth-Science/Detailed%20Notes%20-%20Topic%208%20Fuels%20and%20Earth%20Science%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-2h-que-20230607.pdf`,paperF:`${PQ}/1ch0-2f-que-20230607.pdf`},
+  'chem-t9': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/9-Chemical-Analysis/Definitions%20-%20Topic%209%20Chemical%20Analysis%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/9-Chemical-Analysis/Detailed%20Notes%20-%20Topic%209%20Chemical%20Analysis%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-2h-que-20230607.pdf`,paperF:`${PQ}/1ch0-2f-que-20230607.pdf`},
+  'chem-t10': {notes:`${PMT}/Chemistry/GCSE/Notes/Edexcel/10-Using-Resources/Definitions%20-%20Topic%2010%20Using%20Resources%20-%20Edexcel%20Chemistry%20GCSE.pdf`,detailed:`${PMT}/Chemistry/GCSE/Notes/Edexcel/10-Using-Resources/Detailed%20Notes%20-%20Topic%2010%20Using%20Resources%20-%20Edexcel%20Chemistry%20GCSE.pdf`,paperH:`${PQ}/1ch0-2h-que-20230607.pdf`,paperF:`${PQ}/1ch0-2f-que-20230607.pdf`},
+  'phys-t1': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/1-Key-Concepts-of-Physics/Summary%20Notes%20-%20Topic%201%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/1-Key-Concepts-of-Physics/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-1h-que-20230523.pdf`,paperF:`${PQ}/1ph0-1f-que-20230523.pdf`},
+  'phys-t2': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/2-Motion-and-Forces/Summary%20Notes%20-%20Topic%202%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/2-Motion-and-Forces/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-1h-que-20230523.pdf`,paperF:`${PQ}/1ph0-1f-que-20230523.pdf`},
+  'phys-t3': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/3-Conservation-of-Energy/Summary%20Notes%20-%20Topic%203%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/3-Conservation-of-Energy/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-1h-que-20230523.pdf`,paperF:`${PQ}/1ph0-1f-que-20230523.pdf`},
+  'phys-t4': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/4-Waves/Summary%20Notes%20-%20Topic%204%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/4-Waves/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-1h-que-20230523.pdf`,paperF:`${PQ}/1ph0-1f-que-20230523.pdf`},
+  'phys-t5': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/5-Light-and-the-Electromagnetic-Spectrum/Summary%20Notes%20-%20Topic%205%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/5-Light-and-the-Electromagnetic-Spectrum/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-1h-que-20230523.pdf`,paperF:`${PQ}/1ph0-1f-que-20230523.pdf`},
+  'phys-t6': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/6-Radioactivity/Summary%20Notes%20-%20Topic%206%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/6-Radioactivity/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-1h-que-20230523.pdf`,paperF:`${PQ}/1ph0-1f-que-20230523.pdf`},
+  'phys-t7': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/7-Astronomy/Summary%20Notes%20-%20Topic%207%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/7-Astronomy/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-1h-que-20230523.pdf`,paperF:`${PQ}/1ph0-1f-que-20230523.pdf`},
+  'phys-t8': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/8-Energy-Forces-Doing-Work/Summary%20Notes%20-%20Topic%208%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/8-Energy-Forces-Doing-Work/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-2h-que-20230614.pdf`,paperF:`${PQ}/1ph0-2f-que-20230614.pdf`},
+  'phys-t9': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/9-Forces-and-their-Effects/Summary%20Notes%20-%20Topic%209%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/9-Forces-and-their-Effects/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-2h-que-20230614.pdf`,paperF:`${PQ}/1ph0-2f-que-20230614.pdf`},
+  'phys-t10': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/10-Electricity-and-Circuits/Summary%20Notes%20-%20Topic%2010%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/10-Electricity-and-Circuits/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-2h-que-20230614.pdf`,paperF:`${PQ}/1ph0-2f-que-20230614.pdf`},
+  'phys-t11': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/11-Static-Electricity/Summary%20Notes%20-%20Topic%2011%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/11-Static-Electricity/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-2h-que-20230614.pdf`,paperF:`${PQ}/1ph0-2f-que-20230614.pdf`},
+  'phys-t12': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/12-Magnetism-and-the-Motor-Effect/Summary%20Notes%20-%20Topic%2012%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/12-Magnetism-and-the-Motor-Effect/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-2h-que-20230614.pdf`,paperF:`${PQ}/1ph0-2f-que-20230614.pdf`},
+  'phys-t13': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/13-Electromagnetic-Induction/Summary%20Notes%20-%20Topic%2013%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/13-Electromagnetic-Induction/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-2h-que-20230614.pdf`,paperF:`${PQ}/1ph0-2f-que-20230614.pdf`},
+  'phys-t14': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/14-Particle-Model/Summary%20Notes%20-%20Topic%2014%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/14-Particle-Model/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-2h-que-20230614.pdf`,paperF:`${PQ}/1ph0-2f-que-20230614.pdf`},
+  'phys-t15': {notes:`${PMT}/Physics/GCSE/Notes/Edexcel/15-Forces-and-Matter/Summary%20Notes%20-%20Topic%2015%20Edexcel%20Physics%20GCSE.pdf`,detailed:`${PMT}/Physics/GCSE/Notes/Edexcel/15-Forces-and-Matter/Mind%20Maps.pdf`,paperH:`${PQ}/1ph0-2h-que-20230614.pdf`,paperF:`${PQ}/1ph0-2f-que-20230614.pdf`}
 };
 
 const SENECA_LINKS = {
@@ -850,6 +852,32 @@ function showTab(tab) {
 navTabs.forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
 
 /* ═══════════════════════════════════════════════════
+   HASH ROUTING - direct links to topic quizzes
+   e.g. #bio-t1-mcq or #chem-t3-ret
+   ═══════════════════════════════════════════════════ */
+function handleHash() {
+  const hash = window.location.hash.replace('#','');
+  if (!hash) return;
+  const parts = hash.match(/^(bio|chem|phys)-t(\d+)-(mcq|ret)$/);
+  if (!parts) return;
+  const prefix = parts[1];
+  const topicNum = parts[2];
+  const quizType = parts[3];
+  const topicId = prefix + '-t' + topicNum;
+  const subjectMap = {bio:'biology', chem:'chemistry', phys:'physics'};
+  const subjectKey = subjectMap[prefix];
+  if (subjectKey) {
+    showTab(subjectKey);
+    setTimeout(() => {
+      if (quizType === 'mcq') startMCQ(topicId);
+      else if (quizType === 'ret') startRet(topicId);
+    }, 200);
+  }
+}
+window.addEventListener('hashchange', handleHash);
+window.addEventListener('load', handleHash);
+
+/* ═══════════════════════════════════════════════════
    HOME TAB
    ═══════════════════════════════════════════════════ */
 function getCurrentWeek() {
@@ -978,10 +1006,12 @@ function renderSubject(subjectKey) {
 
     const tl = TOPIC_LINKS[t.id] || {};
     const senecaUrl = SENECA_LINKS[subjectKey] || '';
-    const linksHtml = tl.pmt ? `
+    const linksHtml = tl.notes ? `
         <div class="topic-links">
-          <a href="${tl.pmt}" target="_blank" class="topic-link pmt">Revision Notes</a>
-          <a href="${tl.papers}" target="_blank" class="topic-link papers">Past Papers</a>
+          <a href="${tl.notes}" target="_blank" class="topic-link pmt">Definitions</a>
+          <a href="${tl.detailed}" target="_blank" class="topic-link pmt">Notes</a>
+          <a href="${tl.paperH}" target="_blank" class="topic-link papers">Paper (H)</a>
+          <a href="${tl.paperF}" target="_blank" class="topic-link papers">Paper (F)</a>
           <a href="${senecaUrl}" target="_blank" class="topic-link seneca">Seneca</a>
         </div>` : '';
 
