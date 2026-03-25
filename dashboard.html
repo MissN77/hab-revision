@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAB Revision Tracker - Teacher Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--teal:#1A5C5E;--coral:#E06B6B;--amber:#D4A843;--bg:#FAF6F0;--text:#2C3E50;--radius:10px}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1200px;margin:0 auto}
+h1{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--teal);font-size:1.5rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+h2{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--teal);font-size:1rem;text-transform:uppercase;margin:24px 0 12px}
+.subtitle{font-family:'Lato',sans-serif;color:#888;font-size:.9rem;margin-bottom:20px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat{background:#fff;border-radius:var(--radius);padding:16px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.stat .num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.8rem;color:var(--teal)}
+.stat .num.amber{color:var(--amber)}
+.stat .num.coral{color:var(--coral)}
+.stat .label{font-size:.75rem;font-weight:700;text-transform:uppercase;color:#888;margin-top:2px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);margin-bottom:24px}
+th{background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;padding:12px 14px;text-align:left}
+td{padding:10px 14px;font-size:.88rem;border-bottom:1px solid #f0f0f0}
+tr:hover td{background:#f8f6f2}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.7rem;text-transform:uppercase}
+.badge.mcq{background:#E8F5F5;color:var(--teal)}
+.badge.ret{background:#F0EBF8;color:#7E57C2}
+.badge.open{background:#E8F5E9;color:#2E7D32}
+.score-good{color:#2E7D32;font-weight:700}
+.score-ok{color:var(--amber);font-weight:700}
+.score-low{color:var(--coral);font-weight:700}
+.filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.filter-btn{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;padding:8px 16px;border-radius:8px;border:2px solid #ddd;background:#fff;color:var(--text);cursor:pointer;text-transform:uppercase;transition:all .2s}
+.filter-btn.active{border-color:var(--teal);background:var(--teal);color:#fff}
+.loading{text-align:center;padding:40px;color:#888;font-size:1rem}
+.no-data{text-align:center;padding:40px;color:#aaa;font-style:italic}
+.refresh-btn{background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;padding:8px 18px;border-radius:8px;border:none;cursor:pointer;text-transform:uppercase;float:right;transition:all .2s}
+.refresh-btn:hover{filter:brightness(1.1)}
+@media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}table{font-size:.8rem}td,th{padding:8px 10px}}
+</style>
+</head>
+<body>
+
+<button class="refresh-btn" onclick="loadData()">Refresh</button>
+<h1>HAB Revision Tracker</h1>
+<p class="subtitle">Student activity dashboard for HAB Crayford Y11 Science</p>
+
+<div class="stats-row" id="statsRow">
+  <div class="stat"><div class="num" id="statStudents">-</div><div class="label">Students</div></div>
+  <div class="stat"><div class="num amber" id="statQuizzes">-</div><div class="label">Quizzes Done</div></div>
+  <div class="stat"><div class="num coral" id="statAvg">-</div><div class="label">Avg Score</div></div>
+  <div class="stat"><div class="num" id="statToday">-</div><div class="label">Active Today</div></div>
+</div>
+
+<h2>Student Summary</h2>
+<div id="studentSummary"><div class="loading">Loading...</div></div>
+
+<h2>Recent Activity</h2>
+<div class="filter-bar">
+  <button class="filter-btn active" data-f="all" onclick="setFilter('all',this)">All</button>
+  <button class="filter-btn" data-f="quiz" onclick="setFilter('quiz',this)">Quizzes Only</button>
+  <button class="filter-btn" data-f="today" onclick="setFilter('today',this)">Today Only</button>
+</div>
+<div id="activityTable"><div class="loading">Loading...</div></div>
+
+<script>
+const SB_URL = 'https://awnmaakxaqevodjjuzsm.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3bm1hYWt4YXFldm9kamp1enNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0MzgwNzIsImV4cCI6MjA5MDAxNDA3Mn0.uwpcN1iqJos6llw4XAZLSYLqZc0AnVJK8tVTYbxmiZs';
+
+let allActivity = [];
+let currentFilter = 'all';
+
+async function sbGet(table, params) {
+  const url = SB_URL + '/rest/v1/' + table + '?' + params;
+  const res = await fetch(url, {
+    headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+  });
+  return res.json();
+}
+
+function todayStr() {
+  const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+
+function formatTime(iso) {
+  const d = new Date(iso);
+  const day = d.toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short'});
+  const time = d.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
+  return day + ' ' + time;
+}
+
+function scoreClass(score, total) {
+  if (!total) return '';
+  const pct = (score/total)*100;
+  if (pct >= 80) return 'score-good';
+  if (pct >= 50) return 'score-ok';
+  return 'score-low';
+}
+
+function actionBadge(action, quizType) {
+  if (action === 'quiz_complete' && quizType === 'mcq') return '<span class="badge mcq">MCQ</span>';
+  if (action === 'quiz_complete' && quizType === 'ret') return '<span class="badge ret">Retrieval</span>';
+  if (action === 'app_open') return '<span class="badge open">Opened App</span>';
+  return '<span class="badge">' + action + '</span>';
+}
+
+function topicLabel(topicId) {
+  if (!topicId) return '-';
+  const parts = topicId.split('-');
+  const subj = {bio:'Biology', chem:'Chemistry', phys:'Physics'}[parts[0]] || parts[0];
+  return subj + ' ' + parts[1].toUpperCase();
+}
+
+async function loadData() {
+  try {
+    allActivity = await sbGet('activity_log', 'order=created_at.desc&limit=500');
+    renderStats();
+    renderStudentSummary();
+    renderActivity();
+  } catch(e) {
+    document.getElementById('activityTable').innerHTML = '<div class="no-data">Could not load data. Check your connection.</div>';
+  }
+}
+
+function renderStats() {
+  const quizzes = allActivity.filter(a => a.action === 'quiz_complete');
+  const students = [...new Set(allActivity.map(a => a.student_name))];
+  const today = todayStr();
+  const todayStudents = [...new Set(allActivity.filter(a => a.created_at && a.created_at.startsWith(today)).map(a => a.student_name))];
+  const avgScore = quizzes.length > 0
+    ? Math.round(quizzes.reduce((s,q) => s + (q.score/q.total)*100, 0) / quizzes.length)
+    : '-';
+
+  document.getElementById('statStudents').textContent = students.length;
+  document.getElementById('statQuizzes').textContent = quizzes.length;
+  document.getElementById('statAvg').textContent = avgScore === '-' ? '-' : avgScore + '%';
+  document.getElementById('statToday').textContent = todayStudents.length;
+}
+
+function renderStudentSummary() {
+  const students = {};
+  allActivity.forEach(a => {
+    if (!students[a.student_name]) students[a.student_name] = {quizzes:0, totalScore:0, totalPossible:0, lastSeen:a.created_at, topics:new Set()};
+    const s = students[a.student_name];
+    if (a.created_at > s.lastSeen) s.lastSeen = a.created_at;
+    if (a.action === 'quiz_complete') {
+      s.quizzes++;
+      s.totalScore += a.score;
+      s.totalPossible += a.total;
+      if (a.topic_id) s.topics.add(a.topic_id);
+    }
+  });
+
+  const sorted = Object.entries(students).sort((a,b) => b[1].quizzes - a[1].quizzes);
+
+  if (sorted.length === 0) {
+    document.getElementById('studentSummary').innerHTML = '<div class="no-data">No students yet. Data will appear once students start using the app.</div>';
+    return;
+  }
+
+  let html = '<table><tr><th>Student</th><th>Quizzes</th><th>Avg Score</th><th>Topics Covered</th><th>Last Active</th></tr>';
+  sorted.forEach(([name, s]) => {
+    const avg = s.totalPossible > 0 ? Math.round((s.totalScore/s.totalPossible)*100) : '-';
+    const avgStr = avg === '-' ? '-' : avg + '%';
+    const cls = avg === '-' ? '' : scoreClass(avg, 100);
+    html += '<tr>';
+    html += '<td><strong>' + name + '</strong></td>';
+    html += '<td>' + s.quizzes + '</td>';
+    html += '<td class="' + cls + '">' + avgStr + '</td>';
+    html += '<td>' + s.topics.size + '</td>';
+    html += '<td>' + formatTime(s.lastSeen) + '</td>';
+    html += '</tr>';
+  });
+  html += '</table>';
+  document.getElementById('studentSummary').innerHTML = html;
+}
+
+function renderActivity() {
+  let filtered = allActivity;
+  if (currentFilter === 'quiz') filtered = filtered.filter(a => a.action === 'quiz_complete');
+  if (currentFilter === 'today') filtered = filtered.filter(a => a.created_at && a.created_at.startsWith(todayStr()));
+
+  if (filtered.length === 0) {
+    document.getElementById('activityTable').innerHTML = '<div class="no-data">No activity to show for this filter.</div>';
+    return;
+  }
+
+  let html = '<table><tr><th>Time</th><th>Student</th><th>Activity</th><th>Topic</th><th>Score</th></tr>';
+  filtered.slice(0, 100).forEach(a => {
+    const scoreStr = a.action === 'quiz_complete' ? '<span class="' + scoreClass(a.score, a.total) + '">' + a.score + '/' + a.total + '</span>' : '-';
+    html += '<tr>';
+    html += '<td>' + formatTime(a.created_at) + '</td>';
+    html += '<td>' + a.student_name + '</td>';
+    html += '<td>' + actionBadge(a.action, a.quiz_type) + '</td>';
+    html += '<td>' + topicLabel(a.topic_id) + '</td>';
+    html += '<td>' + scoreStr + '</td>';
+    html += '</tr>';
+  });
+  html += '</table>';
+  document.getElementById('activityTable').innerHTML = html;
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderActivity();
+}
+
+loadData();
+// Auto-refresh every 60 seconds
+setInterval(loadData, 60000);
+</script>
+</body>
+</html>
