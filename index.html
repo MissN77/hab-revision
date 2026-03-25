@@ -268,6 +268,25 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
 .explainer-card.mcq-exp h4{color:var(--amber)}
 .explainer-card.ret-exp{background:var(--violet-light)}
 .explainer-card.ret-exp h4{color:var(--violet)}
+.explainer-card.defs-exp{background:var(--mint-light)}
+.explainer-card.defs-exp h4{color:#2E7D32}
+.explainer-card.notes-exp{background:var(--mint-light)}
+.explainer-card.notes-exp h4{color:#2E7D32}
+.explainer-card.papers-exp{background:var(--rose-light)}
+.explainer-card.papers-exp h4{color:#C62828}
+.explainer-card.seneca-exp{background:var(--amber-light)}
+.explainer-card.seneca-exp h4{color:#E65100}
+.explainer-card.mindmap-exp{background:var(--sky-light)}
+.explainer-card.mindmap-exp h4{color:var(--sky)}
+.how-to-box{background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:20px;margin-bottom:20px;border-left:4px solid var(--teal)}
+.how-to-box h3{font-size:.95rem;color:var(--teal);margin-bottom:10px}
+.how-to-box ol{padding-left:20px;margin:0}
+.how-to-box li{font-size:.88rem;line-height:1.6;margin-bottom:6px;color:var(--text)}
+.how-to-box li strong{color:var(--teal)}
+.site-tip{background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:16px;margin-bottom:12px;border-left:4px solid var(--mint)}
+.site-tip h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;text-transform:uppercase;margin-bottom:6px}
+.site-tip p{font-size:.85rem;line-height:1.5;color:#555}
+.site-tip.seneca-tip{border-left-color:var(--amber)}
 @media(max-width:500px){.explainer-grid{grid-template-columns:1fr}}
 
 /* ═══════════ SCAFFOLD & RP SECTIONS ═══════════ */
@@ -368,6 +387,19 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
   <section id="screen-home" class="screen active">
     <div class="focus-box" id="weekFocus"></div>
 
+    <!-- HOW TO USE THIS APP -->
+    <div class="how-to-box">
+      <h3>How to Use This App</h3>
+      <ol>
+        <li><strong>Pick a topic</strong> from Biology, Chemistry or Physics using the tabs above.</li>
+        <li><strong>Do the MCQ quiz first</strong> to find out what you already know and where your gaps are.</li>
+        <li><strong>Revise your weak areas</strong> using the Definitions, Notes and Mind Map links. These open clean PDFs you can read on your phone or print.</li>
+        <li><strong>Try the Exam Questions</strong> to practise applying what you have learnt to real paper questions.</li>
+        <li><strong>Finish with the Retrieval Quiz</strong> to check the knowledge has stuck. If you score below 80%, go back and revise the bits you missed.</li>
+        <li><strong>Repeat</strong> for the next topic. Little and often beats last-minute cramming every time.</li>
+      </ol>
+    </div>
+
     <div class="stats-row" id="quickStats">
       <div class="stat-card"><div class="num" id="statQuizzes">0</div><div class="label">Quizzes Done</div></div>
       <div class="stat-card"><div class="num amber" id="statScore"> - </div><div class="label">Avg Score</div></div>
@@ -377,21 +409,57 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
     <!-- RESOURCE EXPLAINER -->
     <h3 class="section-title">What Each Resource Is For</h3>
     <div class="explainer-grid">
+      <div class="explainer-card mcq-exp">
+        <div class="ex-icon">&#9989;</div>
+        <h4>MCQ Quiz</h4>
+        <p>Do this first. Find out what you know and where your gaps are.</p>
+      </div>
+      <div class="explainer-card defs-exp">
+        <div class="ex-icon">&#128209;</div>
+        <h4>Definitions</h4>
+        <p>All the key terms you need to know for each topic. Learn these.</p>
+      </div>
+      <div class="explainer-card notes-exp">
+        <div class="ex-icon">&#128196;</div>
+        <h4>Notes</h4>
+        <p>Detailed revision notes covering everything in the topic.</p>
+      </div>
+      <div class="explainer-card mindmap-exp">
+        <div class="ex-icon">&#128065;</div>
+        <h4>Mind Maps</h4>
+        <p>Visual summary of the whole topic on one page. Great for Physics.</p>
+      </div>
+      <div class="explainer-card papers-exp">
+        <div class="ex-icon">&#128221;</div>
+        <h4>Exam Questions</h4>
+        <p>Real exam questions sorted by topic. Practise applying your knowledge.</p>
+      </div>
+      <div class="explainer-card ret-exp">
+        <div class="ex-icon">&#128170;</div>
+        <h4>Retrieval Quiz</h4>
+        <p>Do this last. Type answers from memory to prove you have learnt it.</p>
+      </div>
       <div class="explainer-card ko-exp">
         <div class="ex-icon">&#128214;</div>
         <h4>Knowledge Organisers</h4>
-        <p>Read these first. All the key facts on one page.</p>
+        <p>All the key facts on one page. Use these alongside your notes.</p>
       </div>
-      <div class="explainer-card mcq-exp">
-        <div class="ex-icon">&#9989;</div>
-        <h4>MCQ Quizzes</h4>
-        <p>Tap your answers, get instant feedback.</p>
+      <div class="explainer-card seneca-exp">
+        <div class="ex-icon">&#127891;</div>
+        <h4>Seneca</h4>
+        <p>Free interactive revision. The app adapts to what you get wrong.</p>
       </div>
-      <div class="explainer-card ret-exp">
-        <div class="ex-icon">&#128221;</div>
-        <h4>Retrieval Quizzes</h4>
-        <p>Type from memory, check your key terms.</p>
-      </div>
+    </div>
+
+    <!-- SITE TIPS -->
+    <h3 class="section-title">Getting the Most from Each Site</h3>
+    <div class="site-tip">
+      <h4 style="color:#2E7D32">Physics and Maths Tutor (PMT)</h4>
+      <p>The Definitions, Notes, Mind Maps and Exam Questions buttons all link directly to PDFs on PMT. They open instantly with no sign-up and no ads. <strong>Top tip:</strong> Start with the Definitions PDF to nail the key terms, then read the Detailed Notes for the full picture. For Physics, the Mind Maps are brilliant for seeing how everything connects. The Exam Questions are sorted by topic from real papers, so you are practising exactly what will come up.</p>
+    </div>
+    <div class="site-tip seneca-tip">
+      <h4 style="color:#E65100">Seneca Learning</h4>
+      <p>Seneca is free for all students. Create an account with your school email. It teaches you using short sections with built-in questions, and if you get something wrong it shows you the content again in a different way. <strong>Top tip:</strong> Use Seneca after you have read the notes but before you do the Retrieval Quiz. It fills in the gaps you missed and the spaced repetition helps it stick in your long-term memory.</p>
     </div>
 
     <h3 class="section-title">Tips &amp; Guidance</h3>
