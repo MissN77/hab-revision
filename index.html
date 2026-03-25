@@ -222,6 +222,83 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
 .reset-btn{background:var(--coral);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;padding:12px 24px;border-radius:var(--radius);margin-top:24px;transition:background .2s}
 .reset-btn:hover{background:#d35a5a}
 
+/* ═══════════ EXAM SKILLS TAB ═══════════ */
+.es-section-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.es-section-tab{padding:10px 18px;border-radius:20px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;background:#eee;color:var(--text);transition:all .2s;border:none}
+.es-section-tab.active-cp{background:var(--teal);color:#fff}
+.es-section-tab.active-cw{background:var(--amber);color:#fff}
+.es-section-tab.active-calc{background:var(--coral);color:#fff}
+.es-section-tab:hover{transform:translateY(-1px)}
+.es-panel{display:none;animation:fadeIn .25s ease}
+.es-panel.active{display:block}
+.es-filter-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.es-filter-btn{padding:8px 14px;border-radius:16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.03em;background:#eee;color:var(--text);border:none;transition:all .2s;cursor:pointer}
+.es-filter-btn.active{background:var(--teal);color:#fff}
+.es-filter-btn.chem-active{background:var(--sky);color:#fff}
+.es-filter-btn.phys-active{background:var(--violet);color:#fff}
+.cp-card{background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:20px;margin-bottom:16px;border-left:4px solid var(--teal);transition:all .2s}
+.cp-card.chem-cp{border-left-color:var(--sky)}
+.cp-card.phys-cp{border-left-color:var(--violet)}
+.cp-card h4{font-size:.9rem;margin-bottom:4px}
+.cp-badge{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;padding:3px 8px;border-radius:10px;margin-left:8px}
+.cp-badge.combined{background:var(--mint-light);color:#2E7D32}
+.cp-badge.triple{background:var(--coral-light);color:var(--coral)}
+.cp-badge.higher{background:var(--amber-light);color:var(--amber)}
+.cider-grid{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.85rem;margin:12px 0}
+.cider-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;padding:4px 0}
+.cider-label.c-l{color:var(--amber)}
+.cider-label.i-l{color:var(--sky)}
+.cider-label.d-l{color:var(--coral)}
+.cider-label.e-l{color:var(--mint)}
+.cider-label.r-l{color:var(--violet)}
+.cider-val{padding:4px 0;line-height:1.5}
+.cp-quiz-btn{background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.03em;padding:10px 18px;border-radius:8px;margin-top:8px;transition:all .2s;border:none;cursor:pointer}
+.cp-quiz-btn.chem-btn{background:var(--sky)}
+.cp-quiz-btn.phys-btn{background:var(--violet)}
+.cp-quiz-btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.cw-card{background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:20px;margin-bottom:16px;border-left:4px solid var(--amber)}
+.cw-card h4{font-size:.9rem;color:var(--amber);margin-bottom:6px}
+.cw-def{font-size:.88rem;line-height:1.5;margin-bottom:8px;font-style:italic;color:#555}
+.cw-framework{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:4px 10px;border-radius:10px;display:inline-block;margin-bottom:12px}
+.cw-framework.peel{background:var(--coral-light);color:var(--coral)}
+.cw-framework.nopeel{background:var(--mint-light);color:#2E7D32}
+.cw-practice{margin-top:12px}
+.cw-practice-q{background:var(--amber-light);border-radius:8px;padding:14px;margin-bottom:10px}
+.cw-practice-q .cw-q-text{font-size:.9rem;font-weight:700;margin-bottom:8px;line-height:1.5}
+.cw-practice-q textarea{width:100%;min-height:70px;border:2px solid #e0e0e0;border-radius:8px;padding:10px;font-size:.88rem;resize:vertical;font-family:'Lato',sans-serif}
+.cw-practice-q textarea:focus{border-color:var(--amber)}
+.cw-reveal-btn{background:var(--amber);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;text-transform:uppercase;padding:8px 16px;border-radius:8px;margin-top:8px;border:none;cursor:pointer;transition:all .2s}
+.cw-reveal-btn:hover{filter:brightness(1.1)}
+.cw-model{background:#fff;border-radius:8px;padding:14px;margin-top:8px;border-left:3px solid var(--amber);font-size:.85rem;line-height:1.5;animation:fadeIn .3s ease}
+.calc-card{background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:20px;margin-bottom:16px;border-left:4px solid var(--coral)}
+.calc-card.phys-calc{border-left-color:var(--violet)}
+.calc-card.chem-calc{border-left-color:var(--sky)}
+.calc-card h4{font-size:.9rem;margin-bottom:6px}
+.calc-equation{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--coral);background:var(--coral-light);padding:12px 16px;border-radius:8px;margin:10px 0;text-align:center}
+.calc-equation.phys-eq{color:var(--violet);background:var(--violet-light)}
+.calc-equation.chem-eq{color:var(--sky);background:var(--sky-light)}
+.every-worked{background:var(--bg);border-radius:8px;padding:14px;margin:10px 0;font-size:.85rem;line-height:1.6}
+.every-worked .every-step{margin-bottom:6px}
+.every-worked .every-letter{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.75rem;display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:4px;color:#fff;margin-right:6px}
+.calc-q-wrap{background:var(--coral-light);border-radius:8px;padding:14px;margin-bottom:10px}
+.calc-q-wrap.phys-q{background:var(--violet-light)}
+.calc-q-wrap.chem-q{background:var(--sky-light)}
+.calc-q-wrap .calc-q-text{font-size:.9rem;font-weight:700;margin-bottom:8px;line-height:1.5}
+.calc-q-wrap .calc-diff{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:8px;display:inline-block;margin-bottom:8px}
+.calc-q-wrap .calc-diff.foundation{background:var(--mint-light);color:#2E7D32}
+.calc-q-wrap .calc-diff.higher{background:var(--amber-light);color:var(--amber)}
+.calc-input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.calc-input-row input{flex:1;min-width:100px;padding:10px;border:2px solid #e0e0e0;border-radius:8px;font-size:.9rem;font-family:'Lato',sans-serif}
+.calc-input-row input:focus{border-color:var(--coral)}
+.calc-check-btn{background:var(--coral);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;text-transform:uppercase;padding:10px 16px;border-radius:8px;border:none;cursor:pointer;transition:all .2s}
+.calc-check-btn:hover{filter:brightness(1.1)}
+.calc-feedback{margin-top:8px;font-size:.85rem;font-weight:700;padding:8px 12px;border-radius:8px;animation:fadeIn .3s ease}
+.calc-feedback.correct{background:rgba(102,187,106,.12);color:#2e7d32}
+.calc-feedback.wrong{background:rgba(224,107,107,.1);color:#c0392b}
+.calc-solution{background:#fff;border-radius:8px;padding:14px;margin-top:8px;border-left:3px solid var(--coral);font-size:.85rem;line-height:1.6;animation:fadeIn .3s ease}
+.calc-solution.phys-sol{border-left-color:var(--violet)}
+.calc-solution.chem-sol{border-left-color:var(--sky)}
+
 /* ═══════════ UTILITY ═══════════ */
 .section-title{font-size:.95rem;margin-bottom:12px;color:var(--teal)}
 .mb-12{margin-bottom:12px}
@@ -376,6 +453,7 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
     <button class="nav-tab" data-tab="biology">Biology</button>
     <button class="nav-tab" data-tab="chemistry">Chemistry</button>
     <button class="nav-tab" data-tab="physics">Physics</button>
+    <button class="nav-tab" data-tab="examskills">Exam Skills</button>
     <button class="nav-tab" data-tab="progress">My Progress</button>
   </div>
 </nav>
@@ -521,6 +599,9 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
 
   <!-- PHYSICS -->
   <section id="screen-physics" class="screen"></section>
+
+  <!-- EXAM SKILLS -->
+  <section id="screen-examskills" class="screen"></section>
 
   <!-- PROGRESS -->
   <section id="screen-progress" class="screen"></section>
@@ -907,6 +988,7 @@ function showTab(tab) {
   if (tab === 'progress') renderProgress();
   if (tab === 'home') renderHomeStats();
   if (['biology','chemistry','physics'].includes(tab)) renderSubject(tab);
+  if (tab === 'examskills') renderExamSkills();
 }
 
 navTabs.forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
@@ -1449,6 +1531,896 @@ document.getElementById('soundToggle').addEventListener('click', () => {
   updateSoundIcon();
   if (state.soundOn) playSound('correct');
 });
+
+/* ═══════════════════════════════════════════════════
+   EXAM SKILLS TAB
+   ═══════════════════════════════════════════════════ */
+
+/* ---------- CORE PRACTICALS DATA ---------- */
+const CP_DATA = [
+  // BIOLOGY (8)
+  {id:'bio-cp1',subject:'Biology',cls:'',spec:'1.6',topic:'T1',name:'Investigate biological specimens using microscopes',combined:true,
+    cider:{C:'Same microscope, same light source, same magnification when comparing',I:'Type of specimen (or cell type)',D:'Structures visible under the microscope (recorded as labelled drawing)',E:'Light microscope, prepared slides, cover slips, staining solution (iodine or methylene blue), ruler and eyepiece graticule for magnification',R:'Glass slides can break and cut skin - handle carefully; Staining solutions may irritate skin - wash hands after use'},
+    quiz:[
+      {q:'What is the independent variable in the microscopy practical?',type:'mcq',options:['Light intensity','Type of specimen being observed','Magnification used','Staining time'],answer:'B',exp:'You change which specimen you look at to compare different cells.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Colour of the stain','Structures visible under the microscope','Temperature of the slide','Size of the microscope'],answer:'B',exp:'You observe and draw the structures visible in each specimen.'},
+      {q:'Name two control variables for this practical.',type:'ret',answer:'Same microscope and same magnification when comparing specimens. Same light source and same staining technique.',keywords:['microscope','magnification','light','stain']},
+      {q:'What equipment would you use to measure magnification?',type:'mcq',options:['Ruler only','Eyepiece graticule and stage micrometer','Thermometer','Measuring cylinder'],answer:'B',exp:'An eyepiece graticule calibrated with a stage micrometer allows you to measure the actual size of specimens.'},
+      {q:'Describe one risk in this practical and how to reduce it.',type:'ret',answer:'Glass slides can break and cause cuts. Handle slides carefully and dispose of broken glass in a sharps bin. Staining solutions like iodine can irritate skin, so wash hands after use.',keywords:['glass','break','cut','carefully','wash']}
+    ]},
+  {id:'bio-cp2',subject:'Biology',cls:'',spec:'1.10',topic:'T1',name:'Investigate the effect of pH on enzyme activity',combined:true,
+    cider:{C:'Same enzyme concentration, same substrate concentration, same temperature (water bath), same volume of solutions, same time period',I:'pH of the buffer solution',D:'Rate of reaction (e.g. time for starch to be broken down by amylase, measured with iodine test)',E:'Test tubes, water bath, buffer solutions at different pH values, amylase solution, starch solution, iodine solution, spotting tile, stopwatch, thermometer',R:'Hot water baths can scald - use carefully and do not exceed 60C; Iodine solution can stain skin and clothes - avoid contact'},
+    quiz:[
+      {q:'What is the independent variable in the enzyme pH practical?',type:'mcq',options:['Temperature','Enzyme concentration','pH of buffer solution','Volume of starch'],answer:'C',exp:'You deliberately change the pH using different buffer solutions.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['pH value','Temperature of water bath','Time taken for starch to be broken down','Colour of the buffer'],answer:'C',exp:'You measure the time for the reaction to complete (e.g. iodine no longer turns blue-black).'},
+      {q:'Name two control variables for the enzyme pH experiment.',type:'ret',answer:'Same enzyme concentration, same substrate concentration, same temperature using a water bath, same volume of all solutions.',keywords:['concentration','temperature','volume','water bath']},
+      {q:'What equipment would you use to measure the dependent variable?',type:'mcq',options:['Thermometer','pH probe','Stopwatch and iodine solution on a spotting tile','Measuring cylinder'],answer:'C',exp:'You time how long until iodine stops turning blue-black, showing starch has been digested.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Hot water from the water bath can cause scalds. Keep the water bath below 60C and handle with care. Iodine can stain skin, so wash any splashes immediately.',keywords:['scald','water bath','iodine','stain','wash']}
+    ]},
+  {id:'bio-cp3',subject:'Biology',cls:'',spec:'1.13B',topic:'T1',name:'Investigate the use of chemical reagents to identify starch, reducing sugars, proteins and fats',combined:false,
+    cider:{C:'Same volume of food sample, same volume of reagent, same testing conditions and timing',I:'Type of food sample tested',D:'Colour change observed with each reagent',E:'Test tubes, test tube rack, Benedict\'s solution, water bath, iodine solution, biuret reagent, ethanol, distilled water, food samples, measuring cylinders, pipettes',R:'Benedict\'s test requires hot water bath - risk of scalds, handle carefully; Ethanol is flammable - keep away from naked flames; Biuret reagent contains sodium hydroxide which is corrosive - wear eye protection'},
+    quiz:[
+      {q:'What is the independent variable in the food tests practical?',type:'mcq',options:['Volume of reagent','Type of food sample','Temperature','Colour of the solution'],answer:'B',exp:'You test different food samples to see which nutrients they contain.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Mass of the food','Colour change with each reagent','pH of the solution','Temperature change'],answer:'B',exp:'You observe the colour change to identify which nutrient is present.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same volume of food sample solution, same volume of reagent added, same conditions for the test (e.g. same water bath temperature for Benedict\'s test).',keywords:['volume','reagent','temperature','same']},
+      {q:'What reagent and colour change tests for reducing sugars?',type:'mcq',options:['Iodine - blue-black','Biuret - purple','Benedict\'s solution - blue to orange/red when heated','Ethanol - white emulsion'],answer:'C',exp:'Benedict\'s solution turns from blue to green/yellow/orange/red when heated with reducing sugars.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The Benedict\'s test requires a hot water bath which can cause scalds. Use the water bath carefully and do not let the temperature exceed what is needed. Ethanol is flammable so keep it away from open flames.',keywords:['scald','hot','water bath','ethanol','flammable','flame']}
+    ]},
+  {id:'bio-cp4',subject:'Biology',cls:'',spec:'1.16',topic:'T1',name:'Investigate osmosis in potatoes',combined:true,
+    cider:{C:'Same potato variety, same size/mass of potato chips, same volume of solution, same temperature, same time left in solution',I:'Concentration of sucrose solution',D:'Change in mass (or length) of the potato chips',E:'Potato, cork borer, ruler, scalpel, balance (to 2 d.p.), boiling tubes, sucrose solutions of different concentrations, distilled water, paper towels, timer',R:'Scalpel and cork borer are sharp - cut away from body on a cutting mat; Solutions may be irritants - wash hands'},
+    quiz:[
+      {q:'What is the independent variable in the osmosis practical?',type:'mcq',options:['Size of potato chips','Temperature','Concentration of sucrose solution','Type of potato'],answer:'C',exp:'You change the concentration of the surrounding solution to see the effect on osmosis.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Volume of solution','Colour of potato','Change in mass of the potato chips','Concentration of sucrose'],answer:'C',exp:'You measure the change in mass (or length) of each potato chip after a set time.'},
+      {q:'Name two control variables for the osmosis experiment.',type:'ret',answer:'Same size/mass of potato chips at the start, same volume of solution in each tube, same temperature, same length of time in the solution, same variety of potato.',keywords:['size','mass','volume','temperature','time']},
+      {q:'What equipment measures the dependent variable?',type:'mcq',options:['Ruler','Measuring cylinder','Balance (to 2 decimal places)','Thermometer'],answer:'C',exp:'You weigh each chip before and after using a balance to calculate percentage change in mass.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The cork borer and scalpel are sharp and could cut you. Always cut away from your body on a cutting mat. Take care when pushing the cork borer through the potato.',keywords:['sharp','cut','scalpel','cork borer','away','cutting mat']}
+    ]},
+  {id:'bio-cp5',subject:'Biology',cls:'',spec:'5.18B',topic:'T5',name:'Investigate the effects of antiseptics, antibiotics or plant extracts on microbial cultures',combined:false,
+    cider:{C:'Same type of bacteria, same volume of bacterial culture, same size agar plate, same incubation temperature and time, same size filter paper disc',I:'Type of antiseptic, antibiotic or plant extract (or concentration)',D:'Diameter of the zone of inhibition (clear zone around the disc)',E:'Agar plates pre-seeded with bacteria, sterile filter paper discs, forceps, antiseptic/antibiotic solutions, ruler (mm), marker pen, incubator (set to max 25C in schools), adhesive tape (not fully sealed), Bunsen burner',R:'Working with bacteria - incubate at max 25C in schools to prevent growth of pathogens; Use aseptic technique (sterilise equipment, work near a Bunsen flame); Do not open plates after incubation; Dispose of plates by autoclaving'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Size of the agar plate','Temperature of incubation','Type of antiseptic or antibiotic tested','Volume of bacterial culture'],answer:'C',exp:'You test different antimicrobial substances to compare their effectiveness.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Number of colonies','Diameter of the zone of inhibition','Colour of the bacteria','Temperature after incubation'],answer:'B',exp:'You measure the clear zone around each disc where bacteria have not grown.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same type and volume of bacterial culture, same size agar plate, same size filter paper discs, same incubation temperature and time.',keywords:['volume','bacteria','size','disc','temperature','time']},
+      {q:'Why must school incubators not exceed 25C?',type:'mcq',options:['Bacteria grow faster at 25C','To prevent harmful pathogenic bacteria from growing','To save electricity','The agar melts above 25C'],answer:'B',exp:'At higher temperatures, dangerous pathogens could grow. 25C limits growth to safer organisms.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Risk of contamination with harmful bacteria. Use aseptic technique: sterilise all equipment, work near a Bunsen flame, do not open plates after incubation, incubate at a maximum of 25C.',keywords:['aseptic','sterilise','Bunsen','25','pathogen','contamination']}
+    ]},
+  {id:'bio-cp6',subject:'Biology',cls:'',spec:'6.5',topic:'T6',name:'Investigate the effect of light intensity on the rate of photosynthesis',combined:true,
+    cider:{C:'Same plant (pondweed), same temperature (water bath), same volume of water, same concentration of sodium hydrogen carbonate solution, same colour of light',I:'Light intensity (changed by altering distance of lamp from the plant)',D:'Rate of photosynthesis (measured by counting bubbles of oxygen per minute or collecting gas in a syringe)',E:'Aquatic plant (e.g. Elodea/pondweed), beaker of water, sodium hydrogen carbonate solution, lamp, ruler, stopwatch, thermometer, clamp stand. Optional: gas syringe for more accurate measurement',R:'Bright lamp can get hot - do not touch; Electrical equipment near water - keep lamp dry and away from water; Use a heat shield (glass screen) between lamp and beaker to reduce heating'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Temperature of the water','Type of plant','Light intensity (distance of lamp)','Volume of water'],answer:'C',exp:'You change the distance of the lamp from the plant to vary light intensity.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Distance of the lamp','Temperature','Number of oxygen bubbles per minute','Colour of the plant'],answer:'C',exp:'You count the bubbles of oxygen produced per minute as a measure of photosynthesis rate.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same piece of pondweed, same temperature (use a heat shield), same concentration of sodium hydrogen carbonate, same volume of water, same colour of light.',keywords:['temperature','pondweed','sodium hydrogen carbonate','volume','heat']},
+      {q:'What equipment would you use to measure the rate more accurately than counting bubbles?',type:'mcq',options:['Thermometer','Gas syringe','pH probe','Ruler'],answer:'B',exp:'A gas syringe collects and measures the volume of oxygen produced, which is more precise than counting bubbles.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The lamp gets hot and could cause burns. Use a heat shield (glass screen) between the lamp and the beaker. Keep electrical equipment away from water to avoid electric shock.',keywords:['hot','lamp','heat shield','electrical','water']}
+    ]},
+  {id:'bio-cp7',subject:'Biology',cls:'',spec:'8.11',topic:'T8',name:'Investigate the rate of respiration in living organisms',combined:true,
+    cider:{C:'Same mass of organisms (e.g. germinating seeds or woodlice), same temperature (water bath), same time period, same volume of apparatus',I:'Condition being tested (e.g. temperature, or comparing living vs dead organisms)',D:'Rate of oxygen consumption (measured by movement of coloured liquid in a capillary tube in a respirometer)',E:'Respirometer (sealed tube with capillary tube and coloured liquid), soda lime or potassium hydroxide (to absorb CO2), glass beads (control), germinating seeds or small organisms, water bath, stopwatch, ruler',R:'Potassium hydroxide/soda lime is corrosive - wear gloves and eye protection; Handle living organisms (e.g. woodlice) ethically - return to habitat after, do not overheat'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Volume of the respirometer','Type of coloured liquid','Condition being tested (e.g. temperature)','Mass of soda lime'],answer:'C',exp:'You change the experimental condition, such as temperature, to see the effect on respiration rate.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Movement of coloured liquid in the capillary tube','Temperature of the water bath','Mass of the organisms','Colour of the liquid'],answer:'A',exp:'The coloured liquid moves as oxygen is consumed, allowing you to measure the rate of respiration.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same mass of organisms, same temperature (water bath), same time period, same volume of apparatus, same amount of soda lime.',keywords:['mass','temperature','time','volume','soda lime']},
+      {q:'Why is soda lime (or KOH) used in the respirometer?',type:'mcq',options:['To provide extra oxygen','To absorb carbon dioxide so only oxygen uptake is measured','To keep the temperature constant','To kill the organisms'],answer:'B',exp:'Soda lime absorbs CO2 produced by respiration, so any volume change is due to oxygen being used up.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Potassium hydroxide or soda lime is corrosive and can damage skin and eyes. Wear gloves and eye protection when handling. If using living organisms like woodlice, handle them gently and return them to their habitat after the experiment.',keywords:['corrosive','gloves','eye protection','KOH','soda lime']}
+    ]},
+  {id:'bio-cp8',subject:'Biology',cls:'',spec:'9.5',topic:'T9',name:'Investigate the relationship between organisms and their environment using fieldwork techniques',combined:true,
+    cider:{C:'Same size quadrat, same sampling method, same time of day, same weather conditions if possible',I:'Location or distance along a transect (environmental factor such as light level or distance from a path)',D:'Number or distribution of organisms (species frequency, percentage cover, population estimate)',E:'Quadrat (0.5 m x 0.5 m), tape measure (for transect), identification key, tally chart/recording sheet, random number generator (or calculator) for random sampling, light meter (optional), soil moisture meter (optional)',R:'Working outdoors - be aware of uneven ground, weather conditions; Wash hands after handling soil or organisms; Do not damage habitats - replace anything moved'},
+    quiz:[
+      {q:'What is the independent variable when using a belt transect?',type:'mcq',options:['Type of organism','Size of the quadrat','Distance along the transect','Number of quadrats'],answer:'C',exp:'Along a transect, you measure at set distances to see how organisms change with an environmental gradient.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Length of the transect','Number or distribution of organisms','Temperature','Soil pH'],answer:'B',exp:'You count or estimate the abundance of organisms at each point.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same size quadrat at every sampling point, same sampling method (e.g. percentage cover or counting), same time of day to reduce variation.',keywords:['quadrat','size','method','time']},
+      {q:'What equipment would you use to ensure random sampling?',type:'mcq',options:['Tape measure','Light meter','Random number generator to pick coordinates','Soil moisture meter'],answer:'C',exp:'Random coordinates ensure there is no bias in where you place your quadrats.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Uneven ground outdoors could cause trips or falls. Wear appropriate footwear and be aware of your surroundings. Wash hands after handling soil or organisms to avoid infection.',keywords:['trip','uneven','footwear','wash','hands','soil']}
+    ]},
+  // CHEMISTRY (8)
+  {id:'chem-cp1',subject:'Chemistry',cls:'chem-cp',spec:'2.11',topic:'T2',name:'Investigate the composition of inks using simple distillation and paper chromatography',combined:true,
+    cider:{C:'Same type of chromatography paper, same solvent, same volume of ink spot, same starting line height, same temperature',I:'Type of ink being tested',D:'Number and position of separated components (Rf values)',E:'Chromatography paper, pencil, ruler, beaker, solvent (water or ethanol), ink samples, capillary tubes, lid/cover for beaker, distillation apparatus (flask, condenser, thermometer, collection vessel) for distillation part',R:'Ethanol is flammable - keep away from naked flames; Glassware can break - handle carefully; Hot apparatus during distillation - allow to cool before handling'},
+    quiz:[
+      {q:'What is the independent variable in the chromatography practical?',type:'mcq',options:['Type of solvent','Type of ink sample tested','Height of the starting line','Size of the paper'],answer:'B',exp:'You test different ink samples to compare their components.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Volume of solvent','Number and position of spots (Rf values)','Temperature','Type of paper'],answer:'B',exp:'You observe how many components each ink separates into and calculate their Rf values.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same type of chromatography paper, same solvent, same volume of ink applied, same starting line drawn in pencil (not pen) at the same height.',keywords:['paper','solvent','volume','starting line']},
+      {q:'Why must the starting line be drawn in pencil, not pen?',type:'mcq',options:['Pencil is cheaper','Pen ink would dissolve and interfere with results','Pencil marks are easier to see','Pen damages the paper'],answer:'B',exp:'Pen ink is soluble and would run with the solvent, contaminating the chromatogram.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Ethanol solvent is flammable. Keep it away from naked flames and Bunsen burners. Ensure good ventilation in the lab.',keywords:['ethanol','flammable','flame','ventilation']}
+    ]},
+  {id:'chem-cp2',subject:'Chemistry',cls:'chem-cp',spec:'3.6',topic:'T3',name:'Investigate the change in pH on adding calcium hydroxide or calcium oxide to dilute hydrochloric acid',combined:true,
+    cider:{C:'Same volume of acid, same concentration of acid, same mass of solid added each time, same temperature',I:'Amount of calcium hydroxide or calcium oxide added (mass added incrementally)',D:'pH of the solution',E:'Dilute hydrochloric acid, calcium hydroxide (or calcium oxide) powder, pH meter (or universal indicator with colour chart), measuring cylinder, balance, beaker, stirring rod, spatula',R:'Dilute HCl is an irritant - wear eye protection; Calcium hydroxide is an irritant - avoid skin contact and wash if splashed; Calcium oxide is corrosive - wear gloves and eye protection'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Volume of acid','Temperature','Amount of calcium hydroxide added','Type of indicator'],answer:'C',exp:'You gradually add more calcium hydroxide (or calcium oxide) and measure the effect on pH.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Mass of solid added','pH of the solution','Volume of solution','Temperature change'],answer:'B',exp:'You measure the pH after each addition to see how it changes.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same volume of acid at the start, same concentration of acid, same temperature, same mass of solid added each time.',keywords:['volume','concentration','temperature','mass']},
+      {q:'What equipment gives the most accurate pH reading?',type:'mcq',options:['Litmus paper','Universal indicator','pH meter (pH probe)','Thermometer'],answer:'C',exp:'A calibrated pH meter gives precise numerical readings, more accurate than indicator paper or solution.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Calcium oxide is corrosive and can burn skin and damage eyes. Wear gloves and eye protection. If it contacts skin, wash immediately with plenty of water. Dilute HCl is an irritant, so also wear goggles.',keywords:['corrosive','burn','gloves','eye protection','wash','goggles']}
+    ]},
+  {id:'chem-cp3',subject:'Chemistry',cls:'chem-cp',spec:'3.17',topic:'T3',name:'Prepare pure, dry hydrated copper sulfate crystals from copper oxide and sulfuric acid',combined:true,
+    cider:{C:'Same concentration of sulfuric acid, same temperature for heating',I:'Not applicable (this is a preparation, not an investigation of a variable)',D:'Not applicable (aim is to produce pure dry crystals of copper sulfate)',E:'Dilute sulfuric acid, copper oxide powder, beaker, Bunsen burner, tripod, gauze, heatproof mat, glass stirring rod, filter funnel, filter paper, evaporating basin, crystallising dish, spatula',R:'Dilute sulfuric acid is an irritant - wear eye protection; Copper oxide is harmful - avoid inhaling dust; Hot solutions can scald - handle with care, do not boil to dryness'},
+    quiz:[
+      {q:'Why do you add excess copper oxide to the sulfuric acid?',type:'mcq',options:['To make the solution turn green','To make sure all the acid has reacted','To speed up the reaction','To make the crystals form faster'],answer:'B',exp:'Adding excess copper oxide ensures all the sulfuric acid is neutralised. The excess is then filtered off.'},
+      {q:'What technique removes the excess copper oxide?',type:'mcq',options:['Distillation','Chromatography','Filtration','Crystallisation'],answer:'C',exp:'Filtration separates the insoluble excess copper oxide from the dissolved copper sulfate solution.'},
+      {q:'Name two control variables in this preparation.',type:'ret',answer:'Same concentration of sulfuric acid, same gentle heating temperature. This is a preparation method so the aim is a pure product rather than investigating variables.',keywords:['concentration','acid','temperature','heating']},
+      {q:'What equipment is used to form the crystals?',type:'mcq',options:['Distillation flask','Crystallising dish (slow evaporation)','Test tube','Measuring cylinder'],answer:'B',exp:'The filtered solution is gently heated in an evaporating basin, then transferred to a crystallising dish for slow evaporation to form pure crystals.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Hot sulfuric acid solution can cause scalds. Do not boil the solution to dryness. Heat gently and stop when crystals start to form at the edge. Wear eye protection throughout.',keywords:['hot','scald','boil','dryness','eye protection','gently']}
+    ]},
+  {id:'chem-cp4',subject:'Chemistry',cls:'chem-cp',spec:'3.31',topic:'T3',name:'Investigate the electrolysis of copper sulfate solution with inert and copper electrodes',combined:true,
+    cider:{C:'Same concentration and volume of copper sulfate solution, same current (using variable resistor), same time for electrolysis, same distance between electrodes',I:'Type of electrode (inert carbon/graphite electrodes vs copper electrodes)',D:'Change in mass of each electrode (and observations at each electrode)',E:'Copper sulfate solution, beaker, two carbon (graphite) electrodes, two copper electrodes, DC power supply, connecting wires with crocodile clips, ammeter, variable resistor, balance (to 2 d.p.), stopwatch, emery paper (to clean electrodes)',R:'Copper sulfate solution is an irritant - wear eye protection and gloves; Electrical equipment near liquids - ensure no splashing; Electrodes get warm - allow to cool'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Voltage applied','Type of electrode used','Volume of solution','Time of electrolysis'],answer:'B',exp:'You compare what happens with inert (carbon) electrodes versus copper electrodes.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Type of electrode','Change in mass of each electrode','Current flowing','Concentration of solution'],answer:'B',exp:'You weigh the electrodes before and after to measure the change in mass.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same concentration and volume of copper sulfate solution, same current (controlled with variable resistor), same time for electrolysis, same distance between electrodes.',keywords:['concentration','volume','current','time','distance']},
+      {q:'With copper electrodes, what happens at the anode?',type:'mcq',options:['Oxygen gas is produced','The copper anode dissolves (loses mass)','Hydrogen gas is produced','Nothing happens'],answer:'B',exp:'With copper electrodes, copper atoms at the anode are oxidised to Cu2+ ions and dissolve into the solution.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Copper sulfate solution is an irritant and can harm skin and eyes. Wear eye protection and gloves. If splashed on skin, wash immediately with plenty of water.',keywords:['irritant','eye protection','gloves','wash','copper sulfate']}
+    ]},
+  {id:'chem-cp5',subject:'Chemistry',cls:'chem-cp',spec:'5.9C',topic:'T5',name:'Carry out an accurate acid-alkali titration',combined:false,
+    cider:{C:'Same indicator, same concentration of standard solution, same equipment calibration',I:'Volume of acid (or alkali) added from the burette',D:'Volume of acid needed to neutralise a known volume of alkali (the titre)',E:'Burette, burette clamp and stand, conical flask, white tile, pipette (25 cm3) and pipette filler, standard solution of alkali (e.g. NaOH), acid of unknown concentration, indicator (e.g. phenolphthalein or methyl orange), wash bottle of distilled water',R:'Acids and alkalis are corrosive or irritant - wear eye protection and gloves; Burettes are glass and can break - clamp securely'},
+    quiz:[
+      {q:'What is the independent variable in a titration?',type:'mcq',options:['Volume of acid added from the burette','Type of indicator','Volume of the conical flask','Temperature'],answer:'A',exp:'You add acid from the burette in controlled amounts until the endpoint is reached.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Colour of the indicator','Volume of acid needed to reach the endpoint (the titre)','Concentration of the acid','Temperature change'],answer:'B',exp:'The titre is the volume of acid needed to exactly neutralise the alkali.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same volume of alkali measured with the pipette, same indicator, same concentration of alkali, same equipment.',keywords:['volume','alkali','pipette','indicator','concentration']},
+      {q:'Why is a white tile placed under the conical flask?',type:'mcq',options:['To keep the flask warm','To make the colour change of the indicator easier to see','To measure the volume','To prevent spills'],answer:'B',exp:'The white background makes it much easier to see the precise moment the indicator changes colour.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Concentrated acids and alkalis can be corrosive and damage skin and eyes. Wear eye protection and gloves throughout. If any solution is spilled on skin, wash immediately with plenty of water.',keywords:['corrosive','eye protection','gloves','wash','acid','alkali']}
+    ]},
+  {id:'chem-cp6',subject:'Chemistry',cls:'chem-cp',spec:'7.1',topic:'T7',name:'Investigate the effects of changing conditions on rates of reaction',combined:true,
+    cider:{C:'Same volume of acid, same mass (or concentration) of marble chips, same temperature (or same concentration depending on which variable you investigate), same equipment',I:'Concentration of acid (or temperature, or surface area of marble chips)',D:'Rate of reaction (volume of gas collected per unit time, or time for cross to disappear)',E:'Marble chips (calcium carbonate), dilute hydrochloric acid, conical flask, delivery tube, gas syringe (or measuring cylinder + water trough), balance, stopwatch, cotton wool (if measuring mass loss). For disappearing cross: sodium thiosulfate, HCl, conical flask, paper with cross, stopwatch',R:'Dilute HCl is an irritant - wear eye protection; Sulfur dioxide produced in thiosulfate method is toxic - ensure good ventilation; Broken glass from apparatus - handle carefully'},
+    quiz:[
+      {q:'In the marble chips method, what is the dependent variable?',type:'mcq',options:['Mass of marble chips','Volume of CO2 gas collected over time','Concentration of acid','Temperature'],answer:'B',exp:'You measure the volume of carbon dioxide gas produced over time using a gas syringe.'},
+      {q:'In the disappearing cross method, what is the dependent variable?',type:'mcq',options:['Temperature of the solution','Time for the cross to disappear','Volume of gas produced','Concentration of thiosulfate'],answer:'B',exp:'You time how long it takes for the sulfur precipitate to obscure the cross drawn underneath.'},
+      {q:'Name two control variables for the marble chips experiment.',type:'ret',answer:'Same volume of acid, same mass and size of marble chips (same surface area), same temperature if investigating concentration.',keywords:['volume','mass','surface area','temperature','acid']},
+      {q:'What equipment collects gas accurately?',type:'mcq',options:['Beaker','Test tube','Gas syringe','Evaporating basin'],answer:'C',exp:'A gas syringe measures the volume of gas produced accurately as the reaction progresses.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The disappearing cross method produces sulfur dioxide gas which is toxic and can irritate the lungs. Work in a well-ventilated room or use a fume cupboard. Dilute HCl is an irritant, so wear eye protection.',keywords:['sulfur dioxide','toxic','ventilation','fume cupboard','irritant','eye protection']}
+    ]},
+  {id:'chem-cp7',subject:'Chemistry',cls:'chem-cp',spec:'9.6C',topic:'T9',name:'Identify ions in unknown salts using specified tests',combined:false,
+    cider:{C:'Same volume of test solution, same concentration of reagents, same testing method for each ion',I:'Type of unknown salt being tested',D:'Observations (colour of precipitate, flame colour, gas produced)',E:'Test tubes, test tube rack, Bunsen burner, nichrome wire loop, dilute HCl, dilute NaOH, dilute sulfuric acid, barium chloride solution, silver nitrate solution, dilute ammonia, litmus paper/pH paper, splints, limewater',R:'Silver nitrate and barium chloride are toxic - avoid skin contact, wear gloves; HCl fumes - work in ventilated area; Flame tests use open flames - tie back hair, be aware of surroundings'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Volume of reagent','Type of unknown salt tested','Temperature of the solution','Colour of the flame'],answer:'B',exp:'You test different unknown salts to identify the ions they contain.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Mass of the sample','Observations (precipitate colour, flame colour, gas produced)','Volume of acid used','pH of the solution'],answer:'B',exp:'You observe the results of each test to identify the ions present.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same volume of test solution, same concentration of reagents, same method for each test.',keywords:['volume','concentration','reagent','method']},
+      {q:'How do you test for sulfate ions?',type:'mcq',options:['Add NaOH and look for a precipitate','Add dilute HCl then barium chloride - white precipitate confirms sulfate','Flame test - yellow colour','Add silver nitrate - white precipitate'],answer:'B',exp:'Add dilute HCl (to remove carbonates) then barium chloride solution. A white precipitate of barium sulfate confirms sulfate ions.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Barium chloride solution is toxic if swallowed or contacts skin. Wear gloves and eye protection. Wash hands thoroughly after use. Silver nitrate stains skin, so handle carefully.',keywords:['toxic','barium chloride','gloves','eye protection','silver nitrate','wash']}
+    ]},
+  {id:'chem-cp8',subject:'Chemistry',cls:'chem-cp',spec:'9.28C',topic:'T9',name:'Investigate the temperature rise from the combustion of different alcohols',combined:false,
+    cider:{C:'Same volume of water, same starting temperature of water, same distance of flame from calorimeter, same type of calorimeter (copper or metal can), same draught conditions',I:'Type of alcohol burned (e.g. methanol, ethanol, propanol, butanol)',D:'Temperature rise of the water',E:'Spirit burners containing different alcohols, copper calorimeter (or metal can), thermometer, measuring cylinder (for water), balance, heatproof mat, draught shield, clamp stand',R:'Alcohols are flammable - keep lids on spirit burners when not in use; Open flames - tie back hair, keep flammable materials away; Hot apparatus - allow to cool before handling'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Volume of water','Starting temperature','Type of alcohol burned','Distance of flame'],answer:'C',exp:'You burn different alcohols to compare the energy they release.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Mass of alcohol used','Temperature rise of the water','Volume of water','Type of calorimeter'],answer:'B',exp:'You measure how much the water temperature increases for each alcohol.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same volume of water, same starting temperature, same distance between flame and calorimeter, same draught shielding conditions.',keywords:['volume','water','temperature','distance','draught']},
+      {q:'Why is a draught shield used?',type:'mcq',options:['To keep the flame visible','To reduce heat loss to the surroundings and make results more accurate','To prevent the alcohol from evaporating','To protect the thermometer'],answer:'B',exp:'A draught shield reduces heat loss from air currents, making the energy transfer measurement more accurate.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Alcohols are highly flammable. Keep lids on spirit burners when not in use. Keep other flammable materials away from the flame. Tie back long hair and loose clothing.',keywords:['flammable','lids','spirit burner','hair','flame']}
+    ]},
+  // PHYSICS (10)
+  {id:'phys-cp1',subject:'Physics',cls:'phys-cp',spec:'10.8',topic:'T10',name:'Investigate how the length of a wire affects its resistance',combined:true,
+    cider:{C:'Same type of wire (material and diameter), same temperature (switch off between readings), same current or voltage (depending on method)',I:'Length of the wire',D:'Resistance of the wire (calculated from V/I)',E:'Constantan wire, metre ruler, crocodile clips, ammeter, voltmeter, DC power supply, variable resistor, connecting wires',R:'Wire gets hot when current flows - switch off between readings, do not touch the wire; Low voltage (less than 12V) - minimal electric shock risk but still handle with care'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Diameter of the wire','Type of metal','Length of the wire','Voltage of the power supply'],answer:'C',exp:'You change the length of wire between the crocodile clips.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Current only','Voltage only','Resistance (calculated from voltage / current)','Temperature of the wire'],answer:'C',exp:'You measure voltage and current to calculate resistance using R = V / I.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same type and diameter of wire (e.g. constantan), same temperature (switch off between readings to prevent heating).',keywords:['type','diameter','wire','temperature','switch off']},
+      {q:'What equipment measures the current through the wire?',type:'mcq',options:['Voltmeter','Ammeter','Ohmmeter','Thermometer'],answer:'B',exp:'An ammeter, connected in series, measures the current flowing through the wire.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The wire gets hot when current flows through it, which could burn skin and also affect results. Switch off the circuit between readings to allow the wire to cool.',keywords:['hot','burn','switch off','cool','current']}
+    ]},
+  {id:'phys-cp2',subject:'Physics',cls:'phys-cp',spec:'10.19',topic:'T10',name:'Investigate the I-V characteristics of circuit elements',combined:true,
+    cider:{C:'Same component being tested, same range of voltages, same connecting wires and circuit setup, same ammeter and voltmeter',I:'Voltage (potential difference) across the component',D:'Current through the component',E:'DC power supply (or battery), variable resistor, ammeter (in series), voltmeter (in parallel), the component to be tested (resistor, filament lamp, or diode), connecting wires',R:'Filament lamps get very hot - do not touch during or just after the experiment; Low voltage supply - minimal shock risk'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Resistance of the component','Current through the component','Voltage across the component','Temperature of the room'],answer:'C',exp:'You vary the voltage using a variable resistor and record the corresponding current.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Voltage','Current through the component','Resistance','Power'],answer:'B',exp:'You measure the current for each voltage setting.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same component being tested, same circuit setup, same connecting wires, same meters.',keywords:['component','circuit','connecting','same']},
+      {q:'How should the voltmeter be connected?',type:'mcq',options:['In series with the component','In parallel across the component','Between the ammeter and power supply','It does not matter'],answer:'B',exp:'A voltmeter must be connected in parallel across the component to measure the potential difference.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The filament lamp gets very hot during the experiment. Do not touch it while the circuit is on or immediately after. Allow it to cool before handling.',keywords:['hot','lamp','touch','cool']}
+    ]},
+  {id:'phys-cp3',subject:'Physics',cls:'phys-cp',spec:'2.7',topic:'T2',name:'Investigate the acceleration of an object down a ramp',combined:true,
+    cider:{C:'Same trolley (same mass), same surface of ramp, same starting position, same length of ramp',I:'Height (or angle) of the ramp',D:'Acceleration of the trolley (calculated from distance and time, or using light gates)',E:'Ramp, trolley, ruler, protractor, stopwatch (or light gates and data logger for more accuracy), metre ruler, books or blocks to raise the ramp',R:'Trolley can roll off the end of the ramp - use a cushion or barrier at the bottom; Heavy ramp could fall - secure it properly'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Mass of the trolley','Length of the ramp','Height (angle) of the ramp','Type of surface'],answer:'C',exp:'You change the height or angle of the ramp to vary the component of gravitational force acting on the trolley.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Height of the ramp','Mass of the trolley','Acceleration of the trolley','Length of the ramp'],answer:'C',exp:'You measure how quickly the trolley speeds up as it moves down the ramp.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same trolley (same mass), same surface of ramp, same starting position on the ramp each time.',keywords:['mass','trolley','surface','starting position']},
+      {q:'What equipment gives the most accurate timing?',type:'mcq',options:['Stopwatch','Light gates and data logger','Ruler','Protractor'],answer:'B',exp:'Light gates connected to a data logger remove human reaction time error and give more precise measurements.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The trolley could roll off the end of the ramp and fall, causing injury or damage. Place a cushion or barrier at the bottom of the ramp to stop it.',keywords:['roll','fall','cushion','barrier','end','ramp']}
+    ]},
+  {id:'phys-cp4',subject:'Physics',cls:'phys-cp',spec:'4.3',topic:'T4',name:'Investigate the properties of waves using a ripple tank',combined:true,
+    cider:{C:'Same depth of water, same ripple tank, same viewing conditions (stroboscope frequency if used)',I:'Frequency of the wave (adjusted by motor speed) or depth of water',D:'Wavelength of the waves (measured from the pattern on the screen below)',E:'Ripple tank, lamp (overhead), motor with dipper, power supply with variable frequency, white screen or paper below tank, ruler, stroboscope (optional)',R:'Water near electrical equipment - keep wires and power supply away from water, mop up spills immediately; Stroboscope flashing lights can trigger epileptic seizures - check with all students before use'},
+    quiz:[
+      {q:'What is the independent variable when investigating frequency?',type:'mcq',options:['Depth of water','Wavelength','Frequency of the dipper motor','Brightness of the lamp'],answer:'C',exp:'You change the motor speed to vary the frequency and observe the effect on wavelength.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Frequency','Speed of the waves','Wavelength of the waves','Depth of water'],answer:'C',exp:'You measure the wavelength from the pattern projected on the screen below the tank.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same depth of water, same ripple tank, same viewing conditions (lamp brightness, stroboscope if used).',keywords:['depth','water','tank','lamp','stroboscope']},
+      {q:'Why might a stroboscope be used?',type:'mcq',options:['To heat the water','To make the waves appear stationary for easier measurement','To change the wave speed','To create coloured waves'],answer:'B',exp:'A stroboscope flashing at the same frequency as the waves makes the wave pattern appear frozen, so wavelength can be measured more easily.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Water near electrical equipment risks electric shock. Keep the power supply and wires well away from the water. Mop up any spills immediately. Stroboscope flashing lights can trigger seizures in people with epilepsy, so check with all students before using one.',keywords:['water','electrical','spill','stroboscope','epilepsy','seizure']}
+    ]},
+  {id:'phys-cp5',subject:'Physics',cls:'phys-cp',spec:'5.16P',topic:'T5',name:'Investigate the properties of infrared radiation',combined:false,
+    cider:{C:'Same distance from the heat source, same volume of water (if measuring temperature), same starting temperature, same type of thermometer or sensor',I:'Type of surface (e.g. matte black vs shiny silver) or distance from the source',D:'Temperature change (or infrared reading from a sensor)',E:'Leslie cube (metal cube with different surfaces), infrared thermometer or temperature sensor, thermometer, boiling water, beaker, ruler, stopwatch',R:'Boiling water can cause scalds - handle the Leslie cube carefully with tongs or insulated gloves; Hot surfaces - do not touch the cube directly'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Temperature of the water inside','Type of surface on the Leslie cube','Distance of the thermometer','Volume of water'],answer:'B',exp:'You compare infrared emission from different surfaces (matte black, shiny silver, etc.) on the Leslie cube.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Type of surface','Temperature reading on the infrared sensor','Colour of the cube','Volume of water inside'],answer:'B',exp:'You measure the infrared radiation emitted from each surface using a temperature sensor.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same distance from the sensor to each face, same temperature of water inside the cube, same type of sensor.',keywords:['distance','temperature','water','sensor']},
+      {q:'Which surface emits the most infrared radiation?',type:'mcq',options:['Shiny silver','Shiny white','Matte black','Matte white'],answer:'C',exp:'Matte black surfaces are the best emitters (and absorbers) of infrared radiation.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The Leslie cube is filled with boiling water and gets very hot. Handle it with tongs or insulated gloves. Do not touch the metal surfaces directly.',keywords:['hot','boiling','tongs','gloves','burn']}
+    ]},
+  {id:'phys-cp6',subject:'Physics',cls:'phys-cp',spec:'3.14',topic:'T3',name:'Investigate the effectiveness of different materials as thermal insulators',combined:true,
+    cider:{C:'Same volume of hot water, same starting temperature, same size container, same thickness of insulation, same room temperature, same time interval for readings',I:'Type of insulating material wrapped around the container',D:'Temperature of the water over time (rate of cooling)',E:'Beakers (or metal cans), thermometer or temperature probe, measuring cylinder, stopwatch, hot water, insulating materials (e.g. cotton wool, bubble wrap, newspaper, felt), elastic bands or tape, data logger (optional)',R:'Hot water can cause scalds - handle carefully, use beaker tongs; Thermometers are fragile - handle with care'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Volume of water','Starting temperature','Type of insulating material','Size of the container'],answer:'C',exp:'You test different materials to see which keeps the water warm longest.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Type of material','Thickness of insulation','Temperature of the water over time','Volume of water'],answer:'C',exp:'You record the temperature at regular time intervals to compare cooling rates.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same volume of hot water, same starting temperature, same size container, same thickness of insulation material.',keywords:['volume','temperature','starting','container','thickness']},
+      {q:'What equipment could make temperature readings more accurate?',type:'mcq',options:['Larger thermometer','Temperature probe connected to a data logger','Measuring cylinder','Stopwatch'],answer:'B',exp:'A temperature probe and data logger take readings continuously and automatically, removing human error.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Hot water can cause scalds. Handle beakers of hot water carefully using beaker tongs. Pour carefully and mop up any spills immediately.',keywords:['hot','scald','tongs','carefully','spill']}
+    ]},
+  {id:'phys-cp7',subject:'Physics',cls:'phys-cp',spec:'8.6',topic:'T8',name:'Investigate the extension of a spring and the work done in extending it',combined:true,
+    cider:{C:'Same spring, same method of measuring extension, same starting point (no load position marked), same type of masses',I:'Force applied (mass hung on the spring, in newtons)',D:'Extension of the spring (difference between loaded and unloaded length)',E:'Spring, clamp stand, clamp and boss, ruler, set of known masses (e.g. 100g slotted masses), mass hanger, pointer (to read ruler accurately), safety goggles',R:'Spring could fly off the clamp if overloaded - wear safety goggles; Masses could fall on feet - use a soft surface or mat below'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Length of the spring','Type of spring','Force applied (weight added)','Extension'],answer:'C',exp:'You add known masses to increase the force and measure the resulting extension.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Force applied','Number of masses','Extension of the spring','Type of spring'],answer:'C',exp:'Extension is the increase in length from the original (no-load) position.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same spring throughout, same ruler and reading method, same starting position marked for zero extension.',keywords:['same spring','ruler','starting','zero','position']},
+      {q:'What happens to the graph if you exceed the limit of proportionality?',type:'mcq',options:['The line stays straight','The line curves - extension increases more per unit force','The spring gets shorter','The line goes to zero'],answer:'B',exp:'Beyond the limit of proportionality, the spring no longer obeys Hooke\'s Law and the extension increases more for each additional force.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'If the spring is overloaded it could snap or fly off the clamp and hit someone. Wear safety goggles. Use a mat or cushion below in case masses fall.',keywords:['snap','fly','goggles','overloaded','mat','cushion']}
+    ]},
+  {id:'phys-cp8',subject:'Physics',cls:'phys-cp',spec:'14.14',topic:'T14',name:'Investigate the densities of regular and irregular solid objects and liquids',combined:true,
+    cider:{C:'Same method for each type of object, same measuring equipment, same temperature (density changes with temperature)',I:'Type of material (or object) being measured',D:'Density of the material (calculated from mass / volume)',E:'Balance, ruler (for regular solids), measuring cylinder, water, Eureka (displacement) can (for irregular solids), calculator',R:'Water spillage - mop up immediately to prevent slipping; Heavy objects could fall on feet - handle with care; Glass measuring cylinders can break - handle carefully'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Volume of water','Temperature','Type of material being measured','Mass of the balance'],answer:'C',exp:'You measure different materials to compare their densities.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Type of material','Density (calculated from mass / volume)','Shape of the object','Volume of the container'],answer:'B',exp:'You calculate density using the formula: density = mass / volume.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same measuring equipment (balance, measuring cylinder), same method for each type of object, same temperature.',keywords:['equipment','balance','measuring cylinder','method','temperature']},
+      {q:'How do you find the volume of an irregular solid?',type:'mcq',options:['Measure it with a ruler','Use a displacement (Eureka) can and measuring cylinder','Weigh it on a balance','Use a thermometer'],answer:'B',exp:'Lower the object into a full displacement can. The water that overflows equals the volume of the object.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'Water spillage from the displacement can could cause slipping. Mop up any water on the floor immediately. Place the apparatus on a tray to catch overflow.',keywords:['water','spillage','slipping','mop','tray']}
+    ]},
+  {id:'phys-cp9',subject:'Physics',cls:'phys-cp',spec:'14.28P',topic:'T14',name:'Investigate the relationship between the temperature of water and its specific heat capacity',combined:false,
+    cider:{C:'Same mass of water, same insulation, same power of heater, same starting temperature if comparing materials',I:'Energy supplied (time the heater is on, since power is constant)',D:'Temperature rise of the water',E:'Insulated beaker (polystyrene cup or lagged calorimeter), immersion heater, thermometer or temperature probe, joulemeter (or ammeter + voltmeter + stopwatch to calculate energy), balance, measuring cylinder, lid',R:'Hot water and heater - risk of burns, do not touch the heater element; Electrical equipment near water - ensure wires are dry; Insulate to reduce heat loss for more accurate results'},
+    quiz:[
+      {q:'What is the independent variable?',type:'mcq',options:['Mass of water','Type of heater','Energy supplied to the water (time heater is on)','Room temperature'],answer:'C',exp:'You supply measured amounts of energy and record how much the temperature rises.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Energy supplied','Mass of water','Temperature rise of the water','Voltage of the power supply'],answer:'C',exp:'You measure the temperature increase for a known energy input to calculate specific heat capacity.'},
+      {q:'Name two control variables.',type:'ret',answer:'Same mass of water, same insulation around the container, same power of heater.',keywords:['mass','water','insulation','power','heater']},
+      {q:'What formula links energy, mass, specific heat capacity and temperature change?',type:'mcq',options:['E = mc','E = mgh','Change in thermal energy = mass x specific heat capacity x temperature change','E = 1/2 mv squared'],answer:'C',exp:'The equation is: change in thermal energy = mass x specific heat capacity x change in temperature.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The immersion heater and hot water can cause burns. Do not touch the heater element. Turn off and allow to cool before removing from the water. Keep electrical wires away from water.',keywords:['burn','heater','hot','cool','electrical','wires']}
+    ]},
+  {id:'phys-cp10',subject:'Physics',cls:'phys-cp',spec:'15.1P',topic:'T15',name:'Investigate the relationship between force, mass and acceleration (F = ma)',combined:false,
+    cider:{C:'Same trolley, same track surface, same pulley and string setup, compensate for friction',I:'Force applied (varied by changing the mass on the hanging weight) or mass of the trolley',D:'Acceleration of the trolley',E:'Trolley, track (slightly tilted to compensate for friction), pulley, string, hanging masses, light gates (or ticker tape and timer), data logger, balance, ruler',R:'Trolley could roll off the track - use a barrier or cushion at the end; Hanging masses could fall on feet - keep feet clear; Light gates on stands could be knocked over - position securely'},
+    quiz:[
+      {q:'What is the independent variable if you are investigating force?',type:'mcq',options:['Mass of the trolley','Acceleration','Force applied (varied by the hanging mass)','Length of the track'],answer:'C',exp:'You change the hanging mass to change the force, while keeping the total mass of the system constant.'},
+      {q:'What is the dependent variable?',type:'mcq',options:['Force applied','Mass of the trolley','Acceleration of the trolley','Type of track'],answer:'C',exp:'You measure how the acceleration changes as you vary the force or mass.'},
+      {q:'Name two control variables when investigating the effect of force.',type:'ret',answer:'Same total mass of the system (transfer masses from trolley to hanger), same track surface, compensate for friction by tilting the track slightly.',keywords:['total mass','system','track','friction','tilt']},
+      {q:'Why must you keep the total mass of the system constant?',type:'mcq',options:['To keep the experiment fair - you are only testing the effect of force','To make the trolley go faster','To reduce friction','To make the string tighter'],answer:'A',exp:'When you move a mass from the trolley to the hanger, the force increases but the total system mass stays the same, so the test is fair.'},
+      {q:'Describe one risk and how to reduce it.',type:'ret',answer:'The trolley could roll off the end of the track and fall. Place a cushion or barrier at the end. Keep feet clear of hanging masses in case they fall.',keywords:['roll','track','cushion','barrier','feet','fall']}
+    ]}
+];
+
+/* ---------- COMMAND WORDS DATA ---------- */
+const CW_DATA = [
+  {word:'Describe',def:'Give an account of something. Develop your statements, but you do not need to give reasons or justifications.',usePEEL:false,
+    practice:[
+      {q:'Describe the structure of an animal cell. (3 marks)',model:'An animal cell has a cell membrane that controls what enters and leaves the cell. Inside, there is a nucleus that contains genetic material and controls the cell\'s activities. The cytoplasm is where most chemical reactions take place. Mitochondria carry out aerobic respiration to release energy. Ribosomes are the site of protein synthesis.'},
+      {q:'Describe what happens to the current in a series circuit when more resistors are added. (2 marks)',model:'When more resistors are added in series, the total resistance of the circuit increases. This causes the current to decrease because the same battery voltage is now pushing current through a greater resistance.'},
+      {q:'Describe the trend shown in a graph of enzyme activity against temperature. (3 marks)',model:'As temperature increases from 0C, the rate of enzyme activity increases because molecules have more kinetic energy and collide more frequently with the substrate. The rate reaches a maximum at the optimum temperature (around 37C for human enzymes). Above this temperature, the rate decreases rapidly because the enzyme becomes denatured as the active site changes shape.'}
+    ]},
+  {word:'Explain',def:'Give reasons for something. Your answer must contain reasoning or justification, not just a description. Use PEEL for extended answers.',usePEEL:true,
+    practice:[
+      {q:'Explain why the rate of photosynthesis increases as light intensity increases. (3 marks)',model:'Point: The rate of photosynthesis increases as light intensity increases. Evidence: More light energy is absorbed by chlorophyll in the leaves. Explain: Light provides the energy needed for the light-dependent reactions. More light means more energy is available to split water molecules and produce ATP and NADPH, which drive the Calvin cycle faster. Link: Therefore, more glucose is produced per unit time, increasing the rate of photosynthesis.'},
+      {q:'Explain why ionic compounds have high melting points. (3 marks)',model:'Point: Ionic compounds have high melting points. Evidence: For example, sodium chloride melts at 801C. Explain: Ionic compounds are made of a giant lattice of positive and negative ions held together by strong electrostatic forces of attraction in all directions. A large amount of energy is needed to overcome these strong ionic bonds. Link: This is why a high temperature is needed to melt them.'},
+      {q:'Explain why a skydiver reaches terminal velocity. (4 marks)',model:'Point: A skydiver reaches terminal velocity when the forces acting on them are balanced. Evidence: Initially, the only force is weight (gravity) pulling them down, so they accelerate. Explain: As speed increases, air resistance (drag) also increases. Eventually, the upward air resistance equals the downward weight. The resultant force is now zero. Link: With zero resultant force, Newton\'s first law states the skydiver continues at constant velocity, which is terminal velocity.'}
+    ]},
+  {word:'Compare',def:'Identify the similarities and/or differences between two or more things. Do not write a conclusion.',usePEEL:false,
+    practice:[
+      {q:'Compare the structure of a plant cell and an animal cell. (3 marks)',model:'Both plant and animal cells have a cell membrane, nucleus, cytoplasm, mitochondria and ribosomes. However, plant cells also have a rigid cell wall made of cellulose, a permanent vacuole filled with cell sap, and chloroplasts for photosynthesis. Animal cells do not have these three features.'},
+      {q:'Compare covalent bonding and ionic bonding. (3 marks)',model:'In covalent bonding, atoms share pairs of electrons to gain a full outer shell, and this occurs between non-metals. In ionic bonding, electrons are transferred from a metal atom to a non-metal atom, forming positive and negative ions that attract each other. Covalent bonds act between specific atoms, while ionic bonds form a giant lattice of ions.'}
+    ]},
+  {word:'Evaluate',def:'Review the information provided. Come to a conclusion that is supported by evidence, including strengths and weaknesses where relevant. Use PEEL for extended answers.',usePEEL:true,
+    practice:[
+      {q:'Evaluate the use of fossil fuels for generating electricity. (6 marks)',model:'Point: Fossil fuels are a reliable source of electricity but cause significant environmental damage. Evidence: Burning coal, oil and gas releases carbon dioxide which contributes to climate change, and sulfur dioxide which causes acid rain. Fossil fuels are also finite resources that will eventually run out. Explain: Fossil fuel power stations can generate electricity on demand and can be switched on quickly to meet peak demand, which is an advantage over some renewable sources. However, the environmental costs are severe: rising global temperatures, air pollution, and habitat destruction from mining. Link: Overall, while fossil fuels remain important for energy security in the short term, the environmental evidence strongly supports transitioning to renewable energy sources to reduce carbon emissions and ensure long-term sustainability.'}
+    ]},
+  {word:'Suggest',def:'Use your scientific knowledge to propose an explanation or a solution. There may not be a single correct answer. You are expected to apply what you know to an unfamiliar context.',usePEEL:false,
+    practice:[
+      {q:'A student notices that plants on a windowsill grow towards the light. Suggest why this happens. (2 marks)',model:'The plant hormone auxin accumulates on the shaded side of the shoot. Auxin causes cell elongation, so the cells on the shaded side grow longer than those on the lit side. This unequal growth causes the shoot to bend towards the light.'},
+      {q:'A metal bridge rusts faster near the coast than inland. Suggest why. (2 marks)',model:'Near the coast, the air contains salt water (sodium chloride solution) from sea spray. Salt water is an electrolyte that speeds up the rusting process because it allows ions to transfer more easily, increasing the rate of the electrochemical reaction that causes iron to oxidise.'}
+    ]},
+  {word:'Justify',def:'Give evidence to support a statement or conclusion. Your answer must include reasons backed by evidence or data.',usePEEL:false,
+    practice:[
+      {q:'A student says that using a gas syringe is better than counting bubbles to measure the rate of photosynthesis. Justify this statement. (2 marks)',model:'A gas syringe measures the exact volume of oxygen produced, giving a precise numerical value. Counting bubbles is less accurate because bubbles vary in size and some may be missed. The gas syringe therefore gives more reliable and reproducible data.'}
+    ]},
+  {word:'Discuss',def:'Identify the issue or topic. Explore different aspects of it by investigating all sides and reaching a reasoned conclusion. Use PEEL for extended answers.',usePEEL:true,
+    practice:[
+      {q:'Discuss the advantages and disadvantages of using nuclear power to generate electricity. (6 marks)',model:'Point: Nuclear power has both significant advantages and serious risks. Evidence: Nuclear fuel (uranium) produces a huge amount of energy per kilogram with no carbon dioxide emissions during generation. A single nuclear power station can supply large amounts of electricity reliably. However, nuclear waste remains radioactive for thousands of years, and accidents such as Chernobyl and Fukushima have caused widespread contamination. Explain: The lack of CO2 emissions makes nuclear power attractive for reducing climate change, and the fuel is relatively cheap and abundant. Against this, the cost of building and decommissioning nuclear plants is very high, and there is no permanent solution for storing high-level waste safely. The risk of accidents, though low, has catastrophic consequences. Link: On balance, nuclear power can play a role in reducing carbon emissions alongside renewables, but the long-term waste problem and safety risks mean it should be part of a mixed energy strategy rather than the sole solution.'}
+    ]},
+  {word:'Calculate',def:'Obtain a numerical answer by using the correct method. Show your working. Always include the correct units in your answer.',usePEEL:false,
+    practice:[
+      {q:'A car has a mass of 1200 kg and accelerates at 3 m/s squared. Calculate the resultant force. (2 marks)',model:'Force = mass x acceleration. F = 1200 x 3 = 3600 N.'},
+      {q:'An object has a mass of 250 g and a volume of 50 cm cubed. Calculate its density in g/cm cubed. (2 marks)',model:'Density = mass / volume. Density = 250 / 50 = 5 g/cm cubed.'}
+    ]},
+  {word:'State / Give / Name',def:'Recall a fact, definition, or piece of information. Short answers are expected. No explanation is needed.',usePEEL:false,
+    practice:[
+      {q:'State the function of the nucleus. (1 mark)',model:'The nucleus contains genetic material (DNA) and controls the activities of the cell.'},
+      {q:'Name the gas produced when an acid reacts with a metal carbonate. (1 mark)',model:'Carbon dioxide.'}
+    ]},
+  {word:'Deduce',def:'Draw conclusions from the information provided. Use logic and the data given to work out the answer.',usePEEL:false,
+    practice:[
+      {q:'The table shows that element X has 2 electrons in its outer shell and is in Period 3. Deduce the element. (1 mark)',model:'Magnesium (Mg). It is in Period 3 (so has 3 electron shells) and Group 2 (2 outer electrons).'}
+    ]}
+];
+
+/* ---------- CALCULATIONS DATA ---------- */
+const CALC_DATA = [
+  // PHYSICS EQUATIONS
+  {id:'calc-p1',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Speed',equation:'speed (m/s) = distance (m) / time (s)',symbol:'v = d / t',
+    worked:{scenario:'A car travels 150 m in 10 s. Calculate its speed.',steps:[
+      {l:'E',c:'var(--amber)',t:'speed = distance / time'},
+      {l:'V',c:'var(--coral)',t:'distance = 150 m, time = 10 s'},
+      {l:'E',c:'var(--sky)',t:'speed = 150 / 10'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'speed = 15 m/s'}
+    ]},
+    questions:[
+      {q:'A cyclist travels 240 m in 30 s. Calculate the speed.',answer:8,unit:'m/s',tolerance:0.1,diff:'Foundation',solution:'speed = distance / time = 240 / 30 = 8 m/s'},
+      {q:'A runner completes a 400 m track in 50 s. Calculate their average speed.',answer:8,unit:'m/s',tolerance:0.1,diff:'Foundation',solution:'speed = distance / time = 400 / 50 = 8 m/s'},
+      {q:'Sound travels at 340 m/s. Calculate the distance it travels in 2.5 s.',answer:850,unit:'m',tolerance:1,diff:'Higher',solution:'distance = speed x time = 340 x 2.5 = 850 m'}
+    ]},
+  {id:'calc-p2',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Acceleration',equation:'acceleration (m/s2) = change in velocity (m/s) / time (s)',symbol:'a = (v - u) / t',
+    worked:{scenario:'A car goes from 0 to 20 m/s in 5 s. Calculate the acceleration.',steps:[
+      {l:'E',c:'var(--amber)',t:'acceleration = change in velocity / time'},
+      {l:'V',c:'var(--coral)',t:'v = 20 m/s, u = 0 m/s, t = 5 s'},
+      {l:'E',c:'var(--sky)',t:'a = (20 - 0) / 5'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'a = 4 m/s2'}
+    ]},
+    questions:[
+      {q:'A train accelerates from rest to 30 m/s in 15 s. Calculate the acceleration.',answer:2,unit:'m/s2',tolerance:0.1,diff:'Foundation',solution:'a = (v - u) / t = (30 - 0) / 15 = 2 m/s2'},
+      {q:'A bike goes from 5 m/s to 15 m/s in 4 s. Calculate the acceleration.',answer:2.5,unit:'m/s2',tolerance:0.1,diff:'Foundation',solution:'a = (v - u) / t = (15 - 5) / 4 = 10 / 4 = 2.5 m/s2'},
+      {q:'A car decelerates from 25 m/s to 5 m/s in 10 s. Calculate the deceleration.',answer:2,unit:'m/s2',tolerance:0.1,diff:'Higher',solution:'a = (v - u) / t = (5 - 25) / 10 = -20 / 10 = -2 m/s2. The deceleration is 2 m/s2.'}
+    ]},
+  {id:'calc-p3',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Force (Newton\'s Second Law)',equation:'force (N) = mass (kg) x acceleration (m/s2)',symbol:'F = m x a',
+    worked:{scenario:'A 500 kg go-kart accelerates at 2 m/s2. Calculate the resultant force.',steps:[
+      {l:'E',c:'var(--amber)',t:'force = mass x acceleration'},
+      {l:'V',c:'var(--coral)',t:'m = 500 kg, a = 2 m/s2'},
+      {l:'E',c:'var(--sky)',t:'F = 500 x 2'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'F = 1000 N'}
+    ]},
+    questions:[
+      {q:'A 60 kg skater accelerates at 3 m/s2. Calculate the force.',answer:180,unit:'N',tolerance:1,diff:'Foundation',solution:'F = m x a = 60 x 3 = 180 N'},
+      {q:'A resultant force of 4500 N acts on a 1500 kg car. Calculate the acceleration.',answer:3,unit:'m/s2',tolerance:0.1,diff:'Higher',solution:'a = F / m = 4500 / 1500 = 3 m/s2'},
+      {q:'A force of 200 N gives an object an acceleration of 0.5 m/s2. Calculate the mass.',answer:400,unit:'kg',tolerance:1,diff:'Higher',solution:'m = F / a = 200 / 0.5 = 400 kg'}
+    ]},
+  {id:'calc-p4',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Weight',equation:'weight (N) = mass (kg) x gravitational field strength (N/kg)',symbol:'W = m x g',
+    worked:{scenario:'A 70 kg person stands on Earth where g = 9.8 N/kg. Calculate their weight.',steps:[
+      {l:'E',c:'var(--amber)',t:'weight = mass x gravitational field strength'},
+      {l:'V',c:'var(--coral)',t:'m = 70 kg, g = 9.8 N/kg'},
+      {l:'E',c:'var(--sky)',t:'W = 70 x 9.8'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'W = 686 N'}
+    ]},
+    questions:[
+      {q:'Calculate the weight of a 50 kg student on Earth (g = 9.8 N/kg).',answer:490,unit:'N',tolerance:1,diff:'Foundation',solution:'W = m x g = 50 x 9.8 = 490 N'},
+      {q:'An object weighs 294 N on Earth (g = 9.8 N/kg). Calculate its mass.',answer:30,unit:'kg',tolerance:0.5,diff:'Foundation',solution:'m = W / g = 294 / 9.8 = 30 kg'},
+      {q:'The same 50 kg student goes to the Moon where g = 1.6 N/kg. Calculate their weight on the Moon.',answer:80,unit:'N',tolerance:1,diff:'Higher',solution:'W = m x g = 50 x 1.6 = 80 N'}
+    ]},
+  {id:'calc-p5',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Work Done',equation:'work done (J) = force (N) x distance (m)',symbol:'W = F x d',
+    worked:{scenario:'A person pushes a box with a force of 40 N across 5 m. Calculate the work done.',steps:[
+      {l:'E',c:'var(--amber)',t:'work done = force x distance'},
+      {l:'V',c:'var(--coral)',t:'F = 40 N, d = 5 m'},
+      {l:'E',c:'var(--sky)',t:'W = 40 x 5'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'W = 200 J'}
+    ]},
+    questions:[
+      {q:'A force of 80 N moves a box 3 m. Calculate the work done.',answer:240,unit:'J',tolerance:1,diff:'Foundation',solution:'W = F x d = 80 x 3 = 240 J'},
+      {q:'A crane does 5000 J of work lifting a load 2 m. Calculate the force exerted.',answer:2500,unit:'N',tolerance:1,diff:'Higher',solution:'F = W / d = 5000 / 2 = 2500 N'},
+      {q:'A 600 N person climbs stairs that are 4.5 m high. Calculate the work done against gravity.',answer:2700,unit:'J',tolerance:1,diff:'Higher',solution:'W = F x d = 600 x 4.5 = 2700 J'}
+    ]},
+  {id:'calc-p6',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Kinetic Energy',equation:'kinetic energy (J) = 0.5 x mass (kg) x velocity squared (m/s)2',symbol:'KE = 0.5 x m x v2',
+    worked:{scenario:'A 2 kg ball moves at 5 m/s. Calculate its kinetic energy.',steps:[
+      {l:'E',c:'var(--amber)',t:'KE = 0.5 x mass x velocity squared'},
+      {l:'V',c:'var(--coral)',t:'m = 2 kg, v = 5 m/s'},
+      {l:'E',c:'var(--sky)',t:'KE = 0.5 x 2 x 5 x 5'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'KE = 25 J'}
+    ]},
+    questions:[
+      {q:'A 4 kg trolley moves at 3 m/s. Calculate its kinetic energy.',answer:18,unit:'J',tolerance:0.5,diff:'Foundation',solution:'KE = 0.5 x m x v2 = 0.5 x 4 x 3 x 3 = 0.5 x 4 x 9 = 18 J'},
+      {q:'A 1000 kg car has 125000 J of kinetic energy. Calculate its speed.',answer:15.8,unit:'m/s',tolerance:0.5,diff:'Higher',solution:'v2 = KE / (0.5 x m) = 125000 / 500 = 250. v = square root of 250 = 15.8 m/s'},
+      {q:'A 0.5 kg ball is thrown at 10 m/s. Calculate the kinetic energy.',answer:25,unit:'J',tolerance:0.5,diff:'Foundation',solution:'KE = 0.5 x m x v2 = 0.5 x 0.5 x 10 x 10 = 25 J'}
+    ]},
+  {id:'calc-p7',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Gravitational Potential Energy',equation:'GPE (J) = mass (kg) x g (N/kg) x height (m)',symbol:'GPE = m x g x h',
+    worked:{scenario:'A 3 kg book is lifted 2 m. g = 9.8 N/kg. Calculate the GPE gained.',steps:[
+      {l:'E',c:'var(--amber)',t:'GPE = mass x gravitational field strength x height'},
+      {l:'V',c:'var(--coral)',t:'m = 3 kg, g = 9.8 N/kg, h = 2 m'},
+      {l:'E',c:'var(--sky)',t:'GPE = 3 x 9.8 x 2'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'GPE = 58.8 J'}
+    ]},
+    questions:[
+      {q:'A 5 kg weight is lifted 3 m. g = 9.8 N/kg. Calculate the GPE gained.',answer:147,unit:'J',tolerance:1,diff:'Foundation',solution:'GPE = m x g x h = 5 x 9.8 x 3 = 147 J'},
+      {q:'A 0.2 kg ball is thrown upwards and gains 9.8 J of GPE. Calculate the height gained. (g = 9.8 N/kg)',answer:5,unit:'m',tolerance:0.1,diff:'Higher',solution:'h = GPE / (m x g) = 9.8 / (0.2 x 9.8) = 9.8 / 1.96 = 5 m'},
+      {q:'How much GPE does a 75 kg person gain climbing a 10 m ladder? (g = 9.8 N/kg)',answer:7350,unit:'J',tolerance:10,diff:'Foundation',solution:'GPE = m x g x h = 75 x 9.8 x 10 = 7350 J'}
+    ]},
+  {id:'calc-p8',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Power',equation:'power (W) = energy transferred (J) / time (s)',symbol:'P = E / t',
+    worked:{scenario:'A motor transfers 600 J of energy in 30 s. Calculate the power.',steps:[
+      {l:'E',c:'var(--amber)',t:'power = energy transferred / time'},
+      {l:'V',c:'var(--coral)',t:'E = 600 J, t = 30 s'},
+      {l:'E',c:'var(--sky)',t:'P = 600 / 30'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'P = 20 W'}
+    ]},
+    questions:[
+      {q:'A lamp transfers 1200 J in 60 s. Calculate the power.',answer:20,unit:'W',tolerance:0.5,diff:'Foundation',solution:'P = E / t = 1200 / 60 = 20 W'},
+      {q:'A 100 W heater runs for 5 minutes. Calculate the energy transferred.',answer:30000,unit:'J',tolerance:100,diff:'Foundation',solution:'t = 5 x 60 = 300 s. E = P x t = 100 x 300 = 30000 J'},
+      {q:'A crane lifts a load doing 15000 J of work in 25 s. Calculate the power of the crane.',answer:600,unit:'W',tolerance:1,diff:'Higher',solution:'P = E / t = 15000 / 25 = 600 W'}
+    ]},
+  {id:'calc-p9',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Efficiency',equation:'efficiency = useful output energy / total input energy (x 100 for %)',symbol:'efficiency = useful output / total input',
+    worked:{scenario:'A motor receives 500 J of energy and does 350 J of useful work. Calculate the efficiency.',steps:[
+      {l:'E',c:'var(--amber)',t:'efficiency = useful output / total input x 100'},
+      {l:'V',c:'var(--coral)',t:'useful output = 350 J, total input = 500 J'},
+      {l:'E',c:'var(--sky)',t:'efficiency = 350 / 500 x 100'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'efficiency = 70%'}
+    ]},
+    questions:[
+      {q:'A bulb receives 60 J but only 9 J is converted to light. Calculate the efficiency as a percentage.',answer:15,unit:'%',tolerance:0.5,diff:'Foundation',solution:'efficiency = (9 / 60) x 100 = 15%'},
+      {q:'A machine is 80% efficient and receives 2000 J. Calculate the useful output.',answer:1600,unit:'J',tolerance:1,diff:'Higher',solution:'useful output = efficiency x total input / 100 = 80 x 2000 / 100 = 1600 J'},
+      {q:'A motor does 450 J of useful work. Its efficiency is 75%. Calculate the total energy input.',answer:600,unit:'J',tolerance:1,diff:'Higher',solution:'total input = useful output / (efficiency / 100) = 450 / 0.75 = 600 J'}
+    ]},
+  {id:'calc-p10',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Charge and Current',equation:'charge (C) = current (A) x time (s)',symbol:'Q = I x t',
+    worked:{scenario:'A current of 0.5 A flows for 120 s. Calculate the charge.',steps:[
+      {l:'E',c:'var(--amber)',t:'charge = current x time'},
+      {l:'V',c:'var(--coral)',t:'I = 0.5 A, t = 120 s'},
+      {l:'E',c:'var(--sky)',t:'Q = 0.5 x 120'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'Q = 60 C'}
+    ]},
+    questions:[
+      {q:'A current of 3 A flows for 60 s. Calculate the charge.',answer:180,unit:'C',tolerance:1,diff:'Foundation',solution:'Q = I x t = 3 x 60 = 180 C'},
+      {q:'A charge of 450 C flows in 90 s. Calculate the current.',answer:5,unit:'A',tolerance:0.1,diff:'Foundation',solution:'I = Q / t = 450 / 90 = 5 A'},
+      {q:'A battery delivers a current of 0.25 A. How long does it take to transfer 100 C of charge?',answer:400,unit:'s',tolerance:1,diff:'Higher',solution:'t = Q / I = 100 / 0.25 = 400 s'}
+    ]},
+  {id:'calc-p11',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Ohm\'s Law (Resistance)',equation:'voltage (V) = current (A) x resistance (ohms)',symbol:'V = I x R',
+    worked:{scenario:'A current of 2 A flows through a 6 ohm resistor. Calculate the voltage.',steps:[
+      {l:'E',c:'var(--amber)',t:'voltage = current x resistance'},
+      {l:'V',c:'var(--coral)',t:'I = 2 A, R = 6 ohms'},
+      {l:'E',c:'var(--sky)',t:'V = 2 x 6'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'V = 12 V'}
+    ]},
+    questions:[
+      {q:'A 4 A current flows through a 12 ohm resistor. Calculate the voltage.',answer:48,unit:'V',tolerance:0.5,diff:'Foundation',solution:'V = I x R = 4 x 12 = 48 V'},
+      {q:'A 6 V battery drives a current of 0.5 A. Calculate the resistance.',answer:12,unit:'ohms',tolerance:0.5,diff:'Foundation',solution:'R = V / I = 6 / 0.5 = 12 ohms'},
+      {q:'A component has a resistance of 240 ohms and a voltage of 12 V across it. Calculate the current in mA.',answer:50,unit:'mA',tolerance:1,diff:'Higher',solution:'I = V / R = 12 / 240 = 0.05 A = 50 mA'}
+    ]},
+  {id:'calc-p12',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Electrical Power',equation:'power (W) = current (A) x voltage (V)',symbol:'P = I x V',
+    worked:{scenario:'A 3 A current flows through a 230 V kettle. Calculate the power.',steps:[
+      {l:'E',c:'var(--amber)',t:'power = current x voltage'},
+      {l:'V',c:'var(--coral)',t:'I = 3 A, V = 230 V'},
+      {l:'E',c:'var(--sky)',t:'P = 3 x 230'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'P = 690 W'}
+    ]},
+    questions:[
+      {q:'A lamp draws 0.5 A from a 12 V supply. Calculate the power.',answer:6,unit:'W',tolerance:0.1,diff:'Foundation',solution:'P = I x V = 0.5 x 12 = 6 W'},
+      {q:'A 2300 W kettle is connected to a 230 V supply. Calculate the current.',answer:10,unit:'A',tolerance:0.1,diff:'Higher',solution:'I = P / V = 2300 / 230 = 10 A'},
+      {q:'A heater uses 4 A at 230 V. Calculate the energy transferred in 10 minutes.',answer:552000,unit:'J',tolerance:1000,diff:'Higher',solution:'P = I x V = 4 x 230 = 920 W. E = P x t = 920 x 600 = 552000 J'}
+    ]},
+  {id:'calc-p13',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Density',equation:'density (kg/m3) = mass (kg) / volume (m3)',symbol:'rho = m / V',
+    worked:{scenario:'An object has a mass of 300 g and a volume of 100 cm3. Calculate the density.',steps:[
+      {l:'E',c:'var(--amber)',t:'density = mass / volume'},
+      {l:'V',c:'var(--coral)',t:'m = 300 g, V = 100 cm3'},
+      {l:'E',c:'var(--sky)',t:'density = 300 / 100'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'density = 3 g/cm3'}
+    ]},
+    questions:[
+      {q:'A block has a mass of 200 g and a volume of 50 cm3. Calculate its density in g/cm3.',answer:4,unit:'g/cm3',tolerance:0.1,diff:'Foundation',solution:'density = mass / volume = 200 / 50 = 4 g/cm3'},
+      {q:'A liquid has a density of 0.8 g/cm3. What is the mass of 250 cm3 of this liquid?',answer:200,unit:'g',tolerance:1,diff:'Foundation',solution:'mass = density x volume = 0.8 x 250 = 200 g'},
+      {q:'A metal cube has sides of 2 cm and a mass of 64 g. Calculate its density.',answer:8,unit:'g/cm3',tolerance:0.1,diff:'Higher',solution:'volume = 2 x 2 x 2 = 8 cm3. density = mass / volume = 64 / 8 = 8 g/cm3'}
+    ]},
+  {id:'calc-p14',subject:'Physics',cls:'phys-calc',eqCls:'phys-eq',qCls:'phys-q',solCls:'phys-sol',name:'Wave Speed',equation:'wave speed (m/s) = frequency (Hz) x wavelength (m)',symbol:'v = f x lambda',
+    worked:{scenario:'A wave has a frequency of 500 Hz and a wavelength of 0.4 m. Calculate the wave speed.',steps:[
+      {l:'E',c:'var(--amber)',t:'wave speed = frequency x wavelength'},
+      {l:'V',c:'var(--coral)',t:'f = 500 Hz, wavelength = 0.4 m'},
+      {l:'E',c:'var(--sky)',t:'v = 500 x 0.4'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'v = 200 m/s'}
+    ]},
+    questions:[
+      {q:'A wave has frequency 200 Hz and wavelength 1.5 m. Calculate the wave speed.',answer:300,unit:'m/s',tolerance:1,diff:'Foundation',solution:'v = f x wavelength = 200 x 1.5 = 300 m/s'},
+      {q:'A sound wave travels at 340 m/s with a frequency of 680 Hz. Calculate the wavelength.',answer:0.5,unit:'m',tolerance:0.01,diff:'Higher',solution:'wavelength = v / f = 340 / 680 = 0.5 m'},
+      {q:'A radio wave has a wavelength of 3 m and travels at 300000000 m/s. Calculate the frequency in MHz.',answer:100,unit:'MHz',tolerance:1,diff:'Higher',solution:'f = v / wavelength = 300000000 / 3 = 100000000 Hz = 100 MHz'}
+    ]},
+  // CHEMISTRY EQUATIONS
+  {id:'calc-c1',subject:'Chemistry',cls:'chem-calc',eqCls:'chem-eq',qCls:'chem-q',solCls:'chem-sol',name:'Relative Formula Mass (Mr)',equation:'Mr = sum of all relative atomic masses in the formula',symbol:'Mr = sum of Ar values',
+    worked:{scenario:'Calculate the relative formula mass of water (H2O). Ar: H = 1, O = 16.',steps:[
+      {l:'E',c:'var(--amber)',t:'Mr = sum of all Ar values'},
+      {l:'V',c:'var(--coral)',t:'H2O contains 2 x H and 1 x O. Ar(H) = 1, Ar(O) = 16'},
+      {l:'E',c:'var(--sky)',t:'Mr = (2 x 1) + (1 x 16)'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'Mr = 18'}
+    ]},
+    questions:[
+      {q:'Calculate the Mr of CO2. Ar: C = 12, O = 16.',answer:44,unit:'',tolerance:0.5,diff:'Foundation',solution:'Mr = 12 + (2 x 16) = 12 + 32 = 44'},
+      {q:'Calculate the Mr of NaOH. Ar: Na = 23, O = 16, H = 1.',answer:40,unit:'',tolerance:0.5,diff:'Foundation',solution:'Mr = 23 + 16 + 1 = 40'},
+      {q:'Calculate the Mr of Ca(OH)2. Ar: Ca = 40, O = 16, H = 1.',answer:74,unit:'',tolerance:0.5,diff:'Higher',solution:'Mr = 40 + 2 x (16 + 1) = 40 + 34 = 74'}
+    ]},
+  {id:'calc-c2',subject:'Chemistry',cls:'chem-calc',eqCls:'chem-eq',qCls:'chem-q',solCls:'chem-sol',name:'Moles (amount of substance)',equation:'moles = mass (g) / relative formula mass (Mr)',symbol:'n = m / Mr',
+    worked:{scenario:'Calculate the number of moles in 20 g of NaOH. Mr of NaOH = 40.',steps:[
+      {l:'E',c:'var(--amber)',t:'moles = mass / Mr'},
+      {l:'V',c:'var(--coral)',t:'mass = 20 g, Mr = 40'},
+      {l:'E',c:'var(--sky)',t:'n = 20 / 40'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'n = 0.5 mol'}
+    ]},
+    questions:[
+      {q:'Calculate the number of moles in 88 g of CO2. Mr of CO2 = 44.',answer:2,unit:'mol',tolerance:0.1,diff:'Foundation',solution:'n = mass / Mr = 88 / 44 = 2 mol'},
+      {q:'Calculate the mass of 0.25 mol of NaCl. Mr of NaCl = 58.5.',answer:14.625,unit:'g',tolerance:0.2,diff:'Higher',solution:'mass = n x Mr = 0.25 x 58.5 = 14.625 g'},
+      {q:'Calculate the moles in 4.9 g of H2SO4. Mr of H2SO4 = 98.',answer:0.05,unit:'mol',tolerance:0.005,diff:'Higher',solution:'n = mass / Mr = 4.9 / 98 = 0.05 mol'}
+    ]},
+  {id:'calc-c3',subject:'Chemistry',cls:'chem-calc',eqCls:'chem-eq',qCls:'chem-q',solCls:'chem-sol',name:'Concentration',equation:'concentration (g/dm3) = mass of solute (g) / volume of solution (dm3)',symbol:'c = m / V',
+    worked:{scenario:'5 g of salt is dissolved in 250 cm3 of water. Calculate the concentration in g/dm3.',steps:[
+      {l:'E',c:'var(--amber)',t:'concentration = mass / volume'},
+      {l:'V',c:'var(--coral)',t:'mass = 5 g, volume = 250 cm3 = 0.25 dm3'},
+      {l:'E',c:'var(--sky)',t:'c = 5 / 0.25'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'c = 20 g/dm3'}
+    ]},
+    questions:[
+      {q:'10 g of sugar is dissolved in 500 cm3 of water. Calculate the concentration in g/dm3.',answer:20,unit:'g/dm3',tolerance:0.5,diff:'Foundation',solution:'volume = 500 / 1000 = 0.5 dm3. c = m / V = 10 / 0.5 = 20 g/dm3'},
+      {q:'A solution has a concentration of 40 g/dm3. What mass of solute is in 250 cm3?',answer:10,unit:'g',tolerance:0.5,diff:'Higher',solution:'volume = 250 / 1000 = 0.25 dm3. mass = c x V = 40 x 0.25 = 10 g'},
+      {q:'A solution has a concentration of 2 mol/dm3 and the solute has Mr = 40. Calculate the concentration in g/dm3.',answer:80,unit:'g/dm3',tolerance:1,diff:'Higher',solution:'concentration in g/dm3 = mol/dm3 x Mr = 2 x 40 = 80 g/dm3'}
+    ]},
+  // BIOLOGY EQUATIONS
+  {id:'calc-b1',subject:'Biology',cls:'',eqCls:'',qCls:'',solCls:'',name:'Magnification',equation:'magnification = image size / actual size',symbol:'M = I / A',
+    worked:{scenario:'A cell image is 30 mm across. The actual cell is 0.03 mm. Calculate the magnification.',steps:[
+      {l:'E',c:'var(--amber)',t:'magnification = image size / actual size'},
+      {l:'V',c:'var(--coral)',t:'image size = 30 mm, actual size = 0.03 mm'},
+      {l:'E',c:'var(--sky)',t:'M = 30 / 0.03'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'magnification = x1000'}
+    ]},
+    questions:[
+      {q:'An image of a cell is 50 mm long. The actual cell is 0.05 mm. Calculate the magnification.',answer:1000,unit:'x',tolerance:10,diff:'Foundation',solution:'M = image size / actual size = 50 / 0.05 = x1000'},
+      {q:'A microscope magnification is x400. The image is 20 mm. Calculate the actual size in mm.',answer:0.05,unit:'mm',tolerance:0.005,diff:'Higher',solution:'actual size = image size / magnification = 20 / 400 = 0.05 mm'},
+      {q:'Convert 0.05 mm to micrometres.',answer:50,unit:'micrometres',tolerance:1,diff:'Foundation',solution:'1 mm = 1000 micrometres. 0.05 x 1000 = 50 micrometres'}
+    ]},
+  {id:'calc-b2',subject:'Biology',cls:'',eqCls:'',qCls:'',solCls:'',name:'Percentage Change',equation:'% change = (change / original value) x 100',symbol:'% change = (final - original) / original x 100',
+    worked:{scenario:'A potato chip starts at 5.0 g and ends at 5.8 g after osmosis. Calculate the % change in mass.',steps:[
+      {l:'E',c:'var(--amber)',t:'% change = (change / original) x 100'},
+      {l:'V',c:'var(--coral)',t:'change = 5.8 - 5.0 = 0.8 g, original = 5.0 g'},
+      {l:'E',c:'var(--sky)',t:'% change = (0.8 / 5.0) x 100'},
+      {l:'R',c:'var(--amber)',t:'No rearrangement needed'},
+      {l:'Y',c:'var(--mint)',t:'% change = +16%'}
+    ]},
+    questions:[
+      {q:'A potato chip has initial mass 4.0 g and final mass 4.6 g. Calculate the percentage change.',answer:15,unit:'%',tolerance:0.5,diff:'Foundation',solution:'change = 4.6 - 4.0 = 0.6 g. % change = (0.6 / 4.0) x 100 = 15%'},
+      {q:'A chip starts at 3.5 g and ends at 2.8 g. Calculate the percentage change.',answer:-20,unit:'%',tolerance:0.5,diff:'Foundation',solution:'change = 2.8 - 3.5 = -0.7 g. % change = (-0.7 / 3.5) x 100 = -20%'},
+      {q:'A population of 500 bacteria grows to 1800 in 24 hours. Calculate the percentage increase.',answer:260,unit:'%',tolerance:1,diff:'Higher',solution:'change = 1800 - 500 = 1300. % change = (1300 / 500) x 100 = 260%'}
+    ]}
+];
+
+/* ---------- EXAM SKILLS RENDER ---------- */
+let esCurrentPanel = 'cp';
+let esCpFilter = 'all';
+let esCalcFilter = 'all';
+
+function renderExamSkills() {
+  const el = document.getElementById('screen-examskills');
+  el.innerHTML = `
+    <h2 style="font-size:1.15rem;margin-bottom:16px;color:var(--teal)">Exam Skills Practice</h2>
+    <div class="es-section-tabs">
+      <button class="es-section-tab ${esCurrentPanel==='cp'?'active-cp':''}" onclick="switchESPanel('cp')">Core Practicals</button>
+      <button class="es-section-tab ${esCurrentPanel==='cw'?'active-cw':''}" onclick="switchESPanel('cw')">Command Words</button>
+      <button class="es-section-tab ${esCurrentPanel==='calc'?'active-calc':''}" onclick="switchESPanel('calc')">Calculations</button>
+    </div>
+    <div id="es-cp-panel" class="es-panel ${esCurrentPanel==='cp'?'active':''}"></div>
+    <div id="es-cw-panel" class="es-panel ${esCurrentPanel==='cw'?'active':''}"></div>
+    <div id="es-calc-panel" class="es-panel ${esCurrentPanel==='calc'?'active':''}"></div>
+  `;
+  renderCPPanel();
+  renderCWPanel();
+  renderCalcPanel();
+}
+
+function switchESPanel(panel) {
+  esCurrentPanel = panel;
+  document.querySelectorAll('.es-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.es-section-tab').forEach(t => {t.classList.remove('active-cp','active-cw','active-calc');});
+  document.getElementById('es-'+panel+'-panel').classList.add('active');
+  const btn = document.querySelector(`.es-section-tab[onclick="switchESPanel('${panel}')"]`);
+  if (panel==='cp') btn.classList.add('active-cp');
+  if (panel==='cw') btn.classList.add('active-cw');
+  if (panel==='calc') btn.classList.add('active-calc');
+}
+
+/* ----- CORE PRACTICALS PANEL ----- */
+function renderCPPanel() {
+  const el = document.getElementById('es-cp-panel');
+  const filtered = esCpFilter === 'all' ? CP_DATA : CP_DATA.filter(cp => cp.subject === esCpFilter);
+
+  let html = `
+    <div class="es-filter-row">
+      <button class="es-filter-btn ${esCpFilter==='all'?'active':''}" onclick="esCpFilter='all';renderCPPanel()">All</button>
+      <button class="es-filter-btn ${esCpFilter==='Biology'?'active':''}" onclick="esCpFilter='Biology';renderCPPanel()">Biology</button>
+      <button class="es-filter-btn ${esCpFilter==='Chemistry'?'chem-active':''}" onclick="esCpFilter='Chemistry';renderCPPanel()">Chemistry</button>
+      <button class="es-filter-btn ${esCpFilter==='Physics'?'phys-active':''}" onclick="esCpFilter='Physics';renderCPPanel()">Physics</button>
+    </div>
+  `;
+
+  filtered.forEach(cp => {
+    const badge = cp.combined
+      ? '<span class="cp-badge combined">Combined + Triple</span>'
+      : '<span class="cp-badge triple">Triple Only</span>';
+    const btnCls = cp.subject==='Chemistry'?'chem-btn':cp.subject==='Physics'?'phys-btn':'';
+
+    html += `
+      <div class="cp-card ${cp.cls}">
+        <h4>${cp.subject} CP: ${cp.name} (${cp.spec})${badge}</h4>
+        <div class="cider-grid">
+          <div class="cider-label c-l">C</div><div class="cider-val">${cp.cider.C}</div>
+          <div class="cider-label i-l">I</div><div class="cider-val">${cp.cider.I}</div>
+          <div class="cider-label d-l">D</div><div class="cider-val">${cp.cider.D}</div>
+          <div class="cider-label e-l">E</div><div class="cider-val">${cp.cider.E}</div>
+          <div class="cider-label r-l">R</div><div class="cider-val">${cp.cider.R}</div>
+        </div>
+        <button class="cp-quiz-btn ${btnCls}" onclick="startCPQuiz('${cp.id}')">Practice Quiz</button>
+      </div>
+    `;
+  });
+  el.innerHTML = html;
+}
+
+/* ----- CP QUIZ ----- */
+let cpQuizState = {};
+
+function startCPQuiz(cpId) {
+  const cp = CP_DATA.find(c => c.id === cpId);
+  if (!cp) return;
+  cpQuizState = {cp, questions: [...cp.quiz], idx: 0, score: 0, answered: false};
+  screens.forEach(s => s.classList.remove('active'));
+  quizScreens.forEach(s => s.classList.remove('active'));
+  document.getElementById('quizMCQ').classList.add('active');
+  renderCPQuizQuestion();
+}
+
+function renderCPQuizQuestion() {
+  const {cp, questions, idx, score} = cpQuizState;
+  if (idx >= questions.length) { renderCPQuizResults(); return; }
+  const q = questions[idx];
+  const pct = ((idx) / questions.length * 100).toFixed(0);
+  cpQuizState.answered = false;
+
+  let qHTML = '';
+  if (q.type === 'mcq') {
+    qHTML = `
+      <div class="mcq-options" id="cpMcqOptions">
+        ${q.options.map((opt,i) => `<button class="mcq-option" data-idx="${i}" onclick="handleCPMCQ(this,${i})">${opt}</button>`).join('')}
+      </div>
+      <div id="cpMcqFeedback"></div>
+      <button class="quiz-next-btn hidden" id="cpNext" onclick="cpQuizNext()">Next Question</button>
+    `;
+  } else {
+    qHTML = `
+      <div class="ret-answer-area">
+        <textarea id="cpRetInput" placeholder="Type your answer from memory..."></textarea>
+        <button class="ret-check-btn" id="cpRetCheckBtn" onclick="checkCPRet()">Check Answer</button>
+      </div>
+      <div id="cpRetFeedback"></div>
+    `;
+  }
+
+  document.getElementById('quizMCQ').innerHTML = `
+    <div class="quiz-header">
+      <button class="quiz-back" onclick="exitCPQuiz()">&#8592;</button>
+      <div class="quiz-title">${cp.name}</div>
+      <div class="quiz-counter">${idx+1} / ${questions.length}</div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%;background:var(--teal)"></div></div>
+    <div class="question-text">${q.q}</div>
+    ${qHTML}
+  `;
+  if (q.type === 'ret') document.getElementById('cpRetInput').focus();
+}
+
+function handleCPMCQ(btn, idx) {
+  if (cpQuizState.answered) return;
+  cpQuizState.answered = true;
+  const q = cpQuizState.questions[cpQuizState.idx];
+  const correctIdx = q.answer.charCodeAt(0) - 65;
+  const isCorrect = idx === correctIdx;
+  const options = document.querySelectorAll('.mcq-option');
+  options.forEach((o,i) => {
+    o.classList.add('locked');
+    if (i === correctIdx) o.classList.add('correct');
+    if (i === idx && !isCorrect) o.classList.add('wrong');
+  });
+  if (isCorrect) { cpQuizState.score++; playSound('correct'); }
+  else { playSound('wrong'); }
+  const fb = document.getElementById('cpMcqFeedback');
+  fb.innerHTML = isCorrect
+    ? `<div class="explanation-box">${q.exp}</div>`
+    : `<div class="explanation-box wrong-exp">${q.exp}</div>`;
+  document.getElementById('cpNext').classList.remove('hidden');
+}
+
+function checkCPRet() {
+  if (cpQuizState.answered) return;
+  cpQuizState.answered = true;
+  const q = cpQuizState.questions[cpQuizState.idx];
+  const typed = document.getElementById('cpRetInput').value.toLowerCase();
+  let found = 0;
+  const kwHTML = q.keywords.map(kw => {
+    const isFound = typed.includes(kw.toLowerCase());
+    if (isFound) found++;
+    return `<span class="kw-tag ${isFound?'found':'missed'}">${kw} ${isFound?'\u2713':'\u2717'}</span>`;
+  }).join('');
+
+  document.getElementById('cpRetCheckBtn').classList.add('hidden');
+  document.getElementById('cpRetFeedback').innerHTML = `
+    <div class="model-answer-box">
+      <h4>Model Answer</h4>
+      <p>${q.answer}</p>
+      <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;color:#888;margin-bottom:6px">Key Terms: ${found}/${q.keywords.length}</div>
+      <div class="keyword-tags">${kwHTML}</div>
+      <div class="self-mark-btns">
+        <button class="self-mark-btn right" onclick="markCPRet('right')">Got It Right</button>
+        <button class="self-mark-btn partial" onclick="markCPRet('partial')">Partially Right</button>
+        <button class="self-mark-btn wrong-mark" onclick="markCPRet('wrong')">Got It Wrong</button>
+      </div>
+    </div>
+  `;
+}
+
+function markCPRet(mark) {
+  if (mark === 'right') { cpQuizState.score++; playSound('correct'); }
+  else if (mark === 'partial') { cpQuizState.score += 0.5; playSound('correct'); }
+  else { playSound('wrong'); }
+  cpQuizState.idx++;
+  renderCPQuizQuestion();
+}
+
+function cpQuizNext() {
+  cpQuizState.idx++;
+  renderCPQuizQuestion();
+}
+
+function renderCPQuizResults() {
+  const {score, questions, cp} = cpQuizState;
+  const pct = Math.round(score / questions.length * 100);
+  playSound('complete');
+  addXP(Math.round(score * 10));
+  let msg = pct >= 80 ? "Excellent practical knowledge!" : pct >= 50 ? "Good effort! Review the CIDER card and try again." : "Keep practising! Read through the CIDER card above and retry.";
+  document.getElementById('quizMCQ').innerHTML = `
+    <div class="quiz-header">
+      <button class="quiz-back" onclick="exitCPQuiz()">&#8592;</button>
+      <div class="quiz-title">Results</div>
+    </div>
+    <div class="results-card">
+      <div style="font-size:.85rem;color:#888;text-transform:uppercase;font-weight:700">${cp.name}</div>
+      <div class="results-score">${Math.round(score)}/${questions.length}</div>
+      <div class="results-pct">${pct}%</div>
+      <div class="results-msg">${msg}</div>
+      <button class="quiz-next-btn" onclick="startCPQuiz('${cp.id}')">Try Again</button>
+      <button class="quiz-next-btn" style="background:transparent;color:var(--teal);border:2px solid var(--teal);margin-top:8px" onclick="exitCPQuiz()">Back to Exam Skills</button>
+    </div>
+  `;
+}
+
+function exitCPQuiz() {
+  document.getElementById('quizMCQ').classList.remove('active');
+  showTab('examskills');
+}
+
+/* ----- COMMAND WORDS PANEL ----- */
+function renderCWPanel() {
+  const el = document.getElementById('es-cw-panel');
+  let html = '';
+  CW_DATA.forEach((cw, cwIdx) => {
+    const framework = cw.usePEEL
+      ? '<span class="cw-framework peel">Use PEEL framework</span>'
+      : '<span class="cw-framework nopeel">No PEEL needed</span>';
+
+    let practiceHTML = '';
+    cw.practice.forEach((p, pIdx) => {
+      const uid = 'cw-' + cwIdx + '-' + pIdx;
+      practiceHTML += `
+        <div class="cw-practice-q">
+          <div class="cw-q-text">${p.q}</div>
+          <textarea id="ta-${uid}" placeholder="Type your answer here..."></textarea>
+          <button class="cw-reveal-btn" id="btn-${uid}" onclick="revealCWModel('${uid}')">Show Model Answer</button>
+          <div id="model-${uid}"></div>
+        </div>
+      `;
+    });
+
+    html += `
+      <div class="cw-card">
+        <h4>${cw.word}</h4>
+        <div class="cw-def">${cw.def}</div>
+        ${framework}
+        <div class="cw-practice">${practiceHTML}</div>
+      </div>
+    `;
+  });
+  el.innerHTML = html;
+}
+
+function revealCWModel(uid) {
+  const parts = uid.split('-');
+  const cwIdx = parseInt(parts[1]);
+  const pIdx = parseInt(parts[2]);
+  const model = CW_DATA[cwIdx].practice[pIdx].model;
+  document.getElementById('btn-' + uid).classList.add('hidden');
+  document.getElementById('model-' + uid).innerHTML = `<div class="cw-model"><strong>Model answer:</strong> ${model}</div>`;
+}
+
+/* ----- CALCULATIONS PANEL ----- */
+function renderCalcPanel() {
+  const el = document.getElementById('es-calc-panel');
+  const filtered = esCalcFilter === 'all' ? CALC_DATA : CALC_DATA.filter(c => c.subject === esCalcFilter);
+
+  let html = `
+    <div class="es-filter-row">
+      <button class="es-filter-btn ${esCalcFilter==='all'?'active':''}" onclick="esCalcFilter='all';renderCalcPanel()">All</button>
+      <button class="es-filter-btn ${esCalcFilter==='Biology'?'active':''}" onclick="esCalcFilter='Biology';renderCalcPanel()">Biology</button>
+      <button class="es-filter-btn ${esCalcFilter==='Chemistry'?'chem-active':''}" onclick="esCalcFilter='Chemistry';renderCalcPanel()">Chemistry</button>
+      <button class="es-filter-btn ${esCalcFilter==='Physics'?'phys-active':''}" onclick="esCalcFilter='Physics';renderCalcPanel()">Physics</button>
+    </div>
+  `;
+
+  filtered.forEach((calc, cIdx) => {
+    const workedHTML = calc.worked.steps.map(s =>
+      `<div class="every-step"><span class="every-letter" style="background:${s.c}">${s.l}</span>${s.t}</div>`
+    ).join('');
+
+    let qsHTML = '';
+    calc.questions.forEach((cq, qIdx) => {
+      const uid = calc.id + '-q' + qIdx;
+      qsHTML += `
+        <div class="calc-q-wrap ${calc.qCls}">
+          <span class="calc-diff ${cq.diff.toLowerCase()}">${cq.diff}</span>
+          <div class="calc-q-text">${cq.q}</div>
+          <div class="calc-input-row">
+            <input type="number" step="any" id="inp-${uid}" placeholder="Your answer">
+            <span style="font-size:.85rem;font-weight:700;color:#888">${cq.unit}</span>
+            <button class="calc-check-btn" id="chk-${uid}" onclick="checkCalc('${uid}',${cIdx},${qIdx})">Check</button>
+          </div>
+          <div id="fb-${uid}"></div>
+        </div>
+      `;
+    });
+
+    html += `
+      <div class="calc-card ${calc.cls}">
+        <h4>${calc.subject}: ${calc.name}</h4>
+        <div class="calc-equation ${calc.eqCls}">${calc.symbol}</div>
+        <p style="font-size:.85rem;color:#555;margin-bottom:4px">${calc.equation}</p>
+        <details style="margin:10px 0">
+          <summary style="cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--teal)">Worked Example (EVERY)</summary>
+          <div class="every-worked">
+            <p style="font-weight:700;margin-bottom:8px">${calc.worked.scenario}</p>
+            ${workedHTML}
+          </div>
+        </details>
+        ${qsHTML}
+      </div>
+    `;
+  });
+  el.innerHTML = html;
+}
+
+function checkCalc(uid, cIdx, qIdx) {
+  const filtered = esCalcFilter === 'all' ? CALC_DATA : CALC_DATA.filter(c => c.subject === esCalcFilter);
+  const calc = filtered[cIdx];
+  const cq = calc.questions[qIdx];
+  const input = document.getElementById('inp-' + uid);
+  const fb = document.getElementById('fb-' + uid);
+  const val = parseFloat(input.value);
+
+  if (isNaN(val)) {
+    fb.innerHTML = '<div class="calc-feedback wrong">Please enter a number.</div>';
+    return;
+  }
+
+  const isCorrect = Math.abs(val - cq.answer) <= cq.tolerance;
+  if (isCorrect) {
+    playSound('correct');
+    addXP(15);
+    fb.innerHTML = `<div class="calc-feedback correct">Correct! ${cq.answer} ${cq.unit}</div>
+      <div class="calc-solution ${calc.solCls}">${cq.solution}</div>`;
+  } else {
+    playSound('wrong');
+    addXP(2);
+    fb.innerHTML = `<div class="calc-feedback wrong">Not quite. The answer is ${cq.answer} ${cq.unit}.</div>
+      <div class="calc-solution ${calc.solCls}">${cq.solution}</div>`;
+  }
+  document.getElementById('chk-' + uid).disabled = true;
+  input.disabled = true;
+}
 
 /* ═══════════════════════════════════════════════════
    UTIL
