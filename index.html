@@ -125,6 +125,12 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
 .topic-btn.ret.phys{border-color:var(--violet);color:var(--violet)}
 .topic-btn:disabled{opacity:.35;cursor:not-allowed}
 .topic-btn:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.1)}
+.topic-links{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;width:100%}
+.topic-link{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.65rem;text-transform:uppercase;letter-spacing:.03em;padding:6px 12px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;transition:all .2s;text-decoration:none}
+.topic-link:hover{transform:translateY(-1px);text-decoration:none;filter:brightness(1.1)}
+.topic-link.pmt{background:var(--mint-light);color:#2E7D32}
+.topic-link.seneca{background:var(--amber-light);color:#E65100}
+.topic-link.papers{background:var(--rose-light);color:#C62828}
 
 /* ═══════════ QUIZ MODE ═══════════ */
 .quiz-screen{display:none;padding:20px 0 60px;animation:fadeIn .25s ease}
@@ -325,6 +331,8 @@ input,textarea{font-family:'Lato',sans-serif;outline:none}
   .topic-card{flex-direction:column;align-items:flex-start}
   .topic-btns{width:100%}
   .topic-btn{flex:1;text-align:center}
+  .topic-links{width:100%}
+  .topic-link{flex:1;text-align:center;justify-content:center}
   .nav-tab{padding:10px 14px;font-size:.75rem}
 }
 @media(max-width:380px){
@@ -551,6 +559,49 @@ const RESOURCE_LINKS = {
     mcq: 'https://drive.google.com/drive/folders/1WzjMkH7a8eOZSDneRdbX2ZdPlQLMQwIq',
     ret: 'https://drive.google.com/drive/folders/1UKLEbFSnEFjMpqjfG3SOPBitAVBLqGDU'
   }
+};
+
+const TOPIC_LINKS = {
+  'bio-t1': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/key-concepts-in-biology/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
+  'bio-t2': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/cells-and-control/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
+  'bio-t3': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/genetics/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
+  'bio-t4': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/natural-selection-genetic-modification/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
+  'bio-t5': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/health-disease-development-of-medicines/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-1/'},
+  'bio-t6': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/plant-structures-and-their-functions/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-2/'},
+  'bio-t7': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/animal-coordination-control-homeostasis/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-2/'},
+  'bio-t8': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/exchange-and-transport-in-animals/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-2/'},
+  'bio-t9': {pmt:'https://www.physicsandmathstutor.com/biology-revision/gcse-edexcel/ecosystems-and-material-cycles/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-biology/edexcel-paper-2/'},
+  'chem-t1': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/key-concepts-chemistry/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
+  'chem-t2': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/states-of-matter-and-mixtures/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
+  'chem-t3': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/chemical-changes/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
+  'chem-t4': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/extracting-metals-and-equilibria/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
+  'chem-t5': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/separate-chemistry-1/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-1/'},
+  'chem-t6': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/groups-in-periodic-table/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
+  'chem-t7': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/rates-of-reaction-and-energy-changes/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
+  'chem-t8': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/fuels-and-earth-science/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
+  'chem-t9': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/chemical-analysis/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
+  'chem-t10': {pmt:'https://www.physicsandmathstutor.com/chemistry-revision/gcse-edexcel/using-resources/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-chemistry/edexcel-paper-2/'},
+  'phys-t1': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/key-concepts-of-physics/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
+  'phys-t2': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/motion-and-forces/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
+  'phys-t3': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/conservation-of-energy/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
+  'phys-t4': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/waves/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
+  'phys-t5': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/light-and-electromagnetic-spectrum/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
+  'phys-t6': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/radioactivity/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
+  'phys-t7': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/astronomy/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-1/'},
+  'phys-t8': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/energy-forces-doing-work/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
+  'phys-t9': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/forces-and-their-effects/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
+  'phys-t10': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/electricity-and-circuits/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
+  'phys-t11': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/static-electricity/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
+  'phys-t12': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/magnetism-and-motor-effect/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
+  'phys-t13': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/electromagnetic-induction/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
+  'phys-t14': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/particle-model/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'},
+  'phys-t15': {pmt:'https://www.physicsandmathstutor.com/physics-revision/gcse-edexcel/forces-and-matter/',papers:'https://www.physicsandmathstutor.com/past-papers/gcse-physics/edexcel-paper-2/'}
+};
+
+const SENECA_LINKS = {
+  biology: 'https://senecalearning.com/en-gb/seneca-certified-resources/biology-gcse-edexcel-combined-higher-1/',
+  chemistry: 'https://senecalearning.com/en-gb/seneca-certified-resources/chemistry-gcse-edexcel-combined-higher-1/',
+  physics: 'https://senecalearning.com/en-gb/seneca-certified-resources/physics-gcse-edexcel-combined-higher-1/'
 };
 
 const SUBJECTS = {
@@ -925,6 +976,15 @@ function renderSubject(subjectKey) {
     const mcqBadge = mcqRes ? `<span class="score-badge completed">MCQ: ${mcqRes.best}/${mcqRes.total}</span>` : `<span class="score-badge not-started">MCQ: ${hasQ ? 'Not started' : 'Coming soon'}</span>`;
     const retBadge = retRes ? `<span class="score-badge completed">Ret: ${retRes.best}/${retRes.total}</span>` : `<span class="score-badge not-started">Ret: ${hasQ ? 'Not started' : 'Coming soon'}</span>`;
 
+    const tl = TOPIC_LINKS[t.id] || {};
+    const senecaUrl = SENECA_LINKS[subjectKey] || '';
+    const linksHtml = tl.pmt ? `
+        <div class="topic-links">
+          <a href="${tl.pmt}" target="_blank" class="topic-link pmt">Revision Notes</a>
+          <a href="${tl.papers}" target="_blank" class="topic-link papers">Past Papers</a>
+          <a href="${senecaUrl}" target="_blank" class="topic-link seneca">Seneca</a>
+        </div>` : '';
+
     html += `
       <div class="topic-card ${subj.cls}">
         <div class="topic-info">
@@ -934,7 +994,7 @@ function renderSubject(subjectKey) {
         <div class="topic-btns">
           <button class="topic-btn mcq ${subj.cls}" ${hasQ ? `onclick="startMCQ('${t.id}')"` : 'disabled'}>${hasQ ? 'MCQ Quiz' : 'Coming Soon'}</button>
           <button class="topic-btn ret ${subj.cls}" ${hasQ ? `onclick="startRet('${t.id}')"` : 'disabled'}>${hasQ ? 'Retrieval Quiz' : 'Coming Soon'}</button>
-        </div>
+        </div>${linksHtml}
       </div>
     `;
   });
