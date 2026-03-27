@@ -7,8 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--teal:#1A5C5E;--coral:#E06B6B;--amber:#D4A843;--bg:#FAF6F0;--text:#2C3E50;--radius:10px}
-body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1200px;margin:0 auto}
+:root{--teal:#1A5C5E;--coral:#E06B6B;--amber:#D4A843;--bg:#FAF6F0;--text:#2C3E50;--radius:10px;--purple:#7E57C2}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);padding:20px;max-width:1400px;margin:0 auto}
 h1{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--teal);font-size:1.5rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 h2{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--teal);font-size:1rem;text-transform:uppercase;margin:24px 0 12px}
 .subtitle{font-family:'Lato',sans-serif;color:#888;font-size:.9rem;margin-bottom:20px}
@@ -19,12 +19,12 @@ h2{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--teal);font-si
 .stat .num.coral{color:var(--coral)}
 .stat .label{font-size:.75rem;font-weight:700;text-transform:uppercase;color:#888;margin-top:2px}
 table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);margin-bottom:24px}
-th{background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;padding:12px 14px;text-align:left}
+th{background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;padding:12px 14px;text-align:left;position:sticky;top:0;z-index:1}
 td{padding:10px 14px;font-size:.88rem;border-bottom:1px solid #f0f0f0}
 tr:hover td{background:#f8f6f2}
 .badge{display:inline-block;padding:2px 8px;border-radius:4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.7rem;text-transform:uppercase}
 .badge.mcq{background:#E8F5F5;color:var(--teal)}
-.badge.ret{background:#F0EBF8;color:#7E57C2}
+.badge.ret{background:#F0EBF8;color:var(--purple)}
 .badge.open{background:#E8F5E9;color:#2E7D32}
 .score-good{color:#2E7D32;font-weight:700}
 .score-ok{color:var(--amber);font-weight:700}
@@ -36,7 +36,46 @@ tr:hover td{background:#f8f6f2}
 .no-data{text-align:center;padding:40px;color:#aaa;font-style:italic}
 .refresh-btn{background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;padding:8px 18px;border-radius:8px;border:none;cursor:pointer;text-transform:uppercase;float:right;transition:all .2s}
 .refresh-btn:hover{filter:brightness(1.1)}
-@media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}table{font-size:.8rem}td,th{padding:8px 10px}}
+
+/* Tab navigation */
+.tab-bar{display:flex;gap:0;margin:20px 0 0;border-bottom:3px solid var(--teal)}
+.tab{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;padding:10px 20px;background:#e8e4de;color:#888;cursor:pointer;text-transform:uppercase;letter-spacing:.04em;border-radius:var(--radius) var(--radius) 0 0;transition:all .2s;border:none}
+.tab.active{background:var(--teal);color:#fff}
+.tab:hover:not(.active){background:#d5d0c8}
+.tab-panel{display:none;padding-top:16px}
+.tab-panel.active{display:block}
+
+/* Heatmap styles */
+.heatmap-wrap{overflow-x:auto;margin-bottom:24px}
+.heatmap-wrap table{min-width:800px}
+.heatmap-wrap th{font-size:.65rem;padding:8px 6px;white-space:nowrap}
+.heatmap-wrap td{padding:6px;text-align:center;font-size:.75rem;font-weight:700;min-width:40px}
+.hm-good{background:#c8e6c9;color:#1b5e20}
+.hm-ok{background:#fff3cd;color:#856404}
+.hm-low{background:#f8d7da;color:#721c24}
+.hm-none{background:#f0f0f0;color:#bbb}
+.hm-student{text-align:left !important;font-weight:700;min-width:120px;position:sticky;left:0;background:#fff;z-index:1}
+.heatmap-wrap tr:hover .hm-student{background:#f8f6f2}
+
+/* Struggling topics */
+.struggle-bar{height:16px;border-radius:4px;display:inline-block;vertical-align:middle}
+.topic-row-highlight{background:#fff5f5 !important}
+
+/* Student drill-down */
+.drill-back{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;padding:6px 14px;border-radius:8px;border:2px solid var(--teal);background:#fff;color:var(--teal);cursor:pointer;text-transform:uppercase;margin-bottom:12px}
+.drill-back:hover{background:var(--teal);color:#fff}
+.clickable{cursor:pointer;text-decoration:underline;text-decoration-color:var(--teal);text-underline-offset:2px}
+.clickable:hover{color:var(--teal)}
+
+/* Subject filter pills */
+.subj-filter{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.subj-pill{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.7rem;padding:4px 12px;border-radius:12px;border:2px solid #ccc;background:#fff;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.subj-pill.active{border-color:var(--teal);background:var(--teal);color:#fff}
+.subj-pill.bio{border-color:#2E7D32}.subj-pill.bio.active{background:#2E7D32;border-color:#2E7D32}
+.subj-pill.chem{border-color:#1565C0}.subj-pill.chem.active{background:#1565C0;border-color:#1565C0}
+.subj-pill.phys{border-color:#E65100}.subj-pill.phys.active{background:#E65100;border-color:#E65100}
+
+@media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}table{font-size:.8rem}td,th{padding:8px 10px}.tab{font-size:.7rem;padding:8px 12px}}
 </style>
 </head>
 <body>
@@ -52,16 +91,56 @@ tr:hover td{background:#f8f6f2}
   <div class="stat"><div class="num" id="statToday">-</div><div class="label">Active Today</div></div>
 </div>
 
-<h2>Student Summary</h2>
-<div id="studentSummary"><div class="loading">Loading...</div></div>
-
-<h2>Recent Activity</h2>
-<div class="filter-bar">
-  <button class="filter-btn active" data-f="all" onclick="setFilter('all',this)">All</button>
-  <button class="filter-btn" data-f="quiz" onclick="setFilter('quiz',this)">Quizzes Only</button>
-  <button class="filter-btn" data-f="today" onclick="setFilter('today',this)">Today Only</button>
+<div class="tab-bar">
+  <button class="tab active" onclick="switchTab('overview',this)">Overview</button>
+  <button class="tab" onclick="switchTab('struggles',this)">Struggling Topics</button>
+  <button class="tab" onclick="switchTab('heatmap',this)">Student x Topic</button>
+  <button class="tab" onclick="switchTab('activity',this)">Activity Feed</button>
 </div>
-<div id="activityTable"><div class="loading">Loading...</div></div>
+
+<!-- OVERVIEW TAB -->
+<div class="tab-panel active" id="panel-overview">
+  <h2>Student Summary</h2>
+  <div id="studentSummary"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- STRUGGLING TOPICS TAB -->
+<div class="tab-panel" id="panel-struggles">
+  <h2>Topics Ranked by Difficulty</h2>
+  <p class="subtitle">Sorted by average score (lowest first) so you can see where students need the most help. Minimum 2 attempts to appear.</p>
+  <div class="subj-filter" id="subjFilter">
+    <button class="subj-pill active" onclick="setSubjFilter('all',this)">All</button>
+    <button class="subj-pill bio" onclick="setSubjFilter('bio',this)">Biology</button>
+    <button class="subj-pill chem" onclick="setSubjFilter('chem',this)">Chemistry</button>
+    <button class="subj-pill phys" onclick="setSubjFilter('phys',this)">Physics</button>
+  </div>
+  <div id="strugglingTopics"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- HEATMAP TAB -->
+<div class="tab-panel" id="panel-heatmap">
+  <h2 id="heatmapTitle">Student x Topic Heatmap</h2>
+  <p class="subtitle" id="heatmapSubtitle">Best score per topic. Green = 80%+, Amber = 50-79%, Red = below 50%, Grey = not attempted. Click a student name for details.</p>
+  <div class="subj-filter" id="heatmapSubjFilter">
+    <button class="subj-pill active" onclick="setHeatmapSubj('all',this)">All</button>
+    <button class="subj-pill bio" onclick="setHeatmapSubj('bio',this)">Biology</button>
+    <button class="subj-pill chem" onclick="setHeatmapSubj('chem',this)">Chemistry</button>
+    <button class="subj-pill phys" onclick="setHeatmapSubj('phys',this)">Physics</button>
+  </div>
+  <div id="drillDown" style="display:none"></div>
+  <div id="heatmapTable"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- ACTIVITY TAB -->
+<div class="tab-panel" id="panel-activity">
+  <h2>Recent Activity</h2>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-f="all" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" data-f="quiz" onclick="setFilter('quiz',this)">Quizzes Only</button>
+    <button class="filter-btn" data-f="today" onclick="setFilter('today',this)">Today Only</button>
+  </div>
+  <div id="activityTable"><div class="loading">Loading...</div></div>
+</div>
 
 <script>
 const SB_URL = 'https://awnmaakxaqevodjjuzsm.supabase.co';
@@ -69,6 +148,9 @@ const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 
 let allActivity = [];
 let currentFilter = 'all';
+let subjFilter = 'all';
+let heatmapSubj = 'all';
+let drillStudent = null;
 
 async function sbGet(table, params) {
   const url = SB_URL + '/rest/v1/' + table + '?' + params;
@@ -98,6 +180,13 @@ function scoreClass(score, total) {
   return 'score-low';
 }
 
+function hmClass(pct) {
+  if (pct === null) return 'hm-none';
+  if (pct >= 80) return 'hm-good';
+  if (pct >= 50) return 'hm-ok';
+  return 'hm-low';
+}
+
 function actionBadge(action, quizType) {
   if (action === 'quiz_complete' && quizType === 'mcq') return '<span class="badge mcq">MCQ</span>';
   if (action === 'quiz_complete' && quizType === 'ret') return '<span class="badge ret">Retrieval</span>';
@@ -112,22 +201,101 @@ function topicLabel(topicId) {
   return subj + ' ' + parts[1].toUpperCase();
 }
 
+function shortTopicLabel(topicId) {
+  if (!topicId) return '-';
+  const parts = topicId.split('-');
+  const subj = {bio:'Bio', chem:'Chem', phys:'Phys'}[parts[0]] || parts[0];
+  return subj + ' ' + parts[1].toUpperCase();
+}
+
+function topicSubject(topicId) {
+  if (!topicId) return '';
+  return topicId.split('-')[0];
+}
+
+// Get all quizzes (exclude app_open, teacher)
+function getQuizzes() {
+  return allActivity.filter(a => a.action === 'quiz_complete' && a.student_name !== 'TEACHER');
+}
+
+// Build topic stats: { topicId: { label, subject, totalAttempts, totalScore, totalPossible, students: { name: { best, attempts, scores[] } } } }
+function buildTopicStats() {
+  const quizzes = getQuizzes();
+  const topics = {};
+
+  quizzes.forEach(q => {
+    if (!q.topic_id) return;
+    if (!topics[q.topic_id]) {
+      topics[q.topic_id] = {
+        id: q.topic_id,
+        label: topicLabel(q.topic_id),
+        shortLabel: shortTopicLabel(q.topic_id),
+        subject: topicSubject(q.topic_id),
+        totalAttempts: 0,
+        totalScore: 0,
+        totalPossible: 0,
+        students: {},
+        byType: { mcq: { score: 0, total: 0, attempts: 0 }, ret: { score: 0, total: 0, attempts: 0 } }
+      };
+    }
+    const t = topics[q.topic_id];
+    t.totalAttempts++;
+    t.totalScore += q.score;
+    t.totalPossible += q.total;
+
+    const type = q.quiz_type || 'mcq';
+    if (t.byType[type]) {
+      t.byType[type].score += q.score;
+      t.byType[type].total += q.total;
+      t.byType[type].attempts++;
+    }
+
+    if (!t.students[q.student_name]) {
+      t.students[q.student_name] = { best: 0, attempts: 0, scores: [] };
+    }
+    const s = t.students[q.student_name];
+    const pct = Math.round((q.score / q.total) * 100);
+    s.attempts++;
+    s.scores.push({ pct, type: q.quiz_type, score: q.score, total: q.total, date: q.created_at });
+    if (pct > s.best) s.best = pct;
+  });
+
+  return topics;
+}
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+  // Reset drill-down when switching away
+  if (tab !== 'heatmap') {
+    drillStudent = null;
+    document.getElementById('drillDown').style.display = 'none';
+    document.getElementById('heatmapTable').style.display = 'block';
+  }
+}
+
+// === LOAD DATA ===
 async function loadData() {
   try {
-    allActivity = await sbGet('activity_log', 'order=created_at.desc&limit=500');
+    allActivity = await sbGet('activity_log', 'order=created_at.desc&limit=2000');
     renderStats();
     renderStudentSummary();
+    renderStrugglingTopics();
+    renderHeatmap();
     renderActivity();
   } catch(e) {
     document.getElementById('activityTable').innerHTML = '<div class="no-data">Could not load data. Check your connection.</div>';
   }
 }
 
+// === STATS ===
 function renderStats() {
-  const quizzes = allActivity.filter(a => a.action === 'quiz_complete');
-  const students = [...new Set(allActivity.map(a => a.student_name))];
+  const quizzes = getQuizzes();
+  const students = [...new Set(allActivity.filter(a => a.student_name !== 'TEACHER').map(a => a.student_name))];
   const today = todayStr();
-  const todayStudents = [...new Set(allActivity.filter(a => a.created_at && a.created_at.startsWith(today)).map(a => a.student_name))];
+  const todayStudents = [...new Set(allActivity.filter(a => a.student_name !== 'TEACHER' && a.created_at && a.created_at.startsWith(today)).map(a => a.student_name))];
   const avgScore = quizzes.length > 0
     ? Math.round(quizzes.reduce((s,q) => s + (q.score/q.total)*100, 0) / quizzes.length)
     : '-';
@@ -138,9 +306,10 @@ function renderStats() {
   document.getElementById('statToday').textContent = todayStudents.length;
 }
 
+// === STUDENT SUMMARY ===
 function renderStudentSummary() {
   const students = {};
-  allActivity.forEach(a => {
+  allActivity.filter(a => a.student_name !== 'TEACHER').forEach(a => {
     if (!students[a.student_name]) students[a.student_name] = {quizzes:0, totalScore:0, totalPossible:0, lastSeen:a.created_at, topics:new Set()};
     const s = students[a.student_name];
     if (a.created_at > s.lastSeen) s.lastSeen = a.created_at;
@@ -176,6 +345,205 @@ function renderStudentSummary() {
   document.getElementById('studentSummary').innerHTML = html;
 }
 
+// === STRUGGLING TOPICS ===
+function setSubjFilter(f, btn) {
+  subjFilter = f;
+  document.querySelectorAll('#subjFilter .subj-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderStrugglingTopics();
+}
+
+function renderStrugglingTopics() {
+  const topics = buildTopicStats();
+  let topicList = Object.values(topics).filter(t => t.totalAttempts >= 2);
+
+  if (subjFilter !== 'all') {
+    topicList = topicList.filter(t => t.subject === subjFilter);
+  }
+
+  topicList.sort((a, b) => {
+    const avgA = (a.totalScore / a.totalPossible) * 100;
+    const avgB = (b.totalScore / b.totalPossible) * 100;
+    return avgA - avgB;
+  });
+
+  if (topicList.length === 0) {
+    document.getElementById('strugglingTopics').innerHTML = '<div class="no-data">Not enough quiz data yet. Topics appear after 2+ attempts.</div>';
+    return;
+  }
+
+  let html = '<table><tr><th>Topic</th><th>Avg Score</th><th></th><th>MCQ Avg</th><th>Retrieval Avg</th><th>Attempts</th><th>Students</th></tr>';
+  topicList.forEach(t => {
+    const avg = Math.round((t.totalScore / t.totalPossible) * 100);
+    const cls = scoreClass(avg, 100);
+    const barW = Math.max(avg, 3);
+    const barColour = avg >= 80 ? '#c8e6c9' : avg >= 50 ? '#fff3cd' : '#f8d7da';
+    const highlight = avg < 50 ? ' topic-row-highlight' : '';
+
+    const mcqAvg = t.byType.mcq.attempts > 0 ? Math.round((t.byType.mcq.score / t.byType.mcq.total) * 100) + '%' : '-';
+    const retAvg = t.byType.ret.attempts > 0 ? Math.round((t.byType.ret.score / t.byType.ret.total) * 100) + '%' : '-';
+    const mcqCls = t.byType.mcq.attempts > 0 ? scoreClass(Math.round((t.byType.mcq.score / t.byType.mcq.total) * 100), 100) : '';
+    const retCls = t.byType.ret.attempts > 0 ? scoreClass(Math.round((t.byType.ret.score / t.byType.ret.total) * 100), 100) : '';
+
+    const studentCount = Object.keys(t.students).length;
+
+    html += '<tr class="' + highlight + '">';
+    html += '<td><strong>' + t.label + '</strong></td>';
+    html += '<td class="' + cls + '">' + avg + '%</td>';
+    html += '<td style="width:120px"><span class="struggle-bar" style="width:' + barW + '%;background:' + barColour + '">&nbsp;</span></td>';
+    html += '<td class="' + mcqCls + '">' + mcqAvg + '</td>';
+    html += '<td class="' + retCls + '">' + retAvg + '</td>';
+    html += '<td>' + t.totalAttempts + '</td>';
+    html += '<td>' + studentCount + '</td>';
+    html += '</tr>';
+  });
+  html += '</table>';
+  document.getElementById('strugglingTopics').innerHTML = html;
+}
+
+// === HEATMAP ===
+function setHeatmapSubj(f, btn) {
+  heatmapSubj = f;
+  document.querySelectorAll('#heatmapSubjFilter .subj-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (drillStudent) {
+    showDrillDown(drillStudent);
+  } else {
+    renderHeatmap();
+  }
+}
+
+function renderHeatmap() {
+  const topics = buildTopicStats();
+  let topicIds = Object.keys(topics).sort();
+
+  if (heatmapSubj !== 'all') {
+    topicIds = topicIds.filter(id => topicSubject(id) === heatmapSubj);
+  }
+
+  // Get all students (from quizzes)
+  const studentNames = [...new Set(getQuizzes().map(q => q.student_name))].sort();
+
+  if (studentNames.length === 0 || topicIds.length === 0) {
+    document.getElementById('heatmapTable').innerHTML = '<div class="no-data">Not enough data for the heatmap yet.</div>';
+    return;
+  }
+
+  let html = '<div class="heatmap-wrap"><table><tr><th style="position:sticky;left:0;z-index:2;background:var(--teal)">Student</th>';
+  topicIds.forEach(id => {
+    html += '<th>' + shortTopicLabel(id) + '</th>';
+  });
+  html += '</tr>';
+
+  studentNames.forEach(name => {
+    html += '<tr>';
+    html += '<td class="hm-student"><span class="clickable" onclick="showDrillDown(\'' + name.replace(/'/g, "\\'") + '\')">' + name + '</span></td>';
+    topicIds.forEach(id => {
+      const t = topics[id];
+      const s = t.students[name];
+      if (s) {
+        const cls = hmClass(s.best);
+        html += '<td class="' + cls + '">' + s.best + '%</td>';
+      } else {
+        html += '<td class="hm-none">-</td>';
+      }
+    });
+    html += '</tr>';
+  });
+
+  html += '</table></div>';
+  document.getElementById('heatmapTable').innerHTML = html;
+}
+
+// === STUDENT DRILL-DOWN ===
+function showDrillDown(name) {
+  drillStudent = name;
+  document.getElementById('heatmapTable').style.display = 'none';
+  const drillEl = document.getElementById('drillDown');
+  drillEl.style.display = 'block';
+
+  document.getElementById('heatmapTitle').textContent = name + ' - Topic Breakdown';
+  document.getElementById('heatmapSubtitle').textContent = 'All quiz attempts for this student. Click "Back to heatmap" to return.';
+
+  const topics = buildTopicStats();
+  let topicIds = Object.keys(topics).sort();
+
+  if (heatmapSubj !== 'all') {
+    topicIds = topicIds.filter(id => topicSubject(id) === heatmapSubj);
+  }
+
+  // Get this student's data
+  const studentTopics = [];
+  topicIds.forEach(id => {
+    const t = topics[id];
+    const s = t.students[name];
+    if (s) {
+      studentTopics.push({ id, label: t.label, subject: t.subject, best: s.best, attempts: s.attempts, scores: s.scores });
+    }
+  });
+
+  // Also find topics NOT attempted
+  const notAttempted = topicIds.filter(id => !topics[id].students[name]);
+
+  // Sort by best score (worst first)
+  studentTopics.sort((a, b) => a.best - b.best);
+
+  let html = '<button class="drill-back" onclick="closeDrillDown()">Back to heatmap</button>';
+
+  if (studentTopics.length === 0) {
+    html += '<div class="no-data">No quiz data for ' + name + ' yet.</div>';
+  } else {
+    html += '<table><tr><th>Topic</th><th>Best Score</th><th>MCQ</th><th>Retrieval</th><th>Attempts</th><th>History</th></tr>';
+    studentTopics.forEach(st => {
+      const cls = scoreClass(st.best, 100);
+      const highlight = st.best < 50 ? ' topic-row-highlight' : '';
+
+      // Split by type
+      const mcqs = st.scores.filter(s => s.type === 'mcq');
+      const rets = st.scores.filter(s => s.type === 'ret');
+      const mcqBest = mcqs.length > 0 ? Math.max(...mcqs.map(s => s.pct)) + '%' : '-';
+      const retBest = rets.length > 0 ? Math.max(...rets.map(s => s.pct)) + '%' : '-';
+      const mcqCls = mcqs.length > 0 ? scoreClass(Math.max(...mcqs.map(s => s.pct)), 100) : '';
+      const retCls = rets.length > 0 ? scoreClass(Math.max(...rets.map(s => s.pct)), 100) : '';
+
+      // Mini history (last 5)
+      const recent = st.scores.slice(-5).map(s => {
+        const c = s.pct >= 80 ? '#2E7D32' : s.pct >= 50 ? '#D4A843' : '#E06B6B';
+        return '<span style="color:' + c + ';font-weight:700" title="' + s.score + '/' + s.total + ' (' + (s.type||'').toUpperCase() + ')">' + s.pct + '%</span>';
+      }).join(' ');
+
+      html += '<tr class="' + highlight + '">';
+      html += '<td><strong>' + st.label + '</strong></td>';
+      html += '<td class="' + cls + '">' + st.best + '%</td>';
+      html += '<td class="' + mcqCls + '">' + mcqBest + '</td>';
+      html += '<td class="' + retCls + '">' + retBest + '</td>';
+      html += '<td>' + st.attempts + '</td>';
+      html += '<td>' + recent + '</td>';
+      html += '</tr>';
+    });
+    html += '</table>';
+  }
+
+  // Show not-attempted topics
+  if (notAttempted.length > 0) {
+    html += '<h2 style="margin-top:20px;color:var(--coral)">Not Yet Attempted (' + notAttempted.length + ' topics)</h2>';
+    html += '<p style="color:#888;font-size:.85rem;margin-bottom:8px">';
+    html += notAttempted.map(id => topicLabel(id)).join(', ');
+    html += '</p>';
+  }
+
+  drillEl.innerHTML = html;
+}
+
+function closeDrillDown() {
+  drillStudent = null;
+  document.getElementById('drillDown').style.display = 'none';
+  document.getElementById('heatmapTable').style.display = 'block';
+  document.getElementById('heatmapTitle').textContent = 'Student x Topic Heatmap';
+  document.getElementById('heatmapSubtitle').textContent = 'Best score per topic. Green = 80%+, Amber = 50-79%, Red = below 50%, Grey = not attempted. Click a student name for details.';
+}
+
+// === ACTIVITY FEED ===
 function renderActivity() {
   let filtered = allActivity;
   if (currentFilter === 'quiz') filtered = filtered.filter(a => a.action === 'quiz_complete');
