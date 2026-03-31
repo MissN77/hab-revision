@@ -96,6 +96,7 @@ tr:hover td{background:#f8f6f2}
   <button class="tab" onclick="switchTab('struggles',this)">Struggling Topics</button>
   <button class="tab" onclick="switchTab('heatmap',this)">Student x Topic</button>
   <button class="tab" onclick="switchTab('activity',this)">Activity Feed</button>
+  <button class="tab" onclick="switchTab('staffapp',this)">Staff App</button>
 </div>
 
 <!-- OVERVIEW TAB -->
@@ -129,6 +130,18 @@ tr:hover td{background:#f8f6f2}
   </div>
   <div id="drillDown" style="display:none"></div>
   <div id="heatmapTable"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- STAFF APP TAB -->
+<div class="tab-panel" id="panel-staffapp">
+  <h2>Teacher Planning App Usage</h2>
+  <p class="subtitle">Tracks page loads, tab clicks and resource downloads from the teacher app (missn77.github.io/hab-pixl-guide/). Live from 31 March 2026.</p>
+  <div class="stats-row" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat"><div class="num" id="staffTotal">-</div><div class="label">Total Visits</div></div>
+    <div class="stat"><div class="num" id="staffResources">-</div><div class="label">Resources Clicked</div></div>
+    <div class="stat"><div class="num amber" id="staffDays">-</div><div class="label">Days with Activity</div></div>
+  </div>
+  <div id="staffTable"><div class="loading">Loading...</div></div>
 </div>
 
 <!-- ACTIVITY TAB -->
@@ -577,8 +590,72 @@ function setFilter(f, btn) {
 }
 
 loadData();
+loadStaffData();
 // Auto-refresh every 60 seconds
 setInterval(loadData, 60000);
+setInterval(loadStaffData, 60000);
+
+// === STAFF APP TRACKING ===
+async function loadStaffData() {
+  try {
+    const data = await sbGet('teacher_app_log', 'order=timestamp.desc&limit=500');
+    renderStaffApp(data);
+  } catch(e) {
+    document.getElementById('staffTable').innerHTML = '<div class="no-data">No staff app data yet.</div>';
+  }
+}
+
+function renderStaffApp(data) {
+  if (!data || !data.length) {
+    document.getElementById('staffTotal').textContent = '0';
+    document.getElementById('staffResources').textContent = '0';
+    document.getElementById('staffDays').textContent = '0';
+    document.getElementById('staffTable').innerHTML = '<div class="no-data">No teacher app activity recorded yet. Tracking is live from 31 March 2026.</div>';
+    return;
+  }
+
+  const pageLoads = data.filter(d => d.action === 'page_load').length;
+  const resourceClicks = data.filter(d => d.action === 'resource_click').length;
+  const days = new Set(data.map(d => (d.timestamp||d.created_at||'').substring(0,10))).size;
+
+  document.getElementById('staffTotal').textContent = pageLoads;
+  document.getElementById('staffResources').textContent = resourceClicks;
+  document.getElementById('staffDays').textContent = days;
+
+  // Group by date
+  const byDate = {};
+  data.forEach(d => {
+    const date = (d.timestamp||d.created_at||'').substring(0,10);
+    if (!byDate[date]) byDate[date] = { loads: 0, tabs: [], resources: 0 };
+    if (d.action === 'page_load') byDate[date].loads++;
+    if (d.action === 'tab_click') byDate[date].tabs.push(d.detail);
+    if (d.action === 'resource_click') byDate[date].resources++;
+  });
+
+  let html = '<table><tr><th>Date</th><th>Page Loads</th><th>Tabs Viewed</th><th>Resources Clicked</th></tr>';
+  Object.keys(byDate).sort().reverse().forEach(date => {
+    const d = byDate[date];
+    const tabs = d.tabs.length ? [...new Set(d.tabs)].join(', ') : '-';
+    html += '<tr><td>' + date + '</td><td>' + d.loads + '</td><td>' + tabs + '</td><td>' + d.resources + '</td></tr>';
+  });
+  html += '</table>';
+
+  // Activity log
+  html += '<h2 style="margin-top:20px">Recent Activity</h2>';
+  html += '<table><tr><th>Time</th><th>Action</th><th>Detail</th></tr>';
+  data.slice(0, 50).forEach(d => {
+    const time = formatTime(d.timestamp || d.created_at);
+    const action = d.action === 'page_load' ? '<span class="badge open">Page Load</span>' :
+                   d.action === 'tab_click' ? '<span class="badge mcq">' + (d.detail||'') + '</span>' :
+                   d.action === 'resource_click' ? '<span class="badge ret">Download</span>' :
+                   '<span class="badge">' + d.action + '</span>';
+    const detail = d.action === 'resource_click' ? (d.detail||'').split('/').pop().substring(0,60) : (d.detail||'-');
+    html += '<tr><td>' + time + '</td><td>' + action + '</td><td>' + detail + '</td></tr>';
+  });
+  html += '</table>';
+
+  document.getElementById('staffTable').innerHTML = html;
+}
 </script>
 </body>
 </html>
