@@ -1194,25 +1194,27 @@ function renderSubject(subjectKey) {
     </div>
   `;
   // Chemistry: feature the full Paper 1 walkthroughs at the top.
+  // Thumbnail facade pattern: tap opens YouTube directly. iOS-safe, no bot check.
   if (subjectKey === 'chemistry') {
-    html += `
-      <div style="background:#fff;border-radius:var(--radius);padding:18px;margin-bottom:14px;box-shadow:var(--card-shadow);border-left:4px solid var(--teal)">
-        <h3 style="font-family:'Montserrat',sans-serif;color:var(--teal);font-size:1rem;margin-bottom:6px">Combined Chemistry, Paper 1 in 30 minutes</h3>
-        <p style="font-size:0.9rem;color:var(--text);margin-bottom:10px">The WHOLE Edexcel Combined Chemistry Paper 1 walkthrough. Atoms, periodic table, bonding, calculations, acids, reactivity, electrolysis, energy changes.</p>
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius)">
-          <iframe src="https://www.youtube.com/embed/hM5_47ziA88?rel=0" title="Edexcel GCSE Combined Chemistry Paper 1 Walkthrough" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <a href="https://youtu.be/hM5_47ziA88" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;color:var(--teal);font-size:0.85rem">Watch on YouTube ↗</a>
-      </div>
-      <div style="background:#fff;border-radius:var(--radius);padding:18px;margin-bottom:18px;box-shadow:var(--card-shadow);border-left:4px solid var(--coral)">
-        <h3 style="font-family:'Montserrat',sans-serif;color:var(--teal);font-size:1rem;margin-bottom:6px">Triple Chemistry Paper 1 top-up (Topic 5)</h3>
-        <p style="font-size:0.9rem;color:var(--text);margin-bottom:10px">Triple Science students only. Transition metals, alloys, titration, concentration calcs, Haber, fuel cells and more. Higher Tier.</p>
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius)">
-          <iframe src="https://www.youtube.com/embed/WSSJE7co1u8?rel=0" title="Edexcel GCSE Triple Chemistry Paper 1 Walkthrough" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <a href="https://youtu.be/WSSJE7co1u8" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;color:var(--coral);font-size:0.85rem">Watch on YouTube ↗</a>
+    const ytTile = (id, accent, heading, blurb) => `
+      <div style="background:#fff;border-radius:var(--radius);padding:18px;margin-bottom:14px;box-shadow:var(--card-shadow);border-left:4px solid ${accent}">
+        <h3 style="font-family:'Montserrat',sans-serif;color:var(--teal);font-size:1rem;margin-bottom:6px">${heading}</h3>
+        <p style="font-size:0.9rem;color:var(--text);margin-bottom:10px">${blurb}</p>
+        <a href="https://youtu.be/${id}" target="_blank" rel="noopener" style="display:block;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);text-decoration:none">
+          <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="${heading}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover" loading="lazy">
+          <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:78px;height:54px;background:rgba(0,0,0,0.7);border-radius:14px;display:flex;align-items:center;justify-content:center">
+            <span style="display:block;width:0;height:0;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent #fff;margin-left:4px"></span>
+          </span>
+        </a>
+        <a href="https://youtu.be/${id}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;color:${accent};font-size:0.85rem">Watch on YouTube ↗</a>
       </div>
     `;
+    html += ytTile('hM5_47ziA88', 'var(--teal)',
+      'Combined Chemistry, Paper 1 in 30 minutes',
+      'The WHOLE Edexcel Combined Chemistry Paper 1 walkthrough. Atoms, periodic table, bonding, calculations, acids, reactivity, electrolysis, energy changes.');
+    html += ytTile('WSSJE7co1u8', 'var(--coral)',
+      'Triple Chemistry Paper 1 top-up (Topic 5)',
+      'Triple Science students only. Transition metals, alloys, titration, concentration calcs, Haber, fuel cells and more. Higher Tier.');
   }
   subj.topics.forEach(t => {
     const mcqRes = getTopicResult(t.id, 'mcq');
