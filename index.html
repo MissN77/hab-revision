@@ -1193,12 +1193,20 @@ function renderSubject(subjectKey) {
       <h2 style="color:${subj.color}">${subj.label}</h2>
     </div>
   `;
-  // Chemistry: feature the Triple Chemistry Paper 1 walkthrough at the top.
+  // Chemistry: feature the full Paper 1 walkthroughs at the top.
   if (subjectKey === 'chemistry') {
     html += `
+      <div style="background:#fff;border-radius:var(--radius);padding:18px;margin-bottom:14px;box-shadow:var(--card-shadow);border-left:4px solid var(--teal)">
+        <h3 style="font-family:'Montserrat',sans-serif;color:var(--teal);font-size:1rem;margin-bottom:6px">Combined Chemistry, Paper 1 in 30 minutes</h3>
+        <p style="font-size:0.9rem;color:var(--text);margin-bottom:10px">The WHOLE Edexcel Combined Chemistry Paper 1 walkthrough. Atoms, periodic table, bonding, calculations, acids, reactivity, electrolysis, energy changes.</p>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius)">
+          <iframe src="https://www.youtube.com/embed/hM5_47ziA88?rel=0" title="Edexcel GCSE Combined Chemistry Paper 1 Walkthrough" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <a href="https://youtu.be/hM5_47ziA88" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;color:var(--teal);font-size:0.85rem">Watch on YouTube ↗</a>
+      </div>
       <div style="background:#fff;border-radius:var(--radius);padding:18px;margin-bottom:18px;box-shadow:var(--card-shadow);border-left:4px solid var(--coral)">
-        <h3 style="font-family:'Montserrat',sans-serif;color:var(--teal);font-size:1rem;margin-bottom:6px">Triple Chemistry Paper 1 walkthrough</h3>
-        <p style="font-size:0.9rem;color:var(--text);margin-bottom:10px">Topic 5 Separate Chemistry. Transition metals, alloys, titration, concentration calcs, Haber, fuel cells and more. Edexcel GCSE Triple, Higher Tier.</p>
+        <h3 style="font-family:'Montserrat',sans-serif;color:var(--teal);font-size:1rem;margin-bottom:6px">Triple Chemistry Paper 1 top-up (Topic 5)</h3>
+        <p style="font-size:0.9rem;color:var(--text);margin-bottom:10px">Triple Science students only. Transition metals, alloys, titration, concentration calcs, Haber, fuel cells and more. Higher Tier.</p>
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius)">
           <iframe src="https://www.youtube.com/embed/WSSJE7co1u8?rel=0" title="Edexcel GCSE Triple Chemistry Paper 1 Walkthrough" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
         </div>
