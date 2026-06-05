@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Edexcel Biology Paper 2 mats</title>
+<style>
+  html,body{height:100%;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#FAF5EE;color:#1B4D5C;}
+  .wrap{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;}
+  .bar{width:46px;height:46px;border:4px solid #B8D8D0;border-top-color:#1A8A7D;border-radius:50%;animation:spin 0.9s linear infinite;margin-bottom:18px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  h1{font-size:19px;font-weight:700;margin:0 0 6px;}
+  p{margin:4px 0;font-size:15px;color:#1A8A7D;}
+  a{color:#1B4D5C;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="bar"></div>
+    <h1>Opening your Edexcel Biology Paper 2 mats…</h1>
+    <p>One moment, taking you to the files.</p>
+    <p style="margin-top:14px;font-size:13px;color:#888;">If nothing happens, <a id="manual" href="#">tap here</a>.</p>
+  </div>
+<script>
+  var DEST = "https://drive.google.com/drive/folders/1NrxRCZI954bmriWkebkFa6ceL8R70ppC";
+  var SB = "https://awnmaakxaqevodjjuzsm.supabase.co/rest/v1/bio_p2_access";
+  var KEY = "sb_publishable_Y6zJeAN2rRYxDeG1Rt3MIg__40x_6WZ";
+  document.getElementById("manual").href = DEST;
+  var gone = false;
+  function go(){ if(gone) return; gone = true; location.replace(DEST); }
+  try {
+    fetch(SB, {
+      method: "POST",
+      keepalive: true,
+      headers: { "apikey": KEY, "Authorization": "Bearer " + KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
+      body: JSON.stringify({ event: "open", user_agent: navigator.userAgent, referrer: document.referrer || null })
+    }).then(go).catch(go);
+  } catch(e){ go(); }
+  setTimeout(go, 1800);
+</script>
+</body>
+</html>

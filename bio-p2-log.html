@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Bio P2 sample — access log</title>
+<style>
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#FAF5EE;color:#1B4D5C;padding:24px;}
+  h1{font-size:20px;margin:0 0 4px;}
+  .sub{color:#1A8A7D;font-size:14px;margin:0 0 18px;}
+  .count{font-size:15px;font-weight:700;margin:0 0 14px;}
+  table{border-collapse:collapse;width:100%;max-width:680px;background:#fff;}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #eadfd0;font-size:14px;}
+  th{background:#1A8A7D;color:#fff;font-weight:600;}
+  td.dev{color:#888;font-size:12px;}
+  .empty{color:#888;font-size:15px;}
+  button{margin-bottom:16px;background:#1A8A7D;color:#fff;border:0;border-radius:6px;padding:8px 14px;font-size:14px;cursor:pointer;}
+</style>
+</head>
+<body>
+  <h1>Edexcel Biology Paper 2 sample — access log</h1>
+  <p class="sub">Every time the link sent to Abdul is opened, it appears here (times shown in UK time).</p>
+  <button onclick="load()">Refresh</button>
+  <p class="count" id="count"></p>
+  <div id="out"><p class="empty">Loading…</p></div>
+<script>
+  var SB = "https://awnmaakxaqevodjjuzsm.supabase.co/rest/v1/bio_p2_access";
+  var KEY = "sb_publishable_Y6zJeAN2rRYxDeG1Rt3MIg__40x_6WZ";
+  function dev(ua){ if(!ua) return ""; if(/iPhone|iPad|iPod/.test(ua)) return "iPhone/iPad"; if(/Android/.test(ua)) return "Android"; if(/Macintosh/.test(ua)) return "Mac"; if(/Windows/.test(ua)) return "Windows"; return "Other"; }
+  function load(){
+    document.getElementById("out").innerHTML = '<p class="empty">Loading…</p>';
+    fetch(SB + "?select=opened_at,user_agent&order=opened_at.desc", {
+      headers: { "apikey": KEY, "Authorization": "Bearer " + KEY }
+    }).then(function(r){ return r.json(); }).then(function(rows){
+      document.getElementById("count").textContent = rows.length + (rows.length===1?" open so far.":" opens so far.");
+      if(!rows.length){ document.getElementById("out").innerHTML = '<p class="empty">No opens yet.</p>'; return; }
+      var h = '<table><tr><th>When (UK time)</th><th>Device</th></tr>';
+      rows.forEach(function(x){
+        var d = new Date(x.opened_at);
+        var when = d.toLocaleString("en-GB", { timeZone:"Europe/London", weekday:"short", day:"numeric", month:"short", hour:"2-digit", minute:"2-digit" });
+        h += '<tr><td>' + when + '</td><td class="dev">' + dev(x.user_agent) + '</td></tr>';
+      });
+      h += '</table>';
+      document.getElementById("out").innerHTML = h;
+    }).catch(function(e){ document.getElementById("out").innerHTML = '<p class="empty">Could not load the log.</p>'; });
+  }
+  load();
+</script>
+</body>
+</html>
